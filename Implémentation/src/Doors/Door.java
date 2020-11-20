@@ -2,21 +2,21 @@ package Doors;
 
 public class Door {
 
-	private bool isOpen;
+	private boolean isOpen;
 
-	public Door() {
-		// TODO - implement Door.Door
-		throw new UnsupportedOperationException();
+	public Door()
+	{
+		this.isOpen = false;
 	}
 
-	public void open() {
-		// TODO - implement Door.open
-		throw new UnsupportedOperationException();
+	public void open()
+	{
+		this.isOpen = true;
 	}
 
-	public void close() {
-		// TODO - implement Door.close
-		throw new UnsupportedOperationException();
+	public void close()
+	{
+		this.isOpen = false;
 	}
 
 }

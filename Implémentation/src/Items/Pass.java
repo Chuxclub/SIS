@@ -2,14 +2,9 @@ package Items;
 
 public class Pass extends Item {
 
-	private string tag;
+	private String tag;
 
-	/**
-	 * 
-	 * @param tag
-	 * @param description
-	 */
-	public Pass(int tag, int description) {
+	public Pass(String tag, String description) {
 		// TODO - implement Pass.Pass
 		throw new UnsupportedOperationException();
 	}

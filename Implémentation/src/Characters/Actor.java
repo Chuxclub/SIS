@@ -6,10 +6,23 @@ import Location.*;
 
 public abstract class Actor implements Attackable {
 
-	Collection<Item> inventory;
-	Room room;
+	private List<Item> inventory;
+	private Room room;
 	private int hp;
-	private int DEFAULT_ATTACK;
-	private int DEFAULT_HP;
+	private final int DEFAULT_ATTACK = 25;
+	private final int DEFAULT_HP = 100;
 
+	public Actor(Room room, List<Item> inventory)
+	{
+		this.room = room;
+		this.inventory = inventory;
+		this.hp = DEFAULT_HP;
+	}
+
+	public Actor(Room room, List<Item> inventory, int hp)
+	{
+		this.room = room;
+		this.inventory = inventory;
+		this.hp = hp;
+	}
 }
