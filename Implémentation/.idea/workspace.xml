@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -18,7 +25,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$APPLICATION_HOME_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -39,13 +46,25 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="#Project_Structure/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605792280686" />
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1605883584820">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605883584820" />
     <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605879355949">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605879355949" />
-    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1605799309819">
+    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1605882225978">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="294" key="FileChooserDialogImpl/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605799309819" />
+    <state x="740" y="294" key="FileChooserDialogImpl/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605882225978" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1605884482029">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605884482029" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1605882695230">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605882695230" />
   </component>
 </project>

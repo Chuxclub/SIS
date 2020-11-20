@@ -7,11 +7,7 @@ public class HealthStation extends Item {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param description
-	 */
-	public HealthStation(int description) {
+	public HealthStation(String description) {
 		// TODO - implement HealthStation.HealthStation
 		throw new UnsupportedOperationException();
 	}
