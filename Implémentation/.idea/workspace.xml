@@ -18,6 +18,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -38,5 +39,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="#Project_Structure/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605792280686" />
+    <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605879355949">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605879355949" />
+    <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1605799309819">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="294" key="FileChooserDialogImpl/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605799309819" />
   </component>
 </project>
