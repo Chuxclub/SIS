@@ -19,4 +19,13 @@ public class Door {
 		this.isOpen = false;
 	}
 
+	/**
+	 * 
+	 * @param string
+	 */
+	public void getDoor(int string) {
+		// TODO - implement Door.getDoor
+		throw new UnsupportedOperationException();
+	}
+
 }

@@ -12,4 +12,14 @@ public class HealthStation extends Item {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * 
+	 * @param tag
+	 * @param description
+	 */
+	public HealthStation(int tag, int description) {
+		// TODO - implement HealthStation.HealthStation
+		throw new UnsupportedOperationException();
+	}
+
 }

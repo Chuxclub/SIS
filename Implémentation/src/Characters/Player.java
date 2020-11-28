@@ -1,87 +1,76 @@
 package Characters;
 
-import Items.*;
-import Doors.*;
-import Location.*;
-
-import java.util.List;
-import java.util.Scanner;
-
 public class Player extends Actor {
 
-	public Player(Room room, List<Item> inventory)
-	{
-		super(room, inventory);
+	public Player() {
+		// TODO - implement Player.Player
+		throw new UnsupportedOperationException();
 	}
 
-	public void inputCommand(){
-		Scanner sc = new Scanner(System.in);
-		String cmd = sc.next();
-
-		if(!(isValidCommand(cmd))) {
-
-		}
-	}
-
-	public boolean isValidCommand(String cmd){
-		boolean tmp = true;
-
-		if()
-
-		return tmp;
-	}
-
-	public void go(String door) {
-
+	/**
+	 * 
+	 * @param string
+	 */
+	public void go(int string) {
+		// TODO - implement Player.go
+		throw new UnsupportedOperationException();
 	}
 
 	public void help() {
-
+		// TODO - implement Player.help
+		throw new UnsupportedOperationException();
 	}
 
 	public void look() {
-
+		// TODO - implement Player.look
+		throw new UnsupportedOperationException();
 	}
 
-	public void look(Item item)
-	{
-
+	/**
+	 * 
+	 * @param string
+	 */
+	public void look(int string) {
+		// TODO - implement Player.look
+		throw new UnsupportedOperationException();
 	}
 
-	public void take(Item item)
-	{
-
+	/**
+	 * 
+	 * @param string
+	 */
+	public void take(int string) {
+		// TODO - implement Player.take
+		throw new UnsupportedOperationException();
 	}
 
-	public void quit()
-	{
-
+	public void quit() {
+		// TODO - implement Player.quit
+		throw new UnsupportedOperationException();
 	}
 
-	public void use(Item item)
-	{
-
+	/**
+	 * 
+	 * @param string
+	 */
+	public void use(int string) {
+		// TODO - implement Player.use
+		throw new UnsupportedOperationException();
 	}
 
-	public void use(int item, Door door)
-	{
-
+	public void call() {
+		// TODO - implement Player.call
+		throw new UnsupportedOperationException();
 	}
 
-	public void save()
-	{
-
+	public void inventory() {
+		// TODO - implement Player.inventory
+		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public void attack()
-	{
-
+	public void back() {
+		// TODO - implement Player.back
+		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public void isAttacked()
-	{
-
-	}
 }
