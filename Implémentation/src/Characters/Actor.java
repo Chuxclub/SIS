@@ -25,4 +25,9 @@ public abstract class Actor implements Attackable {
 		this.inventory = inventory;
 		this.hp = hp;
 	}
+
+	public Room getRoom()
+	{
+		return this.room;
+	}
 }

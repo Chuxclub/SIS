@@ -2,9 +2,10 @@ package Game;
 
 public class Main {
 
-	public void main() {
-		// TODO - implement Main.main
-		throw new UnsupportedOperationException();
+	public void main()
+	{
+		GameMaster mdj = new GameMaster();
+		mdj.play();
 	}
 
 }

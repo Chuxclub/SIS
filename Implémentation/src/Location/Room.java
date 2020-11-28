@@ -21,41 +21,19 @@ public class Room {
 		this.description = description;
 	}
 
-	/**
-	 * 
-	 * @param num
-	 * @param doors
-	 */
-	public Room(int num, int[] doors) {
-		// TODO - implement Room.Room
-		throw new UnsupportedOperationException();
+	public void linkRooms(int num, int direction)
+	{
+
 	}
 
-	/**
-	 * 
-	 * @param num
-	 * @param direction
-	 */
-	public void linkRooms(int num, int direction) {
-		// TODO - implement Room.linkRooms
-		throw new UnsupportedOperationException();
+
+	public boolean islLinked(int direction)
+	{
+
 	}
 
-	/**
-	 * 
-	 * @param direction
-	 */
-	public bool islLinked(int direction) {
-		// TODO - implement Room.islLinked
-		throw new UnsupportedOperationException();
-	}
+	public boolean hasDoor(int direction)
+	{
 
-	/**
-	 * 
-	 * @param direction
-	 */
-	public bool hasDoor(int direction) {
-		// TODO - implement Room.hasDoor
-		throw new UnsupportedOperationException();
 	}
 }
