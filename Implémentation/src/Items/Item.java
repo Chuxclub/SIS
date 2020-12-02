@@ -2,8 +2,8 @@ package Items;
 
 public abstract class Item implements Usable {
 
-	private String tag;
-	private String description;
+	private final String tag;
+	private final String description;
 
 	public Item(String tag, String description)
 	{
@@ -11,7 +11,10 @@ public abstract class Item implements Usable {
 		this.description = description;
 	}
 
-	public abstract void describe();
+	public void describe()
+	{
+		System.out.print(getDescription());
+	}
 
 	public String getTag()
 	{

@@ -10,6 +10,7 @@ public abstract class Actor implements Attackable, Attacker {
 
 	private int DEFAULT_ATTACKPOWER;
 	private int DEFAULT_HP;
+	private int DEFAULT_HP_MAX;
 	private int hp;
 	private String name;
 	private int attackPower;
@@ -50,6 +51,20 @@ public abstract class Actor implements Attackable, Attacker {
 
 	public void showInventory()
 	{
+	}
+	public int getHp()
+	{
+		return this.hp;
+	}
+
+	public void setHP(int newHp)
+	{
+		this.hp=newHp;
+	}
+
+	public int getDEFAULT_HP_MAX()
+	{
+		return this.DEFAULT_HP_MAX;
 	}
 
 }

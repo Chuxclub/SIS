@@ -1,5 +1,8 @@
 package Items;
 
+
+import Characters.Actor;
+
 public class HealthStation extends Item implements Usable
 {
 	public HealthStation(String tag, String description)
@@ -13,7 +16,14 @@ public class HealthStation extends Item implements Usable
 		System.out.println(this.getDescription());
 	}
 
-	public void isUsed()
+
+	public void isUsed(Actor player)
 	{
+		player.setHP(player.getDEFAULT_HP_MAX());
+	}
+
+	@Override
+	public void isUsed() {
+
 	}
 }
