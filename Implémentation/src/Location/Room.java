@@ -90,5 +90,6 @@ public class Room {
 
 	public void useDoor(Actor a, Door d)
 	{
+		a.changeRoom(this.doors.get(d));
 	}
 }

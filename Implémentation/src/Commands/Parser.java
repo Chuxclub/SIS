@@ -15,7 +15,7 @@ public class Parser {
 
 		for(Verb v : verbs)
 		{
-			if(verb == v.getString())
+			if(verb.equals(v.getString()))
 				return v;
 		}
 

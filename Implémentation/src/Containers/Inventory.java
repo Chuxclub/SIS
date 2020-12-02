@@ -18,26 +18,31 @@ public class Inventory {
 	public void addItem(Item item)
 	{
 		this.items.put(item.getTag(), item);
+		this.size++;
 	}
 
-	public void getItem(int string)
+	public Item getItem(String s)
 	{
+		return this.items.get(s);
 	}
 
-	public void getSize()
+	public int getSize()
 	{
+		return this.size;
 	}
 
 	public void showItems()
 	{
 	}
 
-	public void describeItem(int Item)
+	public void describeItem(Item item)
 	{
+		item.describe();
 	}
 
-	public void isEmpty()
+	public boolean isEmpty()
 	{
+		return this.items.isEmpty();
 	}
 
 }

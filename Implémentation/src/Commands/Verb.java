@@ -9,7 +9,6 @@ public enum Verb {
 		this.strValue = s;
 	}
 
-
 	public String getString()
 	{
 		return this.strValue;

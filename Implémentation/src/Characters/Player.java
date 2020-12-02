@@ -27,18 +27,19 @@ public class Player extends Actor {
 
 	public void call()
 	{
-		System.out.print("Command :> ");
+		System.out.print("\nCommand :> ");
 		Scanner sc = new Scanner(System.in);
+		String buffer = sc.nextLine().toLowerCase();
+		String[] words = buffer.split(" ");
 
-		String verb = sc.next();
+		String verb = words[0];
 		List<String> args = new ArrayList<>();
-		System.out.println("Inputting: " + verb);
 
-		while(sc.hasNext())
+		if(words.length > 0)
 		{
-			String arg = sc.next();
-			args.add(arg);
-			System.out.println("Inputting: " + arg);
+			for (int i = 1; i < words.length; i++) {
+				args.add(words[i]);
+			}
 		}
 
 		Command cmd = new Command(this, verb, args);
@@ -53,7 +54,7 @@ public class Player extends Actor {
 	public void help()
 	{
 		System.out.println("Vous pouvez interagir avec le jeu à l'aide de commandes textuelles. " +
-				"Voici la liste exhaustive de ces commandes, de leurs syntaxes et de leurs effets (entre crochets les paramètres optionnels): ");
+				"\nVoici la liste exhaustive de ces commandes, de leurs syntaxes et de leurs effets (entre crochets les paramètres optionnels): ");
 
 		System.out.println("\t- go <nom d'une porte> : aller à une pièce voisine en traversant une porte");
 		System.out.println("\t- help : afficher ce menu d'aide");

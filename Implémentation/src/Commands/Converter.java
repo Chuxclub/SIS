@@ -15,6 +15,7 @@ public class Converter {
 
 	public Item convertItem(String s)
 	{
+		return this.caller.getInventory().getItem(s);
 	}
 
 	public Door convertDoor(String s)
@@ -24,10 +25,12 @@ public class Converter {
 
 	public UsableOn convertUsableOn(String s)
 	{
+		return null;
 	}
 
 	public UsableBy convertUsableBy(String s)
 	{
+		return null;
 	}
 
 }
