@@ -63,7 +63,7 @@ public class Room {
 
 		for(Door d : doorSet)
 		{
-			if(d.getTag() == s)
+			if(d.getTag().equals(s))
 				res = d;
 		}
 
