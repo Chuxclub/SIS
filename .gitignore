@@ -26,7 +26,5 @@ hs_err_pid*
 *.bak*
 *.vpp.lck
 
-#Custom
+# Custom
 Impl\303\251mentation/.idea/*
-*.iml
-*.xml
