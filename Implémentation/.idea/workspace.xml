@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee79549d-3ae1-45c3-9d31-93d69a76e27c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/NPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doors/LockedDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/LockedDoor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doors/Unlockable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/Unlockable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Pass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Pass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/SIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/SIS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

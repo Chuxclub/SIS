@@ -5,10 +5,11 @@ import Location.*;
 public class SIS {
 
 	Ship ship;
-	private int nbPlayers = 1;
+	private static final int NBPLAYERS = 1;
 
 	public SIS()
 	{
+		this.ship = new Ship();
 	}
 
 	public void initGame()
