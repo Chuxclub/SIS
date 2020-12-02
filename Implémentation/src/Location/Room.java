@@ -82,6 +82,7 @@ public class Room {
 
 	public void removeActor(String name)
 	{
+		this.actors.remove(name);
 	}
 
 	public void scanRoom()

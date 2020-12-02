@@ -27,6 +27,10 @@ public abstract class Actor implements Attackable, Attacker {
 
 	public void changeRoom(Room r)
 	{
+		this.room.removeActor(this.name);
+		r.addActor(this);
+		this.room = r;
+		this.room.describe();
 	}
 
 	public Inventory getInventory()

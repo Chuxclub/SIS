@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee79549d-3ae1-45c3-9d31-93d69a76e27c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Verb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Verb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Location/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
