@@ -14,8 +14,9 @@ import java.util.*;
 
 public class Ship {
 
-	HashMap<Integer, Room> rooms;
-	private int NB_ROOMS = 2;
+	private HashMap<Integer, Room> rooms;
+	private static final int NB_ROOMS = 2;
+	private Player player;
 
 	public Ship()
 	{
@@ -43,7 +44,7 @@ public class Ship {
 		Kilen.setSpeech("Bonjour humain! Tu es en danger, voici un pass pour t'échapper. Bonne chance! Et surtout: ne tue pas mes amis!");
 		room21.addActor(Kilen);
 
-		Player player = new Player(room21);
+		this.player = new Player(room21);
 		room21.addActor(player);
 
 
@@ -55,5 +56,15 @@ public class Ship {
 		//Ajout des pièces au vaisseau:
 		rooms.put(21, room21);
 		rooms.put(22, room22);
+	}
+
+	public Room getRoom(int id)
+	{
+		return this.rooms.get(id);
+	}
+
+	public Player getPlayer()
+	{
+		return this.player;
 	}
 }

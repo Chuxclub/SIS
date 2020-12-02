@@ -75,6 +75,11 @@ public class Room {
 		return this.inventory;
 	}
 
+	public boolean hasActor(String name)
+	{
+		return this.actors.get(name) != null;
+	}
+
 	public void removeActor(String name)
 	{
 	}
