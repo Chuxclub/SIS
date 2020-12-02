@@ -39,8 +39,9 @@ public abstract class Actor implements Attackable, Attacker {
 		return this.name;
 	}
 
-	public void getRoom()
+	public Room getRoom()
 	{
+		return this.room;
 	}
 
 	public void showInventory()

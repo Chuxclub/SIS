@@ -8,8 +8,9 @@ public class Converter {
 
 	private Player caller;
 
-	public Converter(int Player)
+	public Converter(Player player)
 	{
+		this.caller = player;
 	}
 
 	public Item convertItem(String s)
@@ -18,6 +19,7 @@ public class Converter {
 
 	public Door convertDoor(String s)
 	{
+		return caller.getRoom().getDoor(s);
 	}
 
 	public UsableOn convertUsableOn(String s)

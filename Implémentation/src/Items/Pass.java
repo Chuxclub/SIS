@@ -24,9 +24,4 @@ public class Pass extends Item implements UsableOn {
 	public void isUsed() {
 
 	}
-
-	@Override
-	public void isUsedOn(UsableBy u) {
-
-	}
 }

@@ -1,7 +1,6 @@
 package Items;
 
-public interface UsableBy {
-
+public interface UsableBy
+{
 	public abstract void isUsedBy(UsableOn u);
-
 }

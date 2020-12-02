@@ -4,15 +4,27 @@ public class Parser {
 
 	Verb verb;
 
-	public Parser(int string)
+	public Parser(String verb)
 	{
+		this.verb = this.isValidVerb(verb);
 	}
 
-	public Verb isValidVerb(int string)
+	public Verb isValidVerb(String verb)
 	{
+		Verb verbs[] = Verb.values();
+
+		for(Verb v : verbs)
+		{
+			if(verb == v.getString())
+				return v;
+		}
+
+		System.out.println("This verb doesn't exist");
+		return null;
 	}
 
-	public Verb getVerb() {
+	public Verb getVerb()
+	{
 		return this.verb;
 	}
 }

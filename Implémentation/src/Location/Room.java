@@ -88,7 +88,7 @@ public class Room {
 	{
 	}
 
-	public void useDoor(int Door)
+	public void useDoor(Actor a, Door d)
 	{
 	}
 }

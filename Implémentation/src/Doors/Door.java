@@ -1,5 +1,9 @@
 package Doors;
 
+import Items.Pass;
+import Items.UsableBy;
+import Items.UsableOn;
+
 public class Door {
 
 	private boolean isOpen;
