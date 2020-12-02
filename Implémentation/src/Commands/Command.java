@@ -56,6 +56,7 @@ public class Command {
 
 
 			case QUIT:
+				caller.quit();
 				break;
 
 			case USE:
