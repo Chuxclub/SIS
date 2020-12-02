@@ -100,7 +100,7 @@ public class Player extends Actor
 		System.exit(0);
 	}
 
-	public void use(int Item)
+	public void use(Item item)
 	{
 	}
 
