@@ -1,7 +1,9 @@
 package Doors;
 
+import Items.Pass;
+
 public interface Unlockable {
 
-	void unlock(int Pass);
+	void unlock(Pass p);
 
 }

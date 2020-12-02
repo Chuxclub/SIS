@@ -10,6 +10,11 @@ public class Pass extends Item implements UsableOn {
 		this.passType = p;
 	}
 
+	public PassType getPassType()
+	{
+		return this.passType;
+	}
+
 	@Override
 	public void describe() {
 

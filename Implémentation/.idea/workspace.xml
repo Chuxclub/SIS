@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ee79549d-3ae1-45c3-9d31-93d69a76e27c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Inventory.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Characters/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/NPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doors/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameMaster.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/HealthStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/HealthStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/LockedDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/LockedDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/Unlockable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/Unlockable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Items/Pass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Pass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Usable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Usable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Location/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Ship.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +55,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="#Project_Structure/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605792280686" />
-    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1606900052253">
+    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1606900879647">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605883584820" />
-    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1606900052253" />
+    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1606900879647" />
     <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605879355949">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

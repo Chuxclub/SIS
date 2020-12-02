@@ -24,9 +24,23 @@ public class NPC extends Actor {
 		}
 	}
 
+	public void setSpeech(String s)
+	{
+		this.speech = s;
+	}
+
 	public void talk()
 	{
 		System.out.println(this.speech);
 	}
 
+	@Override
+	public void isAttacked() {
+
+	}
+
+	@Override
+	public void attack(Attackable a) {
+
+	}
 }
