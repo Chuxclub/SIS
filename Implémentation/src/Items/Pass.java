@@ -4,8 +4,24 @@ public class Pass extends Item implements UsableOn {
 
 	PassType passType;
 
-	public synchronized Pass(int tag, int description)
+	public Pass(String tag, String description, PassType p)
 	{
+		super(tag, description);
+		this.passType = p;
 	}
 
+	@Override
+	public void describe() {
+
+	}
+
+	@Override
+	public void isUsed() {
+
+	}
+
+	@Override
+	public void isUsedOn(UsableBy u) {
+
+	}
 }

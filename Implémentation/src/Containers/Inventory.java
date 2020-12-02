@@ -5,15 +5,19 @@ import Items.*;
 
 public class Inventory {
 
-	Collection<Item> items;
+	HashMap<String, Item> items;
 	private int size;
+	private static int MIN_SIZE = 0;
 
 	public Inventory()
 	{
+		this.items = new HashMap<>();
+		this.size = MIN_SIZE;
 	}
 
-	public void addItem(int Item)
+	public void addItem(Item item)
 	{
+		this.items.put(item.getTag(), item);
 	}
 
 	public void getItem(int string)

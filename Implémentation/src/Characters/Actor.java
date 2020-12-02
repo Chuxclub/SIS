@@ -5,8 +5,9 @@ import Containers.*;
 
 public abstract class Actor implements Attackable, Attacker {
 
-	Room room;
-	Inventory inventory;
+	private Room room;
+	private Inventory inventory;
+
 	private int DEFAULT_ATTACKPOWER;
 	private int DEFAULT_HP;
 	private int hp;
@@ -14,16 +15,28 @@ public abstract class Actor implements Attackable, Attacker {
 	private int attackPower;
 
 
-	public Actor(int string)
+	public Actor(String name, Room r)
+	{
+		this.room = r;
+		this.inventory = new Inventory();
+
+		this.name = name;
+		this.hp = DEFAULT_HP;
+		this.attackPower = DEFAULT_ATTACKPOWER;
+	}
+
+	public void changeRoom(Room r)
 	{
 	}
 
-	public void changeRoom()
+	public Inventory getInventory()
 	{
-	}
-
-	public Inventory getInventory() {
 		return this.inventory;
+	}
+
+	public String getName()
+	{
+		return this.name;
 	}
 
 	public void getRoom()

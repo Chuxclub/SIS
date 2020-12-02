@@ -1,11 +1,14 @@
 package Characters;
 
+import Location.Room;
+
 public class Player extends Actor {
 
-	private int NAME = "player";
+	private static String NAME = "player";
 
-	public Player()
+	public Player(Room r)
 	{
+		super(NAME, r);
 	}
 
 	public void back()
@@ -48,4 +51,13 @@ public class Player extends Actor {
 	{
 	}
 
+	@Override
+	public void isAttacked() {
+
+	}
+
+	@Override
+	public void attack(Attackable a) {
+
+	}
 }

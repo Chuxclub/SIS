@@ -2,6 +2,6 @@ package Items;
 
 public interface Usable {
 
-	void isUsed();
+	public void isUsed();
 
 }
