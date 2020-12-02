@@ -6,6 +6,7 @@ import java.util.*;
 import Containers.Inventory;
 import Doors.*;
 import Characters.*;
+import Items.Item;
 
 public class Room {
 
@@ -48,7 +49,8 @@ public class Room {
 
 	public void describe()
 	{
-		System.out.println(this.description);
+		System.out.println(this.description + "\n");
+		this.scanRoom();
 	}
 
 	public Actor getActor(String s)
@@ -87,6 +89,8 @@ public class Room {
 
 	public void scanRoom()
 	{
+		System.out.println("Objects in the room:");
+		this.getInventory().showItems();
 	}
 
 	public void useDoor(Actor a, Door d)

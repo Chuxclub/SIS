@@ -85,6 +85,7 @@ public class Player extends Actor {
 
 	public void quit()
 	{
+		System.out.println("Merci d'avoir joué à Silent In Space!");
 		System.exit(0);
 	}
 

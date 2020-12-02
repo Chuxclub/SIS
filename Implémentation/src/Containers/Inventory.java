@@ -33,6 +33,10 @@ public class Inventory {
 
 	public void showItems()
 	{
+		for (Item i : this.items.values())
+		{
+			i.describe();
+		}
 	}
 
 	public void describeItem(Item item)

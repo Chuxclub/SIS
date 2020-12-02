@@ -50,7 +50,7 @@ public class Ship {
 
 		//Enrichissement de la pièce 22:
 		Door door1To21 = new Door("door1");
-		room21.addDoor(door1To21, room21);
+		room22.addDoor(door1To21, room21);
 
 
 		//Ajout des pièces au vaisseau:
