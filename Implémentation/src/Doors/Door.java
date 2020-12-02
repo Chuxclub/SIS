@@ -3,29 +3,30 @@ package Doors;
 public class Door {
 
 	private boolean isOpen;
+	private String tag;
 
-	public Door()
+	public Door(String s)
 	{
-		this.isOpen = false;
-	}
-
-	public void open()
-	{
-		this.isOpen = true;
 	}
 
 	public void close()
 	{
-		this.isOpen = false;
 	}
 
-	/**
-	 * 
-	 * @param string
-	 */
-	public void getDoor(int string) {
-		// TODO - implement Door.getDoor
-		throw new UnsupportedOperationException();
+	public void describe()
+	{
+	}
+
+	public void getTag()
+	{
+	}
+
+	public boolean isOpen()
+	{
+	}
+
+	public void open()
+	{
 	}
 
 }

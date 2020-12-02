@@ -1,5 +1,5 @@
 package Commands;
 
-public enum Verbs {
+public enum Verb {
 	GO, HELP, LOOK, TAKE, QUIT, USE, INVENTORY, BACK
 }

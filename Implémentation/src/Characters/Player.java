@@ -2,14 +2,22 @@ package Characters;
 
 public class Player extends Actor {
 
+	private int NAME = "player";
+
 	public Player()
 	{
-
 	}
 
-	public void go(int string)
+	public void back()
 	{
+	}
 
+	public void call()
+	{
+	}
+
+	public void go(int Door)
+	{
 	}
 
 	public void help()
@@ -18,44 +26,26 @@ public class Player extends Actor {
 
 	public void look()
 	{
-
 	}
 
-	public void look(int string)
+	public void look(int Item)
 	{
-
 	}
 
-
-	public void take(int string)
+	public void take(int Item)
 	{
-
 	}
 
 	public void quit()
 	{
-
 	}
 
-
-	public void use(int string)
+	public void use(int Item)
 	{
-
 	}
 
-	public void call()
+	public void use(int UsableOn, int UsableBy)
 	{
-
-	}
-
-	public void inventory()
-	{
-
-	}
-
-	public void back()
-	{
-
 	}
 
 }

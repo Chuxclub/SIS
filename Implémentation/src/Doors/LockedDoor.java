@@ -1,18 +1,22 @@
 package Doors;
 
-public class LockedDoor extends Door implements Lockable {
+import Items.*;
 
-	private bool hasBeenOpened;
-	private bool isLocked;
+public class LockedDoor extends Door implements Unlockable, UsableBy {
 
-	public LockedDoor() {
-		// TODO - implement LockedDoor.LockedDoor
-		throw new UnsupportedOperationException();
+	PassType passType;
+	private boolean isLocked;
+
+	public LockedDoor()
+	{
 	}
 
-	public void open() {
-		// TODO - implement LockedDoor.open
-		throw new UnsupportedOperationException();
+	public void describe()
+	{
+	}
+
+	public void open()
+	{
 	}
 
 }

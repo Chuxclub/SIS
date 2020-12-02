@@ -3,6 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="ee79549d-3ae1-45c3-9d31-93d69a76e27c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Attackable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Attackable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Executable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Executable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/IdArgs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Verbs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/Lockable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/LockedDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/LockedDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/HealthStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/HealthStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Pass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Pass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Usable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Usable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpproject/SIS1.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/SIS1.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Schémas/Phase 1/SIS1.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Schémas/Phase 1/SIS1.vpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +42,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1kVieBfD8bylifbs33J1ErWkdzB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

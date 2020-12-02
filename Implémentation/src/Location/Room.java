@@ -1,39 +1,58 @@
 package Location;
 
+import Containers.*;
 import java.util.*;
-import Characters.*;
 import Doors.*;
+import Characters.*;
 
 public class Room {
 
-	Set<Actor> actors;
-	HashMap<Door, Room> doors;
-	private int Number;
-	String description;
 	Ship ship;
-	private int items;
+	Inventory inventory;
+	Collection<Door> doors;
+	Collection<Actor> actors;
+	private int id;
+	private String description;
+	private int nbDoors;
 
-	public Room(int num, HashMap<Door, Room> doors, Set<Actor> actors, String description)
+
+	public Room(int integer, int string)
 	{
-		this.Number = num;
-		this.doors = doors;
-		this.actors = actors;
-		this.description = description;
 	}
 
-	public void linkRooms(int num, int direction)
+	public void addActor(int Actor)
 	{
-
 	}
 
-
-	public boolean islLinked(int direction)
+	public void addDoor()
 	{
-
 	}
 
-	public boolean hasDoor(int direction)
+	public void describe()
 	{
+	}
 
+	public Actor getActor(int string)
+	{
+	}
+
+	public Door getDoor(int string)
+	{
+	}
+
+	public Inventory getInventory() {
+		return this.inventory;
+	}
+
+	public void removeActor()
+	{
+	}
+
+	public void scanRoom()
+	{
+	}
+
+	public void useDoor(int Door)
+	{
 	}
 }

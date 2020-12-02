@@ -1,33 +1,37 @@
 package Characters;
 
-import java.util.*;
-import Items.*;
 import Location.*;
+import Containers.*;
 
-public abstract class Actor implements Attackable {
+public abstract class Actor implements Attackable, Attacker {
 
-	private List<Item> inventory;
-	private Room room;
+	Room room;
+	Inventory inventory;
+	private int DEFAULT_ATTACKPOWER;
+	private int DEFAULT_HP;
 	private int hp;
-	private final int DEFAULT_ATTACK = 25;
-	private final int DEFAULT_HP = 100;
+	private String name;
+	private int attackPower;
 
-	public Actor(Room room, List<Item> inventory)
+
+	public Actor(int string)
 	{
-		this.room = room;
-		this.inventory = inventory;
-		this.hp = DEFAULT_HP;
 	}
 
-	public Actor(Room room, List<Item> inventory, int hp)
+	public void changeRoom()
 	{
-		this.room = room;
-		this.inventory = inventory;
-		this.hp = hp;
 	}
 
-	public Room getRoom()
-	{
-		return this.room;
+	public Inventory getInventory() {
+		return this.inventory;
 	}
+
+	public void getRoom()
+	{
+	}
+
+	public void showInventory()
+	{
+	}
+
 }

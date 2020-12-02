@@ -1,43 +1,23 @@
 package Commands;
 
 import Characters.*;
-import java.util.*;
+
+import java.util.List;
 
 public class Command {
 
 	Player caller;
 	Parser parser;
-	Collection<Executable> execs;
-	private string verb;
-	private List<string> args;
+	Converter converter;
+	private String verb;
+	private List<String> args;
 
-	/**
-	 * 
-	 * @param verb
-	 */
-	public void parse(int verb) {
-		// TODO - implement Command.parse
-		throw new UnsupportedOperationException();
+	public Command(int Player, int string, int args)
+	{
 	}
 
-	/**
-	 * 
-	 * @param commandWords
-	 * @param args
-	 */
-	public void exec(int commandWords, int args) {
-		// TODO - implement Command.exec
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param string
-	 * @param args
-	 */
-	public Command(int string, int args) {
-		// TODO - implement Command.Command
-		throw new UnsupportedOperationException();
+	public void exec(int Verb)
+	{
 	}
 
 }
