@@ -29,6 +29,9 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 	{
 		if(!isLocked)
 			super.open();
+
+		else
+			System.out.println("This door is locked!");
 	}
 
 	@Override

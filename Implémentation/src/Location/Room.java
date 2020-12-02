@@ -104,7 +104,7 @@ public class Room {
 		System.out.println("\n\tLiving beings in the room:");
 		for(Actor a : this.actors.values())
 		{
-			if(a.getName().equals("player"))
+			if(a.getName().equals("me"))
 				System.out.println("\t- You are in the Room");
 
 			else
@@ -114,6 +114,10 @@ public class Room {
 
 	public void useDoor(Actor a, Door d)
 	{
-		a.changeRoom(this.doors.get(d));
+		if(d.isOpen())
+			a.changeRoom(this.doors.get(d));
+
+		else
+			System.out.println("You can't use this door.");
 	}
 }

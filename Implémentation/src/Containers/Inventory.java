@@ -35,7 +35,7 @@ public class Inventory {
 	{
 		for (Item i : this.items.values())
 		{
-			System.out.println("\t- " + i.getDescription());
+			System.out.println("\t- " + i.getTag() + " : " + i.getDescription());
 		}
 	}
 
@@ -47,6 +47,11 @@ public class Inventory {
 	public boolean isEmpty()
 	{
 		return this.items.isEmpty();
+	}
+
+	public void removeItem(String tag)
+	{
+		this.items.remove(tag);
 	}
 
 }

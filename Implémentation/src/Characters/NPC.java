@@ -1,13 +1,14 @@
 package Characters;
 
 import Items.Item;
+import Items.UsableOn;
 import Location.Room;
 import Containers.*;
 
 import java.util.List;
 
-public class NPC extends Actor {
-
+public class NPC extends Actor
+{
 	private boolean isHostile;
 	private boolean isAlly;
 	private String speech;

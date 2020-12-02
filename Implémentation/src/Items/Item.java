@@ -1,6 +1,6 @@
 package Items;
 
-public abstract class Item implements Usable {
+public abstract class Item implements Usable, UsableBy, UsableOn {
 
 	private final String tag;
 	private final String description;

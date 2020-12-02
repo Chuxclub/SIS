@@ -17,16 +17,18 @@ public class SIS {
 	public void initGame()
 	{
 		this.ship = new Ship();
+		this.ship.getNPC("Kilen").talk();
+		this.ship.getNPC("Kilen").give("passA", this.ship.getPlayer());
 	}
 
 	public boolean isEndGame()
 	{
-		return this.ship.getRoom(22).hasActor("player");
+		return this.ship.getRoom(22).hasActor("me");
 	}
 
 	public void endGame()
 	{
-		System.out.println("Merci d'avoir joué à Silent In Space!");
+		System.out.println("\nMerci d'avoir joué à Silent In Space!");
 	}
 
 	public void playTurn()

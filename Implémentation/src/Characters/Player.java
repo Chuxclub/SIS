@@ -1,17 +1,20 @@
 package Characters;
 
 import Commands.Command;
+import Containers.Inventory;
 import Doors.Door;
 import Items.Item;
+import Items.UsableBy;
+import Items.UsableOn;
 import Location.Room;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Player extends Actor {
-
-	private static String NAME = "player";
+public class Player extends Actor
+{
+	private static String NAME = "me";
 	private Room previous_room;
 
 	public Player(Room r)
@@ -29,7 +32,7 @@ public class Player extends Actor {
 	{
 		System.out.print("\nCommand :> ");
 		Scanner sc = new Scanner(System.in);
-		String buffer = sc.nextLine().toLowerCase();
+		String buffer = sc.nextLine();
 		String[] words = buffer.split(" ");
 
 		String verb = words[0];
@@ -48,6 +51,7 @@ public class Player extends Actor {
 
 	public void go(Door door)
 	{
+		door.open();
 		this.getRoom().useDoor(this, door);
 	}
 
@@ -64,7 +68,14 @@ public class Player extends Actor {
 		System.out.println("\t- quit : quitter la partie");
 		System.out.println("\t- use <nom d'un objet> [<nom d'un objet>] : utiliser un objet éventuellement sur un autre objet");
 		System.out.println("\t- inventory : afficher le contenu de votre inventaire");
+		System.out.println("\t- info : afficher les stats de votre personnage");
 		System.out.println("\t- back : retour rapide à la pièce précédente");
+	}
+
+	public void info()
+	{
+		System.out.println("You have " + this.getHp() + "hp");
+		System.out.println("You have " + this.getAttackPower() + " attack power");
 	}
 
 	public void look()
@@ -93,8 +104,9 @@ public class Player extends Actor {
 	{
 	}
 
-	public void use(int UsableOn, int UsableBy)
+	public void use(UsableOn on, UsableBy by)
 	{
+		by.isUsedBy(on);
 	}
 
 	@Override

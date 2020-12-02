@@ -6,7 +6,7 @@ public class Parser {
 
 	public Parser(String verb)
 	{
-		this.verb = this.isValidVerb(verb);
+		this.verb = this.isValidVerb(verb.toLowerCase());
 	}
 
 	public Verb isValidVerb(String verb)

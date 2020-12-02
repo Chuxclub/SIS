@@ -3,6 +3,8 @@ package Commands;
 import Characters.*;
 import Doors.Door;
 import Items.Item;
+import Items.UsableBy;
+import Items.UsableOn;
 
 import java.util.List;
 
@@ -60,9 +62,30 @@ public class Command {
 				break;
 
 			case USE:
+				if(this.args.size() < 1)
+				{
+					System.out.println("I don't know which item you want to use.");
+				}
+
+				else if(args.size() == 1)
+				{
+					this.caller.getInventory().getItem(this.args.get(0)).isUsed();
+				}
+
+				else
+				{
+					UsableOn on = this.converter.convertUsableOn(this.args.get(0));
+					UsableBy by = this.converter.convertUsableBy(this.args.get(1));
+					this.caller.use(on, by);
+				}
 				break;
 
 			case INVENTORY:
+				this.caller.getInventory().showItems();
+				break;
+
+			case INFO:
+				this.caller.info();
 				break;
 
 			case BACK:

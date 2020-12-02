@@ -17,6 +17,7 @@ public class Ship {
 	private HashMap<Integer, Room> rooms;
 	private static final int NB_ROOMS = 2;
 	private Player player;
+	private HashMap<String, NPC> npcs = new HashMap<>();
 
 	public Ship()
 	{
@@ -31,19 +32,22 @@ public class Ship {
 
 
 		//Enrichissement de la pièce 21:
-		LockedDoor door1To22 = new LockedDoor("door1", PassType.A);
+		LockedDoor door1To22 = new LockedDoor("doorA", PassType.A);
 		room21.addDoor(door1To22, room22);
 
 		HealthStation hs = new HealthStation("HealthStation1", "C'est une station de soin. Je peux me soigner ici autant que je veux");
 		room21.getInventory().addItem(hs);
 
+		//Construction de Kilen:
 		List<Item> l = new ArrayList<Item>();
-		Pass p = new Pass("pass1", "Ça ressemble à un pass... Il y a une lettre ressemblant à un A écrit dessus.", PassType.A);
+		Pass p = new Pass("passA", "Ça ressemble à un pass... Il y a une lettre ressemblant à un A écrit dessus.", PassType.A);
 		l.add(p);
 		NPC Kilen = new NPC("Kilen", false, true, l, room21);
 		Kilen.setSpeech("Bonjour humain! Tu es en danger, voici un pass pour t'échapper. Bonne chance! Et surtout: ne tue pas mes amis!");
 		room21.addActor(Kilen);
+		this.npcs.put(Kilen.getName(), Kilen);
 
+		//Construction du joueur:
 		this.player = new Player(room21);
 		room21.addActor(player);
 
@@ -58,13 +62,20 @@ public class Ship {
 		rooms.put(22, room22);
 	}
 
-	public Room getRoom(int id)
+	public NPC getNPC(String s)
 	{
-		return this.rooms.get(id);
+		return this.npcs.get(s);
 	}
 
 	public Player getPlayer()
 	{
 		return this.player;
 	}
+
+	public Room getRoom(int id)
+	{
+		return this.rooms.get(id);
+	}
+
+
 }

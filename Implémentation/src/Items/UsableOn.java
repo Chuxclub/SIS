@@ -1,7 +1,7 @@
 package Items;
 
-public interface UsableOn {
-
+public interface UsableOn
+{
 	default void isUsedOn(UsableBy u)
 	{
 		u.isUsedBy(this);

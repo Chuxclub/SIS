@@ -1,7 +1,9 @@
 package Commands;
 
 public enum Verb {
-	GO("go"), HELP("help"), LOOK("look"), TAKE("take"), QUIT("quit"), USE("use"), INVENTORY("inventory"), BACK("back");
+	GO("go"), HELP("help"), LOOK("look"),
+	TAKE("take"), QUIT("quit"), USE("use"),
+	INVENTORY("inventory"), BACK("back"), INFO("info");
 	private String strValue;
 
 	Verb(String s)
