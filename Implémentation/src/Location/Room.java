@@ -49,7 +49,7 @@ public class Room {
 
 	public void describe()
 	{
-		System.out.println(this.description + "\n");
+		System.out.println(this.description);
 		this.scanRoom();
 	}
 
@@ -89,8 +89,27 @@ public class Room {
 
 	public void scanRoom()
 	{
-		System.out.println("Objects in the room:");
+		//Printing items:
+		System.out.println("\n\tObjects in the room:");
 		this.getInventory().showItems();
+
+		//Printing doors:
+		System.out.println("\n\tDoors in the room:");
+		Set<Door> doorSet = this.doors.keySet();
+		Door res = null;
+		for(Door d : doorSet)
+			System.out.println("\t- " + d.getTag());
+
+		//Printing actors:
+		System.out.println("\n\tLiving beings in the room:");
+		for(Actor a : this.actors.values())
+		{
+			if(a.getName().equals("player"))
+				System.out.println("\t- You are in the Room");
+
+			else
+				System.out.println("\t- " + a.getName() + " is in the Room");
+		}
 	}
 
 	public void useDoor(Actor a, Door d)

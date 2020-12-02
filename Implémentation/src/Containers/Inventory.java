@@ -35,7 +35,7 @@ public class Inventory {
 	{
 		for (Item i : this.items.values())
 		{
-			i.describe();
+			System.out.println("\t- " + i.getDescription());
 		}
 	}
 
