@@ -31,16 +31,20 @@ public class Command {
 	{
 		switch(this.v)
 		{
-			case GO:
+			case ATTACK:
 				try {
-					Door d = this.converter.convertDoor(this.args.get(0));
-					this.caller.go(d);
+					Attackable a = this.converter.convertAttackable(this.args.get(0));
+					this.caller.attack(a);
 				}
 
 				catch(StringRequestUnmatched e)
 				{
-					System.out.println("Error :> This isn't a door!");
+					System.out.println("Error :> You can't attack something that isn't there!");
 				}
+				break;
+
+			case BACK:
+				this.caller.back();
 				break;
 
 			case DROP:
@@ -57,8 +61,28 @@ public class Command {
 				}
 				break;
 
+			case GO:
+				try {
+					Door d = this.converter.convertDoor(this.args.get(0));
+					this.caller.go(d);
+				}
+
+				catch(StringRequestUnmatched e)
+				{
+					System.out.println("Error :> This isn't a door!");
+				}
+				break;
+
 			case HELP:
 				this.caller.help();
+				break;
+
+			case INFO:
+				this.caller.info();
+				break;
+
+			case INVENTORY:
+				this.caller.getInventory().showItems();
 				break;
 
 			case LOOK:
@@ -78,6 +102,10 @@ public class Command {
 				}
 				break;
 
+			case QUIT:
+				caller.quit();
+				break;
+
 			case TAKE:
 				if(args.size() == 0)
 					System.out.println("Error :> Please indicate which item you want to take");
@@ -90,10 +118,6 @@ public class Command {
 						System.out.println("Error :> This item isn't in your inventory or in this room or can't be taken with you");
 					}
 				}
-				break;
-
-			case QUIT:
-				caller.quit();
 				break;
 
 			case USE:
@@ -129,18 +153,6 @@ public class Command {
 						System.out.println("Error :> I don't know one of the items");
 					}
 				}
-				break;
-
-			case INVENTORY:
-				this.caller.getInventory().showItems();
-				break;
-
-			case INFO:
-				this.caller.info();
-				break;
-
-			case BACK:
-				this.caller.back();
 				break;
 		}
 	}

@@ -36,12 +36,11 @@ public class NPC extends Actor
 	}
 
 	@Override
-	public void isAttacked() {
+	public void isAttacked(Attacker a)
+	{
+		super.isAttacked(a);
 
-	}
-
-	@Override
-	public void attack(Attackable a) {
-
+		if(this.isAlly && !(this.isDead()))
+			System.out.println("Ouch! Stop it! I only have " + this.getHp() + "hp left you brute!");
 	}
 }

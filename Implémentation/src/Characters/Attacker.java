@@ -1,7 +1,9 @@
 package Characters;
 
-public interface Attacker {
-
-	void attack(Attackable a);
-
+public interface Attacker
+{
+	default void attack(Attackable a)
+	{
+		a.isAttacked(this);
+	}
 }

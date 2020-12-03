@@ -100,7 +100,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 	@Override
 	public void isUsedBy(UsableOn u)
 	{
-		if(u instanceof HealthStation)
+		if(u instanceof HealthStation && !(this.isDead()))
 		{
 			HealthStation hs = (HealthStation) u;
 			this.isHealed(this.DEFAULT_HP_MAX - this.hp);
@@ -116,5 +116,30 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 		{
 			System.out.println("It can't be used on this.");
 		}
+	}
+
+	@Override
+	public void isAttacked(Attacker a)
+	{
+		if(a instanceof Actor)
+		{
+			Actor actor = (Actor) a;
+
+			if(!this.isDead())
+			{
+				this.hp -= actor.getAttackPower();
+
+				if(this.isDead())
+					System.out.println(this.getName() + " is now dead...");
+			}
+
+			else
+				System.out.println("You are attacking a dead body... So much for your mental health!");
+		}
+	}
+
+	public boolean isDead()
+	{
+		return this.hp <= 0;
 	}
 }

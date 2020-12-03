@@ -101,14 +101,17 @@ public class Room {
 			System.out.println("\t- " + d.getTag());
 
 		//Printing actors:
-		System.out.println("\n\tLiving beings in the room:");
+		System.out.println("\n\tBeings in the room:");
 		for(Actor a : this.actors.values())
 		{
 			if(a.getName().equals("me"))
 				System.out.println("\t- You are in the Room");
 
-			else
+			else if(!(a.isDead()))
 				System.out.println("\t- " + a.getName() + " is in the Room");
+
+			else
+				System.out.println("\t- " + a.getName() + "'s body is in the Room");
 		}
 	}
 

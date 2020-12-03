@@ -15,6 +15,17 @@ public class Converter {
 		this.caller = player;
 	}
 
+	public Attackable convertAttackable(String s) throws StringRequestUnmatched
+	{
+		Attackable a = this.caller.getRoom().getActor(s);
+
+		if(a != null)
+			return a;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
 	public Item convertItem(String s) throws StringRequestUnmatched
 	{
 		Item item1 = this.caller.getInventory().getItem(s);

@@ -2,6 +2,6 @@ package Characters;
 
 public interface Attackable {
 
-	void isAttacked();
+	void isAttacked(Attacker a);
 
 }

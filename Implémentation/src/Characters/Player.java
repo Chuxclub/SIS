@@ -120,15 +120,4 @@ public class Player extends Actor
 	{
 		by.isUsedBy(on);
 	}
-
-	@Override
-	public void isAttacked()
-	{
-
-	}
-
-	@Override
-	public void attack(Attackable a) {
-
-	}
 }
