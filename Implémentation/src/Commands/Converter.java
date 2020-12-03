@@ -15,17 +15,29 @@ public class Converter {
 		this.caller = player;
 	}
 
-	public Item convertItem(String s)
+	public Item convertItem(String s) throws StringRequestUnmatched
 	{
-		return this.caller.getInventory().getItem(s);
+		Item item = this.caller.getInventory().getItem(s);
+
+		if(item != null)
+			return item;
+
+		else
+			throw new StringRequestUnmatched();
 	}
 
-	public Door convertDoor(String s)
+	public Door convertDoor(String s) throws StringRequestUnmatched
 	{
-		return this.caller.getRoom().getDoor(s);
+		Door d = this.caller.getRoom().getDoor(s);
+
+		if(d != null)
+			return d;
+
+		else
+			throw new StringRequestUnmatched();
 	}
 
-	public UsableOn convertUsableOn(String s)
+	public UsableOn convertUsableOn(String s) throws StringRequestUnmatched
 	{
 		UsableOn u1 = this.caller.getInventory().getItem(s);
 		UsableOn u2 = this.caller.getRoom().getInventory().getItem(s);
@@ -33,11 +45,14 @@ public class Converter {
 		if(u1 != null)
 			return u1;
 
-		else
+		else if (u2 != null)
 			return u2;
+
+		else
+			throw new StringRequestUnmatched();
 	}
 
-	public UsableBy convertUsableBy(String s)
+	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched
 	{
 		UsableBy u1 = this.caller.getInventory().getItem(s);
 		UsableBy u2 = this.caller.getRoom().getInventory().getItem(s);
@@ -59,8 +74,11 @@ public class Converter {
 		else if(u3 != null)
 			return u3;
 
-		else
+		else if(ld != null)
 			return ld;
+
+		else
+			throw new StringRequestUnmatched();
 	}
 
 }

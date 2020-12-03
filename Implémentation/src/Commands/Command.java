@@ -17,13 +17,20 @@ public class Command {
 	private List<String> args;
 	private Verb v;
 
-	public Command(Player player, String verb, List<String> args)
+	public Command(Player player, String verb, List<String> args) throws UnknownVerb
 	{
 		this.caller = player;
 		this.verb = verb;
 		this.args = args;
 
-		this.parser = new Parser(this.verb);
+		try {
+			this.parser = new Parser(this.verb);
+		}
+
+		catch(UnknownVerb e) {
+			throw e;
+		}
+
 		this.v = this.parser.getVerb();
 
 		this.converter = new Converter(this.caller);
@@ -34,8 +41,15 @@ public class Command {
 		switch(this.v)
 		{
 			case GO:
-				Door d = this.converter.convertDoor(this.args.get(0));
-				this.caller.go(d);
+				try {
+					Door d = this.converter.convertDoor(this.args.get(0));
+					this.caller.go(d);
+				}
+
+				catch(StringRequestUnmatched e)
+				{
+					System.out.println("Error :> This isn't a door!");
+				}
 				break;
 
 			case HELP:
@@ -48,8 +62,14 @@ public class Command {
 
 				else
 				{
-					Item item = this.converter.convertItem(this.args.get(0));
-					this.caller.look(item);
+					try {
+						Item item = this.converter.convertItem(this.args.get(0));
+						this.caller.look(item);
+					}
+
+					catch(StringRequestUnmatched e) {
+						System.out.println("Error :> You don't have this object in your inventory");
+					}
 				}
 				break;
 
@@ -64,19 +84,35 @@ public class Command {
 			case USE:
 				if(this.args.size() < 1)
 				{
-					System.out.println("I don't know which item you want to use.");
+					System.out.println("Error :> I don't know which item you want to use.");
 				}
 
 				else if(args.size() == 1)
 				{
-					this.caller.getInventory().getItem(this.args.get(0)).isUsed();
+					try {
+						Item item = this.converter.convertItem(this.args.get(0));
+						item.isUsed();
+					}
+
+					catch(StringRequestUnmatched e)
+					{
+						System.out.println("Error :> I don't know this item");
+					}
 				}
 
 				else
 				{
-					UsableOn on = this.converter.convertUsableOn(this.args.get(0));
-					UsableBy by = this.converter.convertUsableBy(this.args.get(1));
-					this.caller.use(on, by);
+					try
+					{
+						UsableOn on = this.converter.convertUsableOn(this.args.get(0));
+						UsableBy by = this.converter.convertUsableBy(this.args.get(1));
+						this.caller.use(on, by);
+					}
+
+					catch(StringRequestUnmatched e)
+					{
+						System.out.println("Error :> I don't know one of the items");
+					}
 				}
 				break;
 

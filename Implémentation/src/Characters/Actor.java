@@ -10,6 +10,7 @@ import Containers.*;
 public abstract class Actor implements Attackable, Attacker, UsableBy
 {
 	private Room room;
+	private Room previousRoom;
 	private Inventory inventory;
 
 	private int DEFAULT_ATTACKPOWER = 20;
@@ -23,6 +24,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 	public Actor(String name, Room r)
 	{
 		this.room = r;
+		this.previousRoom = r;
 		this.inventory = new Inventory();
 
 		this.name = name;
@@ -32,6 +34,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 
 	public void changeRoom(Room r)
 	{
+		this.previousRoom = this.getRoom();
 		this.room.removeActor(this.name);
 		r.addActor(this);
 		this.room = r;
@@ -56,6 +59,11 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 	public Room getRoom()
 	{
 		return this.room;
+	}
+
+	public Room getPreviousRoom()
+	{
+		return this.previousRoom;
 	}
 
 	public void give(String tag, Actor a)

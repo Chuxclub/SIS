@@ -1,5 +1,6 @@
 package Game;
 
+
 import Location.*;
 
 public class SIS {
@@ -28,7 +29,7 @@ public class SIS {
 
 	public void endGame()
 	{
-		System.out.println("\nMerci d'avoir joué à Silent In Space!");
+		System.out.println("\nThanks for playing Silent In Space!");
 	}
 
 	public void playTurn()
@@ -38,7 +39,7 @@ public class SIS {
 
 	public void play()
 	{
-		while(!this.isEndGame())
+		while(true || !this.isEndGame())
 		{
 			this.playTurn();
 		}

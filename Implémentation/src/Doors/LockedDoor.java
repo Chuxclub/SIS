@@ -40,7 +40,7 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 		if(this.passType == p.getPassType())
 		{
 			this.isLocked = false;
-			System.out.println("Vous venez de déverrouiller la porte!");
+			System.out.println("You have unlocked the door!");
 		}
 	}
 

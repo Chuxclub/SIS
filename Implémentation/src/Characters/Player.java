@@ -1,6 +1,7 @@
 package Characters;
 
 import Commands.Command;
+import Commands.UnknownVerb;
 import Containers.Inventory;
 import Doors.Door;
 import Items.Item;
@@ -8,6 +9,7 @@ import Items.UsableBy;
 import Items.UsableOn;
 import Location.Room;
 
+import javax.naming.ldap.UnsolicitedNotification;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,17 +17,15 @@ import java.util.Scanner;
 public class Player extends Actor
 {
 	private static String NAME = "me";
-	private Room previous_room;
 
 	public Player(Room r)
 	{
 		super(NAME, r);
-		this.previous_room = r;
 	}
 
 	public void back()
 	{
-		this.changeRoom(this.previous_room);
+		this.changeRoom(this.getPreviousRoom());
 	}
 
 	public void call()
@@ -45,8 +45,15 @@ public class Player extends Actor
 			}
 		}
 
-		Command cmd = new Command(this, verb, args);
-		cmd.exec();
+		try {
+			Command cmd = new Command(this, verb, args);
+			cmd.exec();
+		}
+
+		catch(UnknownVerb e)
+		{
+			System.out.println("Enter help for valid verbs");
+		}
 	}
 
 	public void go(Door door)
@@ -57,19 +64,19 @@ public class Player extends Actor
 
 	public void help()
 	{
-		System.out.println("Vous pouvez interagir avec le jeu à l'aide de commandes textuelles. " +
-				"\nVoici la liste exhaustive de ces commandes, de leurs syntaxes et de leurs effets (entre crochets les paramètres optionnels): ");
+		System.out.println("You can interact with the game using textual commands. " +
+				"\nHere's an exhaustive list of these commands, their syntaxes and of their effects (optional arguments are into brackets): ");
 
-		System.out.println("\t- go <nom d'une porte> : aller à une pièce voisine en traversant une porte");
-		System.out.println("\t- help : afficher ce menu d'aide");
-		System.out.println("\t- look [<nom d'un objet>] : afficher la description de ses environs ou de l'objet indiqué");
-		System.out.println("\t- take <nom d'un objet> : prendre l'objet indiqué");
+		System.out.println("\t- go <door name> : go to a neighbour room using the indicated door");
+		System.out.println("\t- help : display this help menu");
+		System.out.println("\t- look [<nom d'un objet>] : display the description of your surroundings or of the indicated object (the object must be in your inventory)");
+		System.out.println("\t- take <nom d'un objet> : take the indicated object");
 
-		System.out.println("\t- quit : quitter la partie");
-		System.out.println("\t- use <nom d'un objet> [<nom d'un objet>] : utiliser un objet éventuellement sur un autre objet");
-		System.out.println("\t- inventory : afficher le contenu de votre inventaire");
-		System.out.println("\t- info : afficher les stats de votre personnage");
-		System.out.println("\t- back : retour rapide à la pièce précédente");
+		System.out.println("\t- quit : leave the game");
+		System.out.println("\t- use <nom d'un objet> [<nom d'un objet>] : use an object possibly on another indicated object");
+		System.out.println("\t- inventory : display the content of your inventory");
+		System.out.println("\t- info : display the stats of your character");
+		System.out.println("\t- back : quick return to the previous room");
 	}
 
 	public void info()
@@ -96,7 +103,7 @@ public class Player extends Actor
 
 	public void quit()
 	{
-		System.out.println("Merci d'avoir joué à Silent In Space!");
+		System.out.println("Thanks for playing Silent In Space!");
 		System.exit(0);
 	}
 
