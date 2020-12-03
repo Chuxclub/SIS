@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ee79549d-3ae1-45c3-9d31-93d69a76e27c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Doors/LockedDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/LockedDoor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game.Main" />
       <module name="SIS" />
@@ -56,9 +58,75 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DoorIT.testSwitchOpen1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SIS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Doors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Doors" />
+      <option name="MAIN_CLASS_NAME" value="Doors.DoorIT" />
+      <option name="METHOD_NAME" value="testSwitchOpen1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SIS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Game" />
+      <option name="MAIN_CLASS_NAME" value="Game.GameTestSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LockedDoorIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SIS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Doors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Doors" />
+      <option name="MAIN_CLASS_NAME" value="Doors.LockedDoorIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LockedDoorIT.testSwitchLock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SIS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Doors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Doors" />
+      <option name="MAIN_CLASS_NAME" value="Doors.LockedDoorIT" />
+      <option name="METHOD_NAME" value="testSwitchLock" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.LockedDoorIT" />
+        <item itemvalue="JUnit.GameTestSuite" />
+        <item itemvalue="JUnit.LockedDoorIT.testSwitchLock" />
+        <item itemvalue="JUnit.DoorIT.testSwitchOpen1" />
       </list>
     </recent_temporary>
   </component>
@@ -99,22 +167,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="294" key="FileChooserDialogImpl/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605882225978" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1606990023830">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1606992070197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1606990023830" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1606990023830">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1606992070197" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1606992070197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1606990023830" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1606990023830">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1606992070197" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1606992070197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1606990023830" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1606990023830">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1606992070197" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1606992070197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1606990023830" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1606992070197" />
     <state width="1874" height="340" key="GridCell.Tab.1.bottom" timestamp="1606938557576">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -139,10 +207,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605884482029" />
-    <state x="632" y="447" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1606925160781">
+    <state x="632" y="447" width="636" height="236" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1606990591964">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="632" y="447" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.27.1920.1053@0.27.1920.1053" timestamp="1606925160781" />
+    <state x="632" y="447" width="636" height="236" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.27.1920.1053@0.27.1920.1053" timestamp="1606990591964" />
     <state x="650" y="162" width="620" height="783" key="find.popup" timestamp="1606988330378">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

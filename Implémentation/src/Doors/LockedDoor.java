@@ -42,6 +42,11 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 			this.isLocked = false;
 			System.out.println("You have unlocked the door!");
 		}
+
+		else
+		{
+			System.out.println("You can't unlock this door with this pass.");
+		}
 	}
 
 	@Override
@@ -51,6 +56,11 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 		{
 			Pass p = (Pass) u;
 			this.unlock(p);
+		}
+
+		else
+		{
+			System.out.println("This object can't be used to open this door.");
 		}
 	}
 }

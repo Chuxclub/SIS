@@ -1,13 +1,9 @@
 package Doors;
 
-import Items.Pass;
-import Items.UsableBy;
-import Items.UsableOn;
-
 public class Door {
 
 	private boolean isOpen;
-	private String tag;
+	private final String tag;
 
 	public Door(String tag)
 	{

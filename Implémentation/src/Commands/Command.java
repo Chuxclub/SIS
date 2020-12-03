@@ -14,26 +14,16 @@ public class Command {
 	Player caller;
 	Parser parser;
 	Converter converter;
-	private String verb;
-	private List<String> args;
-	private Verb v;
+	private final Verb v;
+	private final List<String> args;
 
 	public Command(Player player, String verb, List<String> args) throws UnknownVerb
 	{
 		this.caller = player;
-		this.verb = verb;
 		this.args = args;
 
-		try {
-			this.parser = new Parser(this.verb);
-		}
-
-		catch(UnknownVerb e) {
-			throw e;
-		}
-
+		this.parser = new Parser(verb);
 		this.v = this.parser.getVerb();
-
 		this.converter = new Converter(this.caller);
 	}
 
@@ -154,5 +144,4 @@ public class Command {
 				break;
 		}
 	}
-
 }
