@@ -97,7 +97,7 @@ public class Command {
 						TakableItem item = this.converter.convertTakableItem(this.args.get(0));
 						this.caller.take(item);
 					} catch (StringRequestUnmatched e) {
-						System.out.println("Error :> This item isn't in your inventory or in this room  or can't be taken with you");
+						System.out.println("Error :> This item isn't in your inventory or in this room or can't be taken with you");
 					}
 				}
 				break;
@@ -116,7 +116,7 @@ public class Command {
 				{
 					try {
 						Item item = this.converter.convertItem(this.args.get(0));
-						item.isUsed();
+						this.caller.use(item);
 					}
 
 					catch(StringRequestUnmatched e)

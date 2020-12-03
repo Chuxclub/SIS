@@ -8,8 +8,6 @@ import Items.TakableItem;
 import Items.UsableBy;
 import Items.UsableOn;
 import Location.Room;
-
-import javax.naming.ldap.UnsolicitedNotification;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -115,6 +113,7 @@ public class Player extends Actor
 
 	public void use(Item item)
 	{
+		item.isUsed();
 	}
 
 	public void use(UsableOn on, UsableBy by)
