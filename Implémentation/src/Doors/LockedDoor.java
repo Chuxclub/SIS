@@ -45,6 +45,12 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 	}
 
 	@Override
+	public void unlock() {
+		this.isLocked = false;
+		System.out.println("You have unlocked the door!");
+	}
+
+	@Override
 	public void isUsedBy(UsableOn u)
 	{
 		if(u instanceof Pass)

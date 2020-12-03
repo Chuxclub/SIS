@@ -16,7 +16,7 @@ public class Pass extends Item implements UsableOn {
 
 
 	@Override
-	public void isUsed() {
+	public void isUsed(UsableBy u) {
 		System.out.println("vous ne pouvez pas utiliser une carte seule !");
 	}
 

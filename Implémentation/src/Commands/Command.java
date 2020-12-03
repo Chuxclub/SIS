@@ -91,7 +91,7 @@ public class Command {
 				{
 					try {
 						Item item = this.converter.convertItem(this.args.get(0));
-						item.isUsed();
+						item.isUsed(this.caller);
 					}
 
 					catch(StringRequestUnmatched e)

@@ -62,25 +62,25 @@ public class Ship {
 
 
 		//Enrichissement de la pièce 22:
-		Door door1To21 = new Door("door1");
+		Door door1To21 = new Door("doorA");
 		room22.addDoor(door1To21, room21);
-		Door door2To23 = new Door("door2");
+		Door door2To23 = new Door("doorB");
 		room22.addDoor(door2To23, room23);
-		Door door3To17 = new Door("door3");
+		Door door3To17 = new Door("doorC");
 		room22.addDoor(door3To17, room17);
 
 		//Enrichissement de la pièce 23:
-		Door door2To22 = new Door("door2");
+		Door door2To22 = new Door("doorB");
 		room23.addDoor(door2To22, room22);
 
 		//Enrichissement de la pièce 17:
-		Door door3To22 = new Door("door3");
+		Door door3To22 = new Door("doorC");
 		room17.addDoor(door3To22, room22);
-		Door door4To13 = new Door("door4");
+		Door door4To13 = new Door("doorD");
 		room17.addDoor(door4To13, room13);
 
 		//Enrichissement de la pièce 13:
-		Door door4To17 = new Door("door4");
+		Door door4To17 = new Door("doorD");
 		room13.addDoor(door4To17, room17);
 
 		//Ajout des pièces au vaisseau:
