@@ -53,4 +53,20 @@ public class LockedDoorIT
 
         //Une porte déverrouillée est déverrouillée pour le reste du jeu...
     }
+
+    @Test
+    public void testIsUsedBy()
+    {
+        //On tente de déverrouiller avec un mauvais pass puis d'ouvrir:
+        d1.isUsedBy(wrongPass);
+        d1.open();
+        assertEquals(false, d1.isOpen());
+
+        //On tente de déverrouiller avec le bon pass puis d'ouvrir:
+        d1.isUsedBy(pass);
+        d1.open();
+        assertEquals(true, d1.isOpen());
+
+        //Une porte déverrouillée est déverrouillée pour le reste du jeu...
+    }
 }
