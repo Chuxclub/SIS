@@ -27,4 +27,4 @@ hs_err_pid*
 *.vpp.lck
 
 # Custom
-Impl\303\251mentation/.idea/*
+Implémentation/.idea/*
