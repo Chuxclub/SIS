@@ -17,10 +17,36 @@ public class Converter {
 
 	public Item convertItem(String s) throws StringRequestUnmatched
 	{
-		Item item = this.caller.getInventory().getItem(s);
+		Item item1 = this.caller.getInventory().getItem(s);
+		Item item2 = this.caller.getRoom().getInventory().getItem(s);
 
-		if(item != null)
-			return item;
+		if(item1 != null)
+			return item1;
+
+		else if(item2 != null)
+			return item2;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
+	public Item convertPlayerItem(String s) throws StringRequestUnmatched
+	{
+		Item item1 = this.caller.getInventory().getItem(s);
+
+		if(item1 != null)
+			return item1;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
+	public TakableItem convertTakableItem(String s) throws StringRequestUnmatched
+	{
+		Item item1 = this.caller.getRoom().getInventory().getItem(s);
+
+		if(item1 instanceof TakableItem)
+				return (TakableItem) item1;
 
 		else
 			throw new StringRequestUnmatched();

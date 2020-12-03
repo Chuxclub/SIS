@@ -3,7 +3,7 @@ package Items;
 
 import Characters.Actor;
 
-public class HealthStation extends Item implements Usable
+public class HealthStation extends Item
 {
 	private static final int DEFAULT_HEALINGPOINTS = 100;
 	public HealthStation(String tag, String description)
@@ -20,12 +20,6 @@ public class HealthStation extends Item implements Usable
 	public int getHealingPoints()
 	{
 		return DEFAULT_HEALINGPOINTS;
-	}
-
-
-	public void isUsed(Actor player)
-	{
-		player.setHP(player.getDEFAULT_HP_MAX());
 	}
 
 	@Override

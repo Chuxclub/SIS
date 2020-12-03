@@ -2,9 +2,9 @@ package Characters;
 
 import Commands.Command;
 import Commands.UnknownVerb;
-import Containers.Inventory;
 import Doors.Door;
 import Items.Item;
+import Items.TakableItem;
 import Items.UsableBy;
 import Items.UsableOn;
 import Location.Room;
@@ -56,6 +56,12 @@ public class Player extends Actor
 		}
 	}
 
+	public void drop(Item item)
+	{
+		this.getInventory().removeItem(item.getTag());
+		this.getRoom().getInventory().addItem(item);
+	}
+
 	public void go(Door door)
 	{
 		door.open();
@@ -95,9 +101,9 @@ public class Player extends Actor
 		item.describe();
 	}
 
-	public void take(Item item)
+	public void take(TakableItem item)
 	{
-		//ATTENTION DUPLICATION!!!
+		this.getRoom().getInventory().removeItem(item.getTag());
 		this.getInventory().addItem(item);
 	}
 
@@ -117,7 +123,8 @@ public class Player extends Actor
 	}
 
 	@Override
-	public void isAttacked() {
+	public void isAttacked()
+	{
 
 	}
 

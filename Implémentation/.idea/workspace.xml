@@ -7,11 +7,12 @@
       <change beforePath="$PROJECT_DIR$/src/Characters/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Characters/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Commands/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doors/LockedDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doors/LockedDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/Verb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/Verb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/SIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/SIS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/HealthStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/HealthStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Pass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Pass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Location/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Schémas/Phase 1/SIS1.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Schémas/Phase 1/SIS1.vpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,6 +48,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -83,11 +86,15 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="440" y="114" key="#Project_Structure/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605792280686" />
-    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1606935773630">
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606987363335">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1606987363335" />
+    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1606989545619">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605883584820" />
-    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1606935773630" />
+    <state x="765" y="267" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1606989545619" />
     <state x="743" y="434" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605879355949">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -100,22 +107,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="294" key="FileChooserDialogImpl/-1920.93.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1605882225978" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1606983581752">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1606989334682">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1606983581752" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1606983581751">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1606989334682" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1606989334681">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1606983581751" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1606983581751">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1606989334681" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1606989334680">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1606983581751" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1606983581752">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1606989334680" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1606989334682">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1606983581752" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1606989334682" />
     <state width="1874" height="340" key="GridCell.Tab.1.bottom" timestamp="1606938557576">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -132,6 +139,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state width="1874" height="340" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1606938557576" />
+    <state x="449" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1606987918211">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1606987918211" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1605884482029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -140,6 +151,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="632" y="447" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.27.1920.1053@0.27.1920.1053" timestamp="1606925160781" />
+    <state x="650" y="162" width="620" height="783" key="find.popup" timestamp="1606988330378">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="650" y="162" width="620" height="783" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1606988330378" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1605882695230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

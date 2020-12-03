@@ -3,6 +3,7 @@ package Commands;
 import Characters.*;
 import Doors.Door;
 import Items.Item;
+import Items.TakableItem;
 import Items.UsableBy;
 import Items.UsableOn;
 
@@ -52,6 +53,20 @@ public class Command {
 				}
 				break;
 
+			case DROP:
+				if(args.size() == 0)
+					System.out.println("Error :> Please indicate which item you want to drop");
+
+				else {
+					try {
+						Item item = this.converter.convertPlayerItem(this.args.get(0));
+						this.caller.drop(item);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This item isn't in your inventory");
+					}
+				}
+				break;
+
 			case HELP:
 				this.caller.help();
 				break;
@@ -68,14 +83,24 @@ public class Command {
 					}
 
 					catch(StringRequestUnmatched e) {
-						System.out.println("Error :> You don't have this object in your inventory");
+						System.out.println("Error :> This item isn't in your inventory or in this room");
 					}
 				}
 				break;
 
 			case TAKE:
-				break;
+				if(args.size() == 0)
+					System.out.println("Error :> Please indicate which item you want to take");
 
+				else {
+					try {
+						TakableItem item = this.converter.convertTakableItem(this.args.get(0));
+						this.caller.take(item);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This item isn't in your inventory or in this room  or can't be taken with you");
+					}
+				}
+				break;
 
 			case QUIT:
 				caller.quit();

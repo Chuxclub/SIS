@@ -1,7 +1,7 @@
 package Items;
 
 
-public class Pass extends Item implements UsableOn {
+public class Pass extends TakableItem implements UsableOn{
 
 	PassType passType;
 

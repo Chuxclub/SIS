@@ -13,7 +13,7 @@ public abstract class Item implements Usable, UsableBy, UsableOn {
 
 	public void describe()
 	{
-		System.out.print(getDescription());
+		System.out.print(this.getDescription());
 	}
 
 	public String getTag()

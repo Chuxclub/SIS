@@ -36,7 +36,9 @@ public class Ship {
 		room21.addDoor(door1To22, room22);
 
 		HealthStation hs = new HealthStation("HealthStation1", "This is a healthstation. I can heal myself here as much as I want but I can't bring this with me.");
+		Pass statue = new Pass("statue", "It looks like a statue... Perhaps I could take it with me to prove that this wasn't a dream?", PassType.B);
 		room21.getInventory().addItem(hs);
+		room21.getInventory().addItem(statue);
 
 		//Construction de Kilen:
 		List<Item> l = new ArrayList<Item>();

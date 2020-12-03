@@ -103,7 +103,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy
 		if(u instanceof HealthStation)
 		{
 			HealthStation hs = (HealthStation) u;
-			this.isHealed(hs.getHealingPoints());
+			this.isHealed(this.DEFAULT_HP_MAX - this.hp);
 
 			if(this instanceof Player)
 				System.out.println("You have been healed!");
