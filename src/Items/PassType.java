@@ -1,5 +1,5 @@
 package Items;
 
 public enum PassType {
-	A, B
+	A, B, C
 }

@@ -23,7 +23,7 @@ public class HealthStation extends Item
 	}
 
 	@Override
-	public void isUsed()
+	public void isUsed(UsableBy u)
 	{
 		System.out.println("I need you to tell me who needs to be healed.");
 	}

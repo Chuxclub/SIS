@@ -5,10 +5,7 @@ import Characters.NPC;
 import Characters.Player;
 import Doors.Door;
 import Doors.LockedDoor;
-import Items.HealthStation;
-import Items.Item;
-import Items.Pass;
-import Items.PassType;
+import Items.*;
 
 import java.util.*;
 
@@ -70,8 +67,23 @@ public class Ship {
 		room22.addDoor(door3To17, room17);
 
 		//Enrichissement de la pièce 23:
-		Door door2To22 = new Door("doorB");
+		LockedDoor door2To22 = new LockedDoor("doorB", PassType.C);
 		room23.addDoor(door2To22, room22);
+
+		Computer comp = new Computer("The lab computer", "computer", door2To22);
+
+		File file1 = new File("Doctor Abzûg log nb. 811", "Evidence of lab experiments on humans.",
+				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
+						"experiments on these primates. We were tasked to understand how their immune system works, but" +
+						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
+						" shame to lose such efficient guinea pigs.");
+		File file2 = new File("Message to all Scientists", "A message adressed to all Scientists by Commander Gelgax", "test2");
+		File file3 = new File("file3", "A file from the lab computer", "test3");
+		comp.addFile(file1);
+		comp.addFile(file2);
+		comp.addFile(file3);
+
+		room23.getInventory().addItem(comp);
 
 		//Enrichissement de la pièce 17:
 		Door door3To22 = new Door("doorC");
