@@ -113,7 +113,7 @@ public class Player extends Actor
 
 	public void use(Item item)
 	{
-		item.isUsed();
+		item.isUsed(this);
 	}
 
 	public void use(UsableOn on, UsableBy by)
