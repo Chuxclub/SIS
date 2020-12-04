@@ -3,6 +3,7 @@ package Items;
 import Characters.Actor;
 import Containers.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Computer extends Item {
@@ -54,33 +55,43 @@ public class Computer extends Item {
     }
 
     public boolean playerInput(UsableBy player) {
-        Scanner scan = new Scanner(System.in);
-        int userChoice = scan.nextInt();
 
-        switch (userChoice){
-            case 0 :
-                System.out.println("\nYou chose to open a file.");
-                System.out.println("=== AVAILABLE FILES ===");
-                this.files.showItems();
-                String choice = scan.nextLine();
-                this.files.getItem(choice).isUsed(this.u);
-                return false;
-            case 1 :
-                System.out.println("\nYou chose to print a file.");
-                System.out.println("=== AVAILABLE FILES ===");
-                this.files.showItems();
-                String print = scan.nextLine();
-                printFile(print, player);
-                return false;
-            case 2 :
-                Pass passC = new Pass("passC", "Computer generated pass.", PassType.C);
-                this.u.isUsedBy(passC);
-                return false;
-            case 3 :
-                return true;
-            default :
-                System.out.println("Please enter a valid input");
-                return false;
+        try {
+            Scanner scan = new Scanner(System.in);
+            int userChoice = scan.nextInt();
+
+            switch (userChoice) {
+                case 0:
+                    System.out.println("\nYou chose to open a file.");
+                    System.out.println("=== AVAILABLE FILES ===");
+                    this.files.showItems();
+                    Scanner sc0 = new Scanner(System.in);
+                    String choice = sc0.nextLine();
+                    this.files.getItem(choice).isUsed(this.u);
+                    return false;
+                case 1:
+                    System.out.println("\nYou chose to print a file.");
+                    System.out.println("=== AVAILABLE FILES ===");
+                    this.files.showItems();
+                    Scanner sc1 = new Scanner(System.in);
+                    String print = sc1.nextLine();
+                    printFile(print, player);
+                    return false;
+                case 2:
+                    Pass passC = new Pass("passC", "Computer generated pass.", PassType.C);
+                    this.u.isUsedBy(passC);
+                    return false;
+                case 3:
+                    return true;
+                default:
+                    System.out.println("Please enter a valid input");
+                    return false;
+            }
+            }
+
+        catch(InputMismatchException e)
+        {
+            return false;
         }
     }
 
