@@ -1,6 +1,6 @@
 package Items;
 
-public class File extends Item {
+public class File extends TakableItem {
 
     private final String content;
 

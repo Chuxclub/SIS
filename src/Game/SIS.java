@@ -19,7 +19,7 @@ public class SIS {
 	{
 		this.ship = new Ship();
 		this.ship.getNPC("Kilen").talk();
-		this.ship.getNPC("Kilen").give("passA", this.ship.getPlayer());
+		this.ship.getNPC("Kilen").give("passT", this.ship.getPlayer());
 	}
 
 	public boolean isEndGame()

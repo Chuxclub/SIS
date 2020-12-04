@@ -10,10 +10,9 @@ public class Pass extends TakableItem implements UsableOn{
 		this.passType = p;
 	}
 
-	public PassType getPassType() {
+    public PassType getPassType() {
 		return this.passType;
 	}
-
 
 	@Override
 	public void isUsed(UsableBy u) {

@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Player extends Actor implements Serializable
 {
-	private Ship ship;
+	private final Ship ship;
 
 	private static String NAME = "me";
 
