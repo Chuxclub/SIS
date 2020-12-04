@@ -26,6 +26,17 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
+	public Door convertDoor(String s) throws StringRequestUnmatched
+	{
+		Door d = this.caller.getRoom().getDoor(s);
+
+		if(d != null)
+			return d;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
 	public Item convertItem(String s) throws StringRequestUnmatched
 	{
 		Item item1 = this.caller.getInventory().getItem(s);
@@ -36,6 +47,17 @@ public class Converter {
 
 		else if(item2 != null)
 			return item2;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
+	public NPC convertNPC(String s) throws StringRequestUnmatched
+	{
+		Actor npc = this.caller.getRoom().getActor(s);
+
+		if (npc instanceof NPC)
+			return (NPC) npc;
 
 		else
 			throw new StringRequestUnmatched();
@@ -63,16 +85,7 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
-	public Door convertDoor(String s) throws StringRequestUnmatched
-	{
-		Door d = this.caller.getRoom().getDoor(s);
 
-		if(d != null)
-			return d;
-
-		else
-			throw new StringRequestUnmatched();
-	}
 
 	public UsableOn convertUsableOn(String s) throws StringRequestUnmatched
 	{

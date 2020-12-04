@@ -21,7 +21,7 @@ public class Player extends Actor implements Serializable
 {
 	private final Ship ship;
 
-	private static String NAME = "me";
+	private static final String NAME = "me";
 
 	public Player(Room r, Ship s)
 	{
@@ -111,6 +111,11 @@ public class Player extends Actor implements Serializable
 	{
 		this.getRoom().getInventory().removeItem(item.getTag());
 		this.getInventory().addItem(item);
+	}
+
+	public void talk(NPC npc)
+	{
+		npc.talk();
 	}
 
 	public void quit()

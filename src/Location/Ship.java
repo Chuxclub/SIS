@@ -1,6 +1,5 @@
 package Location;
 
-import Characters.Actor;
 import Characters.NPC;
 import Characters.Player;
 import Doors.Door;
@@ -11,8 +10,8 @@ import java.util.*;
 
 public class Ship {
 
-	private HashMap<Integer, Room> rooms;
-	private Player player;
+	private final HashMap<Integer, Room> rooms;
+	private final Player player;
 	private HashMap<String, NPC> npcs = new HashMap<>();
 
 	public Ship()
@@ -154,7 +153,7 @@ public class Ship {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 11:
 		//Unien:
-		List<Item> unienItems = new ArrayList<Item>();
+		List<Item> unienItems = new ArrayList<>();
 		NPC unien = new NPC("Unien", false, true, unienItems, room11);
 		unien.setSpeech("Blrberbllirbrborllrzzal!");
 		room11.addActor(unien);
@@ -162,21 +161,21 @@ public class Ship {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 14:
 		//Ghainkix:
-		List<Item> ghainkixItems = new ArrayList<Item>();
+		List<Item> ghainkixItems = new ArrayList<>();
 		NPC ghainkix = new NPC("Ghainkix", false, true, ghainkixItems, room14);
-		unien.setSpeech("Hi! I'm Ghainkix, are you a human? They say that your species is in danger and that we should help you!");
+		ghainkix.setSpeech("Hi! I'm Ghainkix, are you a human? They say that your species is in danger and that we should help you!");
 		room14.addActor(ghainkix);
 		this.npcs.put(ghainkix.getName(), ghainkix);
 
 		//Eeloir:
-		List<Item> eeloirItems = new ArrayList<Item>();
+		List<Item> eeloirItems = new ArrayList<>();
 		NPC eeloir = new NPC("Eeloir", false, true, eeloirItems, room14);
 		eeloir.setSpeech("Hi! I'm Eeloir, you must be a human, right? I am so glad to meet you!");
 		room14.addActor(eeloir);
 		this.npcs.put(eeloir.getName(), eeloir);
 
 		//Braenzuds:
-		List<Item> braenzudsItems = new ArrayList<Item>();
+		List<Item> braenzudsItems = new ArrayList<>();
 		NPC braenzuds = new NPC("Braenzuds", false, true, braenzudsItems, room14);
 		braenzuds.setSpeech("Leave me alone... Can't you see I'm playing?");
 		room14.addActor(braenzuds);
@@ -184,7 +183,7 @@ public class Ship {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 21:
 		//Kilen:
-		List<Item> kilenItems = new ArrayList<Item>();
+		List<Item> kilenItems = new ArrayList<>();
 		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like a T written on it.", PassType.T);
 		kilenItems.add(p);
 		NPC kilen = new NPC("Kilen", false, true, kilenItems, room21);
@@ -198,15 +197,15 @@ public class Ship {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
-		List<Item> umhonItems = new ArrayList<Item>();
+		List<Item> umhonItems = new ArrayList<>();
 		NPC umhon = new NPC("Umhon", false, false, umhonItems, room24);
-		unien.setSpeech("What in the hell are you? A human? Leave before I call the guards!");
+		umhon.setSpeech("What in the hell are you? A human? Leave before I call the guards!");
 		room24.addActor(umhon);
 		this.npcs.put(umhon.getName(), umhon);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 29:
 		//Eek'eads:
-		List<Item> eekeadsItems = new ArrayList<Item>();
+		List<Item> eekeadsItems = new ArrayList<>();
 		NPC eekeads = new NPC("Eekeads", false, true, eekeadsItems, room29);
 		eekeads.setSpeech("GiagiaGia!");
 		room29.addActor(eekeads);

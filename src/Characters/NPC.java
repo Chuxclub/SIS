@@ -32,7 +32,11 @@ public class NPC extends Actor
 
 	public void talk()
 	{
-		System.out.println(this.speech);
+		if(speech != null)
+			System.out.println(this.speech);
+
+		else
+			System.out.println("This person has nothing to say to you...");
 	}
 
 	@Override
