@@ -12,7 +12,6 @@ import java.util.*;
 public class Ship {
 
 	private HashMap<Integer, Room> rooms;
-	private static final int NB_ROOMS = 2;
 	private Player player;
 	private HashMap<String, NPC> npcs = new HashMap<>();
 
@@ -54,7 +53,7 @@ public class Ship {
 		this.npcs.put(Kilen.getName(), Kilen);
 
 		//Construction du joueur:
-		this.player = new Player(room21);
+		this.player = new Player(room21, this);
 		room21.addActor(player);
 
 
@@ -110,6 +109,12 @@ public class Ship {
 		rooms.put(23, room23);
 		rooms.put(17, room17);
 		rooms.put(13, room13);
+	}
+
+	public Ship(Ship ship){
+		this.rooms = ship.rooms;
+		this.player = ship.player;
+		this.npcs = ship.npcs;
 	}
 
 	public NPC getNPC(String s)

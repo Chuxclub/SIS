@@ -8,17 +8,22 @@ import Items.TakableItem;
 import Items.UsableBy;
 import Items.UsableOn;
 import Location.Room;
+import Location.Ship;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Player extends Actor
 {
+	private Ship ship;
+
 	private static String NAME = "me";
 
-	public Player(Room r)
+	public Player(Room r, Ship s)
 	{
 		super(NAME, r);
+		this.ship = s;
 	}
 
 	public void back()

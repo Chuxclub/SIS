@@ -2,6 +2,7 @@ package Commands;
 
 import Characters.*;
 import Doors.Door;
+import Game.SIS;
 import Items.Item;
 import Items.TakableItem;
 import Items.UsableBy;
@@ -43,7 +44,7 @@ public class Command {
 			case ATTACK:
 				try {
 					Attackable a = this.converter.convertAttackable(this.args.get(0));
-					attack(a);
+					this.caller.attack(a);
 				}
 
 				catch(StringRequestUnmatched e)

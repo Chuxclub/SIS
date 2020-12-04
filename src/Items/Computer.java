@@ -91,6 +91,7 @@ public class Computer extends Item {
 
         catch(InputMismatchException e)
         {
+            System.out.println("Please enter a valid input");
             return false;
         }
     }
