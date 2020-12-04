@@ -29,6 +29,7 @@ hs_err_pid*
 .idea/tasks.xml
 
 # Custom
+Schémas/Phase\ 1/.SIS1.vpp.lck
 Schémas/Phase\ 1/SIS1.vpp.*
 Schémas/Phase\ 1/SIS1.vpp~*
 Schémas/Phase\ 1/SIS1.vpp.bak*

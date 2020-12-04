@@ -39,7 +39,7 @@ public class SIS {
 
 	public void play()
 	{
-		while(!this.isEndGame())
+		while(true || !this.isEndGame())
 		{
 			this.playTurn();
 		}
