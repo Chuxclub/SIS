@@ -10,11 +10,14 @@ import Items.UsableOn;
 import Location.Room;
 import Location.Ship;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Player extends Actor
+public class Player extends Actor implements Serializable
 {
 	private Ship ship;
 
@@ -127,10 +130,13 @@ public class Player extends Actor
 	}
 
 	public void save() {
-
+		/*FileOutputStream fileOut = new FileOutputStream("saveData.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fileOut);
+		oos.writeObject(this.ship);
+		oos.close();*/
 	}
 
 	public void load() {
-
+		//objectInputStream ois = new objectInputStream(new FileInputStream("saveData.ser"));
 	}
 }
