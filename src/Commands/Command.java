@@ -31,10 +31,19 @@ public class Command {
 	{
 		switch(this.v)
 		{
+
+			case SAVE:
+				this.caller.save();
+				break;
+
+			case LOAD:
+				this.caller.load();
+				break;
+
 			case ATTACK:
 				try {
 					Attackable a = this.converter.convertAttackable(this.args.get(0));
-					this.caller.attack(a);
+					attack(a);
 				}
 
 				catch(StringRequestUnmatched e)

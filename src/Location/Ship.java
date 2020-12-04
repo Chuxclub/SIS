@@ -87,7 +87,7 @@ public class Ship {
 				"\tCream butter and sugar until fluffy. Stir in vanilla; add flour and mix well.\n" +
 				"Step 3\n" +
 				"\tPut through cookie press and form cookies onto baking sheets. Bake for 10 - 12 minutes.\n");
-		
+
 		comp.addFile(file1);
 		comp.addFile(file2);
 		comp.addFile(file3);

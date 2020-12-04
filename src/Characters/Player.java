@@ -120,4 +120,12 @@ public class Player extends Actor
 	{
 		by.isUsedBy(on);
 	}
+
+	public void save() {
+
+	}
+
+	public void load() {
+
+	}
 }
