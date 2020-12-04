@@ -72,13 +72,22 @@ public class Ship {
 
 		Computer comp = new Computer("The lab computer", "computer", door2To22);
 
-		File file1 = new File("Doctor Abzûg log nb. 811", "Evidence of lab experiments on humans.",
+		File file1 = new File("doctorLog811.txt", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
 						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
 						" shame to lose such efficient guinea pigs.");
-		File file2 = new File("Message to all Scientists", "A message adressed to all Scientists by Commander Gelgax", "test2");
-		File file3 = new File("file3", "A file from the lab computer", "test3");
+		File file2 = new File("importantMessage.txt", "A message adressed to all Scientists by Commander Gelgax",
+				"Attention to all scientists. A new human has arrived yesterday. \nReady him as soon as possible for the next few lab tests." +
+						"Insubordination will not be tolerated.");
+		File file3 = new File("recipe.txt", "A recipe from the lab computer",
+				"Step 1\n" +
+				"\tPreheat oven to 350 degrees F (180 degrees C).\n" +
+				"Step 2\n" +
+				"\tCream butter and sugar until fluffy. Stir in vanilla; add flour and mix well.\n" +
+				"Step 3\n" +
+				"\tPut through cookie press and form cookies onto baking sheets. Bake for 10 - 12 minutes.\n");
+		
 		comp.addFile(file1);
 		comp.addFile(file2);
 		comp.addFile(file3);
