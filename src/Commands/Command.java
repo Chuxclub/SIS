@@ -2,6 +2,7 @@ package Commands;
 
 import Characters.*;
 import Doors.Door;
+import Game.SIS;
 import Items.Item;
 import Items.TakableItem;
 import Items.UsableBy;
