@@ -23,7 +23,7 @@ public class Inventory {
 
 	public Item getItem(String s)
 	{
-		return this.items.get(s);
+			return this.items.get(s);
 	}
 
 	public int getSize()

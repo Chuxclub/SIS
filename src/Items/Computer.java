@@ -30,11 +30,21 @@ public class Computer extends Item {
     }
 
     public void printFile(String tag, UsableBy a) {
-        if(a instanceof Actor) {
+        if(a instanceof Actor)
+        {
             Actor player = (Actor) a;
-            Item item = this.files.getItem(tag);
-            this.files.removeItem(tag);
-            player.getInventory().addItem(item);
+
+            try
+            {
+                Item item = this.files.getItem(tag);
+                this.files.removeItem(tag);
+                player.getInventory().addItem(item);
+            }
+
+            catch(NullPointerException e)
+            {
+                System.out.println("This file doesn't exist");
+            }
         }
     }
 

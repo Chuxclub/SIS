@@ -43,7 +43,7 @@ public class Command {
 			case ATTACK:
 				try {
 					Attackable a = this.converter.convertAttackable(this.args.get(0));
-					attack(a);
+					this.caller.attack(a);
 				}
 
 				catch(StringRequestUnmatched e)
