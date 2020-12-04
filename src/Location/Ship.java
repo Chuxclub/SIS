@@ -43,6 +43,9 @@ public class Ship {
 
 		HealthStation hs = new HealthStation("HealthStation1", "This is a healthstation. I can heal myself here as much as I want but I can't bring this with me.");
 		room21.getInventory().addItem(hs);
+		Artefact statue = new Artefact("statue", "This is a statue showing an alien like Kilen... " +
+				"Maybe to prove that this wasn't all a dream I should take it with me.");
+		room21.getInventory().addItem(statue);
 
 		//Construction de Kilen:
 		List<Item> l = new ArrayList<Item>();
