@@ -38,23 +38,29 @@ public class SIS implements Serializable {
 		this.printGameIntro();
 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Load an existing game? (0 = Yes, 1 = No)");
+		System.out.println("Load an existing game? (Type \"yes\" if you have a save file. Press Enter for a new game.)");
 		System.out.print("\nCommand :> ");
-		int userChoice = scan.nextInt();
+		String userChoice = scan.nextLine();
 
-		System.out.println("\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
-
-		if(userChoice == 0) {
+		if (userChoice.equals("yes")) {
 			try {
 				FileInputStream fileIn = new FileInputStream("saveData.txt");
 				ObjectInputStream ois = new ObjectInputStream(fileIn);
-				this.ship = new Ship((Ship)ois.readObject());
+				this.ship = new Ship((Ship) ois.readObject());
 				ois.close();
 				System.out.println("You successfully loaded the game!");
 			} catch (IOException | ClassNotFoundException e) {
 				System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
+				System.out.println("\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+
+				System.out.println("You wake up feeling dizzy. Something is talking to you. Something not human.");
+				this.ship = new Ship();
+				this.ship.getNPC("Kilen").talk();
+				this.ship.getNPC("Kilen").give("passT", this.ship.getPlayer());
+				this.ship.getNPC("Kilen").setSpeech("You should hurry! I've managed to deal with the guards in the lab but it won't be long before they come back!");
 			}
 		} else {
+			System.out.println("\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
 			System.out.println("You wake up feeling dizzy. Something is talking to you. Something not human.");
 			this.ship = new Ship();
 			this.ship.getNPC("Kilen").talk();
