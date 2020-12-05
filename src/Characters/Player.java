@@ -3,10 +3,7 @@ package Characters;
 import Commands.Command;
 import Commands.UnknownVerb;
 import Doors.Door;
-import Items.Item;
-import Items.TakableItem;
-import Items.UsableBy;
-import Items.UsableOn;
+import Items.*;
 import Location.Room;
 import Location.Ship;
 
@@ -179,6 +176,15 @@ public class Player extends Actor implements Serializable
 	public void use(UsableOn on, UsableBy by)
 	{
 		by.isUsedBy(on);
+	}
+
+	@Override
+	public void isUsedBy(UsableOn u)
+	{
+		super.isUsedBy(u);
+
+		if(u instanceof Computer)
+			System.out.println("Isn't using a computer on oneself called technophilia?");
 	}
 
 	public void save() {

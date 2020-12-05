@@ -2,7 +2,6 @@ package Location;
 
 import Characters.NPC;
 import Characters.Player;
-import Characters.Umhon;
 import Doors.Door;
 import Doors.LockedDoor;
 import Items.*;
@@ -92,19 +91,19 @@ public class Ship implements Serializable {
 		//Connexion de la pièce 18:
 		Door door18To17 = new Door("door17");
 		room18.addDoor(door18To17, room17);
-		LockedDoor door18To19 = new LockedDoor("door19", PassType.A);
+		LockedDoor door18To19 = new LockedDoor("doorA", PassType.A);
 		room18.addDoor(door18To19, room19);
 
 		//Connexion de la pièce 19:
 		Door door19To14 = new Door("door14");
 		room19.addDoor(door19To14, room14);
-		Door door19To18 = new Door("door18");
+		Door door19To18 = new Door("doorA");
 		room19.addDoor(door19To18, room18);
 		Door door19To24 = new Door("door24");
 		room19.addDoor(door19To24, room24);
 
 		//Connexion de la pièce 21:
-		LockedDoor door21To22 = new LockedDoor("door22", PassType.T);
+		LockedDoor door21To22 = new LockedDoor("doorT", PassType.T);
 		room21.addDoor(door21To22, room22);
 
 		//Connexion de la pièce 22:
@@ -200,7 +199,7 @@ public class Ship implements Serializable {
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
 		List<Item> umhonItems = new ArrayList<>();
-		NPC umhon = new Umhon("Umhon", false, false, umhonItems, room24);
+		NPC umhon = new NPC("Umhon", false, false, umhonItems, room24);
 		umhon.setSpeech("Oh a human! You poor thing, you must be lost... You know, my husband," +
 				" Vik, is the captain's favorite. He even guards his personal computer! But I wonder," +
 				" what they are doing to you poor things?\n...\nYou know what? Bring me some evidence of" +

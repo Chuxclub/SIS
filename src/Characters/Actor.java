@@ -127,7 +127,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		{
 			Actor actor = (Actor) a;
 
-			if(!this.isDead())
+			if(!(this.isDead()))
 				this.hp -= actor.getAttackPower();
 		}
 	}

@@ -39,7 +39,7 @@ public class Command {
 
 				catch(StringRequestUnmatched e)
 				{
-					System.out.println("Error :> You can't attack something this!");
+					System.out.println("Error :> You can't attack this!");
 				}
 				break;
 

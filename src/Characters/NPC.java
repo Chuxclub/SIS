@@ -1,9 +1,7 @@
 package Characters;
 
 import Items.Item;
-import Items.UsableOn;
 import Location.Room;
-import Containers.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -38,7 +36,7 @@ public class NPC extends Actor implements Serializable
 
 	public void talk()
 	{
-		if (speech != null && !(this.isDead()))
+		if (speech != null && !(this.isDead()) && !(this.isHostile))
 			System.out.println(this.speech);
 
 		else if(this.isDead())
@@ -67,7 +65,7 @@ public class NPC extends Actor implements Serializable
 
 			else
 			{
-				if (!this.isHostile)
+				if (!(this.isHostile))
 					this.isHostile = true;
 
 				if(a instanceof Attackable) {
@@ -77,8 +75,8 @@ public class NPC extends Actor implements Serializable
 		}
 	}
 
-	public boolean getAlly() { return this.isAlly; };
-	public boolean getHostile() { return this.isAlly; };
-	public void setAlly(boolean b) {this.isAlly = b; };
-	public void setHostile(boolean b) {this.isHostile = b; };
+	public boolean getAlly() { return this.isAlly; }
+	public boolean getHostile() { return this.isAlly; }
+	public void setAlly(boolean b) {this.isAlly = b; }
+	public void setHostile(boolean b) {this.isHostile = b; }
 }

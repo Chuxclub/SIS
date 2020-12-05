@@ -119,7 +119,6 @@ public class Converter {
 				throw new InvalidUse();
 		}
 
-
 		//On renvoie le premier objet qui est non null.
 		//L'unicité de l'objet est garantie par l'unicité des labels:
 		if(u1 != null)
