@@ -32,15 +32,6 @@ public class Command {
 	{
 		switch(this.v)
 		{
-
-			case SAVE:
-				this.caller.save();
-				break;
-
-			case LOAD:
-				this.caller.load();
-				break;
-
 			case ATTACK:
 				try {
 					Attackable a = this.converter.convertAttackable(this.args.get(0));
@@ -95,6 +86,10 @@ public class Command {
 				this.caller.getInventory().showItems();
 				break;
 
+			case LOAD:
+				this.caller.load();
+				break;
+
 			case LOOK:
 				if(args.size() == 0)
 					this.caller.look();
@@ -116,6 +111,10 @@ public class Command {
 				caller.quit();
 				break;
 
+			case SAVE:
+				this.caller.save();
+				break;
+
 			case TAKE:
 				if(args.size() == 0)
 					System.out.println("Error :> Please indicate which item you want to take");
@@ -127,6 +126,17 @@ public class Command {
 					} catch (StringRequestUnmatched e) {
 						System.out.println("Error :> This item isn't in your inventory or in this room or can't be taken with you");
 					}
+				}
+				break;
+
+			case TALK:
+				try {
+					NPC npc = this.converter.convertNPC(this.args.get(0));
+					this.caller.talk(npc);
+				}
+				catch(StringRequestUnmatched e)
+				{
+					System.out.println("Error :> This person isn't in this room (or maybe you enjoy talking to ghosts?)");
 				}
 				break;
 
