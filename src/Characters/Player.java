@@ -10,12 +10,12 @@ import Items.UsableOn;
 import Location.Room;
 import Location.Ship;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+
 
 public class Player extends Actor implements Serializable
 {
@@ -87,6 +87,9 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- help : display this help menu");
 
 		System.out.println("\t- info : display the stats of your character");
+		System.out.println("\t- back : quick return to the previous room");
+		System.out.println("\t- save : save the current state of the game");
+		System.out.println("\t- load : load the last state saved of the game");
 		System.out.println("\t- inventory : display the content of your inventory");
 		System.out.println("\t- look [<object's name>] : display the description of your surroundings or of the indicated object (the object must be in your inventory)");
 		System.out.println("\t- quit : leave the game");
@@ -94,6 +97,7 @@ public class Player extends Actor implements Serializable
 
 		System.out.println("\t- talk <npc> : talk to the designated npc");
 		System.out.println("\t- use <object's name> [<object's name>] : use an object possibly on another indicated object");
+
 	}
 
 	public void info()
@@ -156,13 +160,22 @@ public class Player extends Actor implements Serializable
 	}
 
 	public void save() {
-		/*FileOutputStream fileOut = new FileOutputStream("saveData.ser");
-		ObjectOutputStream oos = new ObjectOutputStream(fileOut);
-		oos.writeObject(this.ship);
-		oos.close();*/
+		try {
+			FileOutputStream fileOut = new FileOutputStream("saveData.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fileOut);
+			oos.writeObject(this.ship);
+			oos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void load() {
-		//objectInputStream ois = new objectInputStream(new FileInputStream("saveData.ser"));
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("saveData.ser"));
+		} catch (IOException e) {
+			System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
+			e.printStackTrace();
+		}
 	}
 }
