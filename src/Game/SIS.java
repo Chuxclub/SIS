@@ -65,7 +65,12 @@ public class SIS implements Serializable {
 
 	public boolean isEndGame()
 	{
-		return this.ship.getRoom(22).hasActor("me");
+		return (
+				(this.ship.getRoom(13).hasActor("me")
+				&& this.ship.getPlayer().getInventory().getItem("doctorLog811.txt") != null)
+
+				|| this.ship.getPlayer().isDead()
+		);
 	}
 
 	public void endGame()
@@ -80,7 +85,7 @@ public class SIS implements Serializable {
 
 	public void play()
 	{
-		while(true || !this.isEndGame())
+		while(!this.isEndGame())
 		{
 			this.playTurn();
 		}

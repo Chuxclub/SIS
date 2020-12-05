@@ -13,13 +13,14 @@ import Location.Ship;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
 
 public class Player extends Actor implements Serializable
 {
-	private Ship ship;
+	private final Ship ship;
 
 	private static final String NAME = "me";
 
@@ -31,7 +32,15 @@ public class Player extends Actor implements Serializable
 
 	public void back()
 	{
-		this.changeRoom(this.getPreviousRoom());
+		try {
+			Door d = this.getRoom().getDoor(this.getPreviousRoom());
+			this.go(d);
+		}
+
+		catch(NullPointerException e)
+		{
+			System.out.println("You can't go back");
+		}
 	}
 
 	public void call()
