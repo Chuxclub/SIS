@@ -102,7 +102,7 @@ public class Ship {
 		room19.addDoor(door19To24, room24);
 
 		//Connexion de la pièce 21:
-		LockedDoor door21To22 = new LockedDoor("doorT", PassType.T);
+		LockedDoor door21To22 = new LockedDoor("door22", PassType.T);
 		room21.addDoor(door21To22, room22);
 
 		//Connexion de la pièce 22:

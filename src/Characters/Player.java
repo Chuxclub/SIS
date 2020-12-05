@@ -117,7 +117,12 @@ public class Player extends Actor implements Serializable
 		else {
 			if (a instanceof Actor) {
 				Actor actor = (Actor) a;
-				System.out.println(actor.getName() + " hit you! You've just lost " + actor.getAttackPower() + "hp!");
+
+				if(actor.getName().equals(this.getName()))
+					System.out.println("You hit yourself! You've just lost " + actor.getAttackPower() + "hp! So much for your mental health...");
+
+				else
+					System.out.println(actor.getName() + " hit you! You've just lost " + actor.getAttackPower() + "hp!");
 			}
 		}
 	}
@@ -130,6 +135,11 @@ public class Player extends Actor implements Serializable
 	public void look(Item item)
 	{
 		item.describe();
+	}
+
+	public void look(Door d)
+	{
+		d.describe();
 	}
 
 	public void take(TakableItem item)

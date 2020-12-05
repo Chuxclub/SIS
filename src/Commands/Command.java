@@ -2,7 +2,6 @@ package Commands;
 
 import Characters.*;
 import Doors.Door;
-import Game.SIS;
 import Items.Item;
 import Items.TakableItem;
 import Items.UsableBy;
@@ -102,7 +101,15 @@ public class Command {
 					}
 
 					catch(StringRequestUnmatched e) {
-						System.out.println("Error :> This item isn't in your inventory or in this room");
+						try{
+							Door d = this.converter.convertDoor(this.args.get(0));
+							this.caller.look(d);
+						}
+
+						catch(StringRequestUnmatched e2)
+						{
+							System.out.println("Error :> I can't find what you want to look at!");
+						}
 					}
 				}
 				break;
