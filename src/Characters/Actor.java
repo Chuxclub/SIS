@@ -7,7 +7,9 @@ import Items.UsableOn;
 import Location.*;
 import Containers.*;
 
-public abstract class Actor implements Attackable, Attacker, UsableBy
+import java.io.Serializable;
+
+public abstract class Actor implements Attackable, Attacker, UsableBy, Serializable
 {
 	private Room room;
 	private Room previousRoom;

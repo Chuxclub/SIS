@@ -86,9 +86,6 @@ public class Command {
 				this.caller.getInventory().showItems();
 				break;
 
-			case LOAD:
-				this.caller.load();
-				break;
 
 			case LOOK:
 				if(args.size() == 0)

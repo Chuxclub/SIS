@@ -6,9 +6,10 @@ import Doors.Door;
 import Doors.LockedDoor;
 import Items.*;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Ship {
+public class Ship implements Serializable {
 
 	private final HashMap<Integer, Room> rooms;
 	private final Player player;

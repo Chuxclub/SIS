@@ -1,6 +1,8 @@
 package Items;
 
-public class File extends TakableItem {
+import java.io.Serializable;
+
+public class File extends TakableItem implements Serializable {
 
     private final String content;
 

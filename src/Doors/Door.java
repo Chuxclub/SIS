@@ -1,6 +1,8 @@
 package Doors;
 
-public class Door {
+import java.io.Serializable;
+
+public class Door implements Serializable {
 
 	private boolean isOpen;
 	private final String tag;

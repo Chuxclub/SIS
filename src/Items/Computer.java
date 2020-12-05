@@ -3,10 +3,11 @@ package Items;
 import Characters.Actor;
 import Containers.*;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Computer extends Item {
+public class Computer extends Item implements Serializable {
 
     private Inventory files;
     private UsableBy u = null;

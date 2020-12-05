@@ -5,9 +5,10 @@ import Items.UsableOn;
 import Location.Room;
 import Containers.*;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class NPC extends Actor
+public class NPC extends Actor implements Serializable
 {
 	private boolean isHostile;
 	private boolean isAlly;

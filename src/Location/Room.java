@@ -1,6 +1,8 @@
 package Location;
 
 import Containers.*;
+
+import java.io.Serializable;
 import java.util.*;
 
 import Containers.Inventory;
@@ -8,7 +10,7 @@ import Doors.*;
 import Characters.*;
 import Items.Item;
 
-public class Room {
+public class Room implements Serializable {
 
 	private Ship ship;
 	private Inventory inventory;

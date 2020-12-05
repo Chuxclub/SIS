@@ -1,7 +1,9 @@
 package Items;
 
 
-public class Pass extends TakableItem implements UsableOn{
+import java.io.Serializable;
+
+public class Pass extends TakableItem implements UsableOn, Serializable {
 
 	PassType passType;
 

@@ -2,7 +2,9 @@ package Doors;
 
 import Items.*;
 
-public class LockedDoor extends Door implements Unlockable, UsableBy {
+import java.io.Serializable;
+
+public class LockedDoor extends Door implements Unlockable, UsableBy, Serializable {
 
 	PassType passType;
 	private boolean isLocked;

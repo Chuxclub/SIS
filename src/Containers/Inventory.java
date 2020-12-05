@@ -1,9 +1,10 @@
 package Containers;
 
+import java.io.Serializable;
 import java.util.*;
 import Items.*;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
 	HashMap<String, Item> items;
 	private int size;

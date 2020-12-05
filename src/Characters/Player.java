@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Player extends Actor implements Serializable
 {
-	private final Ship ship;
+	private Ship ship;
 
 	private static final String NAME = "me";
 
@@ -88,7 +88,6 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- info : display the stats of your character");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- save : save the current state of the game");
-		System.out.println("\t- load : load the last state saved of the game");
 		System.out.println("\t- inventory : display the content of your inventory");
 		System.out.println("\t- look [<object's name>] : display the description of your surroundings or of the indicated object (the object must be in your inventory)");
 		System.out.println("\t- quit : leave the game");
@@ -144,20 +143,12 @@ public class Player extends Actor implements Serializable
 
 	public void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("saveData.ser");
+			FileOutputStream fileOut = new FileOutputStream("saveData.txt");
 			ObjectOutputStream oos = new ObjectOutputStream(fileOut);
 			oos.writeObject(this.ship);
 			oos.close();
+			System.out.println("You successfully saved the game!");
 		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void load() {
-		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("saveData.ser"));
-		} catch (IOException e) {
-			System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
 			e.printStackTrace();
 		}
 	}
