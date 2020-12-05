@@ -15,7 +15,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	private Room previousRoom;
 	private Inventory inventory;
 
-	private int DEFAULT_ATTACKPOWER = 20;
+	private int DEFAULT_ATTACKPOWER = 25;
 	private int DEFAULT_HP = 100;
 	private int DEFAULT_HP_MAX = 100;
 	private int hp;
@@ -128,15 +128,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 			Actor actor = (Actor) a;
 
 			if(!this.isDead())
-			{
 				this.hp -= actor.getAttackPower();
-
-				if(this.isDead())
-					System.out.println(this.getName() + " is now dead...");
-			}
-
-			else
-				System.out.println("You are attacking a dead body... So much for your mental health!");
 		}
 	}
 

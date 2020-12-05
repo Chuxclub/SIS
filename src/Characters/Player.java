@@ -39,6 +39,7 @@ public class Player extends Actor implements Serializable
 		System.out.print("\nCommand :> ");
 		Scanner sc = new Scanner(System.in);
 		String buffer = sc.nextLine();
+		System.out.println();
 		String[] words = buffer.split(" ");
 
 		String verb = words[0];
@@ -104,6 +105,27 @@ public class Player extends Actor implements Serializable
 		System.out.println("You have " + this.getAttackPower() + " attack power");
 	}
 
+	@Override
+	public void isAttacked(Attacker a)
+	{
+		super.isAttacked(a);
+
+		if(this.isDead())
+			System.out.println("You are now dead...");
+
+		else {
+			if (a instanceof Actor) {
+				Actor actor = (Actor) a;
+
+				if(actor.getName().equals(this.getName()))
+					System.out.println("You hit yourself! You've just lost " + actor.getAttackPower() + "hp! So much for your mental health...");
+
+				else
+					System.out.println(actor.getName() + " hit you! You've just lost " + actor.getAttackPower() + "hp!");
+			}
+		}
+	}
+
 	public void look()
 	{
 		this.getRoom().describe();
@@ -112,6 +134,11 @@ public class Player extends Actor implements Serializable
 	public void look(Item item)
 	{
 		item.describe();
+	}
+
+	public void look(Door d)
+	{
+		d.describe();
 	}
 
 	public void take(TakableItem item)

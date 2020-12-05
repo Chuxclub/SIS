@@ -102,7 +102,7 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
-	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched
+	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched, InvalidUse
 	{
 		UsableBy u1 = this.caller.getInventory().getItem(s);
 		UsableBy u2 = this.caller.getRoom().getInventory().getItem(s);
@@ -110,8 +110,12 @@ public class Converter {
 
 		Door d = this.caller.getRoom().getDoor(s);
 		UsableBy ld = null;
+
 		if(d instanceof LockedDoor)
 			ld = (UsableBy) d;
+		else if(d != null)
+			throw new InvalidUse();
+
 
 		//On renvoie le premier objet qui est non null.
 		//L'unicité de l'objet est garantie par l'unicité des labels:

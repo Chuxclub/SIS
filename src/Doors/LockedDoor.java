@@ -18,10 +18,8 @@ public class LockedDoor extends Door implements Unlockable, UsableBy, Serializab
 
 	public void describe()
 	{
-		this.describe();
-
 		if(this.isLocked)
-			System.out.println("This door is locked!");
+			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
 
 		else
 			System.out.println("This door is unlocked!");
@@ -33,7 +31,7 @@ public class LockedDoor extends Door implements Unlockable, UsableBy, Serializab
 			super.open();
 
 		else
-			System.out.println("This door is locked!");
+			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
 	}
 
 	@Override

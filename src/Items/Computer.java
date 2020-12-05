@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Computer extends Item implements Serializable {
 
-    private Inventory files;
+    private final Inventory files;
     private UsableBy u = null;
 
 
@@ -38,7 +38,6 @@ public class Computer extends Item implements Serializable {
             try
             {
                 Item item = this.files.getItem(tag);
-                this.files.removeItem(tag);
                 player.getInventory().addItem(item);
             }
 
@@ -56,10 +55,10 @@ public class Computer extends Item implements Serializable {
         boolean quit = false;
         while(!quit) {
             System.out.println("=== AVAILABLE COMMANDS ===");
-            System.out.println("\t[0] open : show a file");
-            System.out.println("\t[1] print : print a file");
-            System.out.println("\t[2] unlock : open a door");
-            System.out.println("\t[3] quit");
+            System.out.println("\t:> open : show a file");
+            System.out.println("\t:> print : print a file");
+            System.out.println("\t:> unlock : open a door");
+            System.out.println("\t:> quit");
 
             quit = playerInput(player);
         }
@@ -68,19 +67,29 @@ public class Computer extends Item implements Serializable {
     public boolean playerInput(UsableBy player) {
 
         try {
-            Scanner scan = new Scanner(System.in);
-            int userChoice = scan.nextInt();
+            Scanner sc = new Scanner(System.in);
+            //int userChoice = scan.nextInt();
+            String userChoice = sc.nextLine();
 
             switch (userChoice) {
-                case 0:
+                case "open":
                     System.out.println("\nYou chose to open a file.");
                     System.out.println("=== AVAILABLE FILES ===");
                     this.files.showItems();
                     Scanner sc0 = new Scanner(System.in);
                     String choice = sc0.nextLine();
-                    this.files.getItem(choice).isUsed(this.u);
-                    return false;
-                case 1:
+
+                    try {
+                        this.files.getItem(choice).isUsed(this.u);
+                        return false;
+                    }
+                    catch(NullPointerException e)
+                    {
+                        System.out.println("This file doesn't exist");
+                        return false;
+                    }
+
+                case "print":
                     System.out.println("\nYou chose to print a file.");
                     System.out.println("=== AVAILABLE FILES ===");
                     this.files.showItems();
@@ -88,17 +97,20 @@ public class Computer extends Item implements Serializable {
                     String print = sc1.nextLine();
                     printFile(print, player);
                     return false;
-                case 2:
+
+                case "unlock":
                     Pass passC = new Pass("passC", "Computer generated pass.", PassType.C);
                     this.u.isUsedBy(passC);
                     return false;
-                case 3:
+
+                case "quit":
                     return true;
+
                 default:
                     System.out.println("Please enter a valid input");
                     return false;
             }
-            }
+        }
 
         catch(InputMismatchException e)
         {
