@@ -31,6 +31,11 @@ public class NPC extends Actor implements Serializable
 		this.speech = s;
 	}
 
+	public String getSpeech()
+	{
+		return this.speech;
+	}
+
 	public void talk()
 	{
 		if(speech != null)
@@ -68,4 +73,9 @@ public class NPC extends Actor implements Serializable
 			}
 		}
 	}
+
+	public boolean getAlly() { return this.isAlly; };
+	public boolean getHostile() { return this.isAlly; };
+	public void setAlly(boolean b) {this.isAlly = b; };
+	public void setHostile(boolean b) {this.isHostile = b; };
 }
