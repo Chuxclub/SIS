@@ -158,8 +158,12 @@ public class Command {
 
 			case TALK:
 				try {
-					NPC npc = this.converter.convertNPC(this.args.get(0));
-					this.caller.talk(npc);
+					if(this.args.get(0).equals("me"))
+						System.out.println("Talking to yourself won't help you getting through this...");
+					else {
+						NPC npc = this.converter.convertNPC(this.args.get(0));
+						this.caller.talk(npc);
+					}
 				}
 				catch(StringRequestUnmatched e)
 				{

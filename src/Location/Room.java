@@ -1,14 +1,11 @@
 package Location;
 
-import Containers.*;
-
 import java.io.Serializable;
 import java.util.*;
 
 import Containers.Inventory;
 import Doors.*;
 import Characters.*;
-import Items.Item;
 
 public class Room implements Serializable {
 
@@ -72,6 +69,25 @@ public class Room implements Serializable {
 		}
 
 		return res;
+	}
+
+	public Door getDoor(Room r) throws NullPointerException
+	{
+		Door res = null;
+
+		for(Map.Entry<Door, Room> e : this.doors.entrySet())
+		{
+			if(e.getValue().equals(r)) {
+				res = e.getKey();
+				break;
+			}
+		}
+
+		if(res == null)
+			throw new NullPointerException();
+
+		else
+			return res;
 	}
 
 	public Inventory getInventory()
