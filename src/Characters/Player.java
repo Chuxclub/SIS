@@ -139,6 +139,9 @@ public class Player extends Actor implements Serializable
 
 		if(u instanceof Computer)
 			System.out.println("Isn't using a computer on yourself called technophilia?");
+
+		else if(u instanceof Pass)
+			System.out.println("Using a pass on yourself looks dumb... You really aren't helping the human cause here!");
 	}
 
 	public void look()
@@ -160,6 +163,7 @@ public class Player extends Actor implements Serializable
 	{
 		this.getRoom().getInventory().removeItem(item.getTag());
 		this.getInventory().addItem(item);
+		System.out.println("You have taken " + item.getTag());
 	}
 
 	public void talk(NPC npc)

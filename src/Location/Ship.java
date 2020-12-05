@@ -221,14 +221,6 @@ public class Ship implements Serializable {
 		// =================================== Création et Ajout des objets ================================== //
 		// =================================================================================================== //
 
-		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 21:
-
-		HealthStation hs = new HealthStation("HealthStation1", "This is a healthstation. I can heal myself here as much as I want but I can't bring this with me.");
-		room21.getInventory().addItem(hs);
-		Artefact statue = new Artefact("statue", "This is a statue showing an alien like Kilen... " +
-				"Maybe to prove that this wasn't all a dream I should take it with me.");
-		room21.getInventory().addItem(statue);
-
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 18:
 
 		File clueToPassA = new File("wanted_poster", "It's a notice. Somebody posted it in a room hoping " +
@@ -237,6 +229,14 @@ public class Ship implements Serializable {
 				"to go there... Could you please bring it back to me? My wife's already complaining she has to open the door for me everytime" +
 				" I get in or out... Thanks so much!");
 		room18.getInventory().addItem(clueToPassA);
+
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 21:
+
+		HealthStation hs = new HealthStation("HealthStation", "This is a healthstation. I can heal myself here as much as I want but I can't bring this with me.");
+		room21.getInventory().addItem(hs);
+		Artefact statue = new Artefact("statue", "This is a statue showing an alien like Kilen... " +
+				"Maybe to prove that this wasn't all a dream I should take it with me.");
+		room21.getInventory().addItem(statue);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 23:
 
@@ -306,6 +306,4 @@ public class Ship implements Serializable {
 	{
 		return this.rooms.get(id);
 	}
-
-
 }
