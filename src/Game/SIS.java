@@ -21,7 +21,7 @@ public class SIS {
 		System.out.println("\t\t\t ============ SILENT IN SPACE ============ ");
 		System.out.println("\t\t\t ========================================= ");
 
-		System.out.println("\nWelcome to Silen In Space! This game was developed by Florian Legendre, Alexis Louail and" +
+		System.out.println("\nWelcome to Silent In Space! This game was developed by Florian Legendre, Alexis Louail and" +
 				" Vincent Tourenne as a universitary project.\nThis is a demo, hence all the features intended to be in the final " +
 				"version aren't there.\nThis game is meant to be played by textual commands. Meaning that you must input valid commands with your " +
 				"keyboards and the game will\nreact accordingly. For a thorough listing of commands, their syntaxes and effects, type help! Enjoy!\n");

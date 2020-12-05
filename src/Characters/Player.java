@@ -39,6 +39,7 @@ public class Player extends Actor implements Serializable
 		System.out.print("\nCommand :> ");
 		Scanner sc = new Scanner(System.in);
 		String buffer = sc.nextLine();
+		System.out.println();
 		String[] words = buffer.split(" ");
 
 		String verb = words[0];

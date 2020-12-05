@@ -16,7 +16,7 @@ public class Pass extends TakableItem implements UsableOn{
 
 	@Override
 	public void isUsed(UsableBy u) {
-		System.out.println("vous ne pouvez pas utiliser une carte seule !");
+		System.out.println("Your pass must be used on something !");
 	}
 	@Override
 	public void isUsedBy(UsableOn u)
