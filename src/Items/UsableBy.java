@@ -2,5 +2,5 @@ package Items;
 
 public interface UsableBy
 {
-	public abstract void isUsedBy(UsableOn u);
+	void isUsedBy(UsableOn u);
 }

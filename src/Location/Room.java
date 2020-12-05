@@ -9,18 +9,18 @@ import Characters.*;
 
 public class Room implements Serializable {
 
-	private Ship ship;
+	private final Ship ship;
 	private Inventory inventory;
-	private int id;
+	private final int id;
 	private String description;
 
 	private HashMap<Door, Room> doors;
 	private int nbDoors;
-	private static int MIN_NBDOORS = 0;
+	private static final int MIN_NBDOORS = 0;
 
 	private HashMap<String, Actor> actors;
 	private int nbActors;
-	private static int MIN_NBACTORS = 0;
+	private final static int MIN_NBACTORS = 0;
 
 	public Room(Ship ship, int id, String description)
 	{

@@ -68,7 +68,6 @@ public class Computer extends Item implements Serializable {
 
         try {
             Scanner sc = new Scanner(System.in);
-            //int userChoice = scan.nextInt();
             String userChoice = sc.nextLine();
 
             switch (userChoice) {

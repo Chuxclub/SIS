@@ -19,7 +19,7 @@ public class Parser {
 
 	public Verb isValidVerb(String verb) throws UnknownVerb
 	{
-		Verb verbs[] = Verb.values();
+		Verb[] verbs = Verb.values();
 		Verb res = null;
 
 		for(Verb v : verbs)

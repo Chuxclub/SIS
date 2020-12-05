@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class SIS implements Serializable {
 
 	Ship ship;
-	private static final int NB_PLAYERS = 1;
 
 	public SIS()
 	{

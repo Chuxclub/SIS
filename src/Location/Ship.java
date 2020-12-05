@@ -242,7 +242,7 @@ public class Ship implements Serializable {
 
 		Computer comp = new Computer("The lab computer", "computer", door23To22);
 
-		File file1 = new File("doctorLog811.txt", "Evidence of lab experiments on humans.",
+		File file1 = new File("doctorLog.txt", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
 						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +

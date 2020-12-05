@@ -24,27 +24,7 @@ public class NPC extends Actor implements Serializable
 		}
 	}
 
-	public void setSpeech(String s)
-	{
-		this.speech = s;
-	}
-
-	public String getSpeech()
-	{
-		return this.speech;
-	}
-
-	public void talk()
-	{
-		if (speech != null && !(this.isDead()) && !(this.isHostile))
-			System.out.println(this.speech);
-
-		else if(this.isDead())
-			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!");
-
-		else
-			System.out.println("This person has nothing to say to you...");
-	}
+	public boolean getHostile() { return this.isAlly; }
 
 	@Override
 	public void isAttacked(Attacker a)
@@ -75,8 +55,21 @@ public class NPC extends Actor implements Serializable
 		}
 	}
 
-	public boolean getAlly() { return this.isAlly; }
-	public boolean getHostile() { return this.isAlly; }
-	public void setAlly(boolean b) {this.isAlly = b; }
 	public void setHostile(boolean b) {this.isHostile = b; }
+	public void setSpeech(String s)
+	{
+		this.speech = s;
+	}
+
+	public void talk()
+	{
+		if (speech != null && !(this.isDead()) && !(this.isHostile))
+			System.out.println(this.speech);
+
+		else if(this.isDead())
+			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!");
+
+		else
+			System.out.println("This person has nothing to say to you...");
+	}
 }

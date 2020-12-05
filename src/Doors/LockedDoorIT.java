@@ -31,11 +31,11 @@ public class LockedDoorIT
     {
         //On ouvre:
         d1.open();
-        assertEquals(false, d1.isOpen());
+        assertFalse(d1.isOpen());
 
         //On ferme:
         d1.close();
-        assertEquals(false, d1.isOpen());
+        assertFalse(d1.isOpen());
     }
 
     @Test
@@ -44,12 +44,12 @@ public class LockedDoorIT
         //On tente de déverrouiller avec un mauvais pass puis d'ouvrir:
         d1.unlock(wrongPass);
         d1.open();
-        assertEquals(false, d1.isOpen());
+        assertFalse(d1.isOpen());
 
         //On tente de déverrouiller avec le bon pass puis d'ouvrir:
         d1.unlock(pass);
         d1.open();
-        assertEquals(true, d1.isOpen());
+        assertTrue(d1.isOpen());
 
         //Une porte déverrouillée est déverrouillée pour le reste du jeu...
     }
@@ -60,12 +60,12 @@ public class LockedDoorIT
         //On tente de déverrouiller avec un mauvais pass puis d'ouvrir:
         d1.isUsedBy(wrongPass);
         d1.open();
-        assertEquals(false, d1.isOpen());
+        assertFalse(d1.isOpen());
 
         //On tente de déverrouiller avec le bon pass puis d'ouvrir:
         d1.isUsedBy(pass);
         d1.open();
-        assertEquals(true, d1.isOpen());
+        assertTrue(d1.isOpen());
 
         //Une porte déverrouillée est déverrouillée pour le reste du jeu...
     }

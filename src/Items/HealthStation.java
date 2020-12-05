@@ -1,13 +1,9 @@
 package Items;
 
-
-import Characters.Actor;
-
 import java.io.Serializable;
 
 public class HealthStation extends Item implements Serializable
 {
-	private static final int DEFAULT_HEALINGPOINTS = 100;
 	public HealthStation(String tag, String description)
 	{
 		super(tag, description);
@@ -17,11 +13,6 @@ public class HealthStation extends Item implements Serializable
 	public void describe()
 	{
 		System.out.println(this.getDescription());
-	}
-
-	public int getHealingPoints()
-	{
-		return DEFAULT_HEALINGPOINTS;
 	}
 
 	@Override

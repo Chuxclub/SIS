@@ -13,15 +13,14 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 {
 	private Room room;
 	private Room previousRoom;
-	private Inventory inventory;
+	private final Inventory inventory;
 
-	private int DEFAULT_ATTACKPOWER = 25;
-	private int DEFAULT_HP = 100;
-	private int DEFAULT_HP_MAX = 100;
+	private static final int DEFAULT_ATTACKPOWER = 25;
+	private static final int DEFAULT_HP = 100;
+	private static final int DEFAULT_HP_MAX = 100;
 	private int hp;
-	private String name;
+	private final String name;
 	private int attackPower;
-
 
 	public Actor(String name, Room r)
 	{
@@ -48,6 +47,16 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		return this.attackPower;
 	}
 
+	public int getDEFAULT_HP_MAX()
+	{
+		return DEFAULT_HP_MAX;
+	}
+
+	public int getHp()
+	{
+		return this.hp;
+	}
+
 	public Inventory getInventory()
 	{
 		return this.inventory;
@@ -58,14 +67,14 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		return this.name;
 	}
 
-	public Room getRoom()
-	{
-		return this.room;
-	}
-
 	public Room getPreviousRoom()
 	{
 		return this.previousRoom;
+	}
+
+	public Room getRoom()
+	{
+		return this.room;
 	}
 
 	public void give(String tag, Actor a)
@@ -73,6 +82,23 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		Item item = this.inventory.getItem(tag);
 		this.inventory.removeItem(tag);
 		a.inventory.addItem(item);
+	}
+
+	@Override
+	public void isAttacked(Attacker a)
+	{
+		if(a instanceof Actor)
+		{
+			Actor actor = (Actor) a;
+
+			if(!(this.isDead()))
+				this.hp -= actor.getAttackPower();
+		}
+	}
+
+	public boolean isDead()
+	{
+		return this.hp <= 0;
 	}
 
 	public void isHealed(int healing_points)
@@ -95,45 +121,10 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		}
 	}
 
-	public void showInventory()
-	{
-		this.inventory.showItems();
-	}
-	public int getHp()
-	{
-		return this.hp;
-	}
-
-
-	public int getDEFAULT_HP_MAX()
-	{
-		return this.DEFAULT_HP_MAX;
-	}
-
 	@Override
 	public void isUsedBy(UsableOn u)
 	{
 		if(u instanceof HealthStation)
-		{
-			HealthStation hs = (HealthStation) u;
-			this.isHealed(this.DEFAULT_HP_MAX - this.hp);
-		}
-	}
-
-	@Override
-	public void isAttacked(Attacker a)
-	{
-		if(a instanceof Actor)
-		{
-			Actor actor = (Actor) a;
-
-			if(!(this.isDead()))
-				this.hp -= actor.getAttackPower();
-		}
-	}
-
-	public boolean isDead()
-	{
-		return this.hp <= 0;
+			this.isHealed(DEFAULT_HP_MAX - this.hp);
 	}
 }

@@ -31,29 +31,6 @@ public class Command {
 	{
 		switch(this.v)
 		{
-			case GIVE:
-				if(this.args.size() < 1)
-				{
-					System.out.println("Error :> I don't know what to give to what person.");
-				}
-
-				else if(args.size() == 1)
-				{
-					System.out.println("Error :> I don't know what to give to " + this.args.get(0));
-				}
-
-				else
-				{
-					try {
-						Actor a = this.converter.convertNPC(this.args.get(0));
-						this.caller.give(this.args.get(1), a);
-					} catch (StringRequestUnmatched stringRequestUnmatched) {
-						stringRequestUnmatched.printStackTrace();
-					}
-				}
-				break;
-
-
 			case ATTACK:
 				try {
 					Attackable a = this.converter.convertAttackable(this.args.get(0));
@@ -80,6 +57,28 @@ public class Command {
 						this.caller.drop(item);
 					} catch (StringRequestUnmatched e) {
 						System.out.println("Error :> This item isn't in your inventory");
+					}
+				}
+				break;
+
+			case GIVE:
+				if(this.args.size() < 1)
+				{
+					System.out.println("Error :> I don't know what to give to what person.");
+				}
+
+				else if(args.size() == 1)
+				{
+					System.out.println("Error :> I don't know what to give to " + this.args.get(0));
+				}
+
+				else
+				{
+					try {
+						Actor a = this.converter.convertNPC(this.args.get(0));
+						this.caller.give(this.args.get(1), a);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("You can't give anything to this!");
 					}
 				}
 				break;

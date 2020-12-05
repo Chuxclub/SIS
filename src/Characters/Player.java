@@ -10,7 +10,6 @@ import Location.Ship;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 
@@ -51,7 +50,7 @@ public class Player extends Actor implements Serializable
 		String verb = words[0];
 		List<String> args = new ArrayList<>();
 
-		if(words.length > 0)
+		if(words.length > 1)
 		{
 			for (int i = 1; i < words.length; i++) {
 				args.add(words[i]);
@@ -133,6 +132,15 @@ public class Player extends Actor implements Serializable
 		}
 	}
 
+	@Override
+	public void isUsedBy(UsableOn u)
+	{
+		super.isUsedBy(u);
+
+		if(u instanceof Computer)
+			System.out.println("Isn't using a computer on yourself called technophilia?");
+	}
+
 	public void look()
 	{
 		this.getRoom().describe();
@@ -179,14 +187,6 @@ public class Player extends Actor implements Serializable
 		by.isUsedBy(on);
 	}
 
-	@Override
-	public void isUsedBy(UsableOn u)
-	{
-		super.isUsedBy(u);
-
-		if(u instanceof Computer)
-			System.out.println("Isn't using a computer on oneself called technophilia?");
-	}
 
 	public void save() {
 		try {

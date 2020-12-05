@@ -4,11 +4,9 @@ import Characters.*;
 import Items.*;
 import Doors.*;
 
-import java.util.concurrent.locks.Lock;
-
 public class Converter {
 
-	private Player caller;
+	private final Player caller;
 
 	public Converter(Player player)
 	{
