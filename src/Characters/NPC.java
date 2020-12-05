@@ -44,7 +44,27 @@ public class NPC extends Actor
 	{
 		super.isAttacked(a);
 
-		if(this.isAlly && !(this.isDead()))
-			System.out.println("Ouch! Stop it! I only have " + this.getHp() + "hp left you brute!");
+		if(this.isDead())
+			System.out.println(this.getName() + " is dead...");
+
+		else
+		{
+			System.out.println(this.getName() + " gasps with pain, " + this.getName() + " only has " + this.getHp() + "hp left!");
+
+			if (this.isAlly)
+			{
+				this.isAlly = false;
+			}
+
+			else
+			{
+				if (!this.isHostile)
+					this.isHostile = true;
+
+				if(a instanceof Attackable) {
+					this.attack((Attackable) a);
+				}
+			}
+		}
 	}
 }

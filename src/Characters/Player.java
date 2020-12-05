@@ -102,6 +102,22 @@ public class Player extends Actor implements Serializable
 		System.out.println("You have " + this.getAttackPower() + " attack power");
 	}
 
+	@Override
+	public void isAttacked(Attacker a)
+	{
+		super.isAttacked(a);
+
+		if(this.isDead())
+			System.out.println("You are now dead...");
+
+		else {
+			if (a instanceof Actor) {
+				Actor actor = (Actor) a;
+				System.out.println(actor.getName() + " hit you! You've just lost " + actor.getAttackPower() + "hp!");
+			}
+		}
+	}
+
 	public void look()
 	{
 		this.getRoom().describe();
