@@ -77,7 +77,22 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 
 	public void isHealed(int healing_points)
 	{
-		this.hp += healing_points;
+		if(this.isDead())
+			System.out.println("A dead person can't be healed... You really have a few things to learn about life, don't you?");
+
+		else
+		{
+			this.hp += healing_points;
+
+			if(this.hp > this.getDEFAULT_HP_MAX())
+				this.hp = this.getDEFAULT_HP_MAX();
+
+			if(this instanceof Player)
+				System.out.println("You have been healed!");
+
+			else
+				System.out.println(this.getName() + " has been healed!");
+		}
 	}
 
 	public void showInventory()
@@ -89,10 +104,6 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		return this.hp;
 	}
 
-	public void setHP(int newHp)
-	{
-		this.hp=newHp;
-	}
 
 	public int getDEFAULT_HP_MAX()
 	{
@@ -102,21 +113,10 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	@Override
 	public void isUsedBy(UsableOn u)
 	{
-		if(u instanceof HealthStation && !(this.isDead()))
+		if(u instanceof HealthStation)
 		{
 			HealthStation hs = (HealthStation) u;
 			this.isHealed(this.DEFAULT_HP_MAX - this.hp);
-
-			if(this instanceof Player)
-				System.out.println("You have been healed!");
-
-			else
-				System.out.println(this.getName() + "has been healed!");
-		}
-
-		else
-		{
-			System.out.println("It can't be used on this.");
 		}
 	}
 
