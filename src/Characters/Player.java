@@ -158,7 +158,11 @@ public class Player extends Actor implements Serializable
 
 	public void talk(NPC npc)
 	{
-		npc.talk();
+		if(this.isDead())
+			System.out.println("A dead person can't talk... You know that I hope?");
+
+		else
+			npc.talk();
 	}
 
 	public void quit()

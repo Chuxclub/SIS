@@ -33,8 +33,11 @@ public class NPC extends Actor implements Serializable
 
 	public void talk()
 	{
-		if(speech != null)
+		if (speech != null && !(this.isDead()))
 			System.out.println(this.speech);
+
+		else if(this.isDead())
+			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!");
 
 		else
 			System.out.println("This person has nothing to say to you...");

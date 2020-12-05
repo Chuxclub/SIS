@@ -111,10 +111,13 @@ public class Converter {
 		Door d = this.caller.getRoom().getDoor(s);
 		UsableBy ld = null;
 
-		if(d instanceof LockedDoor)
-			ld = (UsableBy) d;
-		else if(d != null)
-			throw new InvalidUse();
+		if(d != null)
+		{
+			if (d instanceof LockedDoor)
+				ld = (UsableBy) d;
+			else
+				throw new InvalidUse();
+		}
 
 
 		//On renvoie le premier objet qui est non null.
