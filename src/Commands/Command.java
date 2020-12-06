@@ -142,6 +142,20 @@ public class Command {
 				this.caller.save();
 				break;
 
+			case SEARCH:
+				if(args.size() == 0)
+					System.out.println("Error :> Who are you trying to serach?");
+
+				else {
+					try {
+						NPC npc = this.converter.convertNPC(this.args.get(0));
+						this.caller.search(npc);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This NPC doesn't exist.");
+					}
+				}
+				break;
+
 			case TAKE:
 				if(args.size() == 0)
 					System.out.println("Error :> Please indicate which item you want to take");

@@ -2,6 +2,7 @@ package Location;
 
 import Characters.NPC;
 import Characters.Player;
+import Characters.Umhon;
 import Doors.Door;
 import Doors.LockedDoor;
 import Items.*;
@@ -199,7 +200,7 @@ public class Ship implements Serializable {
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
 		List<Item> umhonItems = new ArrayList<>();
-		NPC umhon = new NPC("Umhon", false, false, umhonItems, room24);
+		Umhon umhon = new Umhon("Umhon", false, false, umhonItems, room24);
 		umhon.setSpeech("Oh a human! You poor thing, you must be lost... You know, my husband," +
 				" Vik, is the captain's favorite. He even guards his personal computer! But I wonder," +
 				" what they are doing to you poor things?\n...\nYou know what? Bring me some evidence of" +

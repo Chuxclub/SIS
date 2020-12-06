@@ -72,4 +72,6 @@ public class NPC extends Actor implements Serializable
 		else
 			System.out.println("This person has nothing to say to you...");
 	}
+
+	public void setAlly(boolean b) { this.isAlly = b; };
 }

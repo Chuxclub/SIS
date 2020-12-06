@@ -88,13 +88,14 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- attack <attackable> : quick return to the previous room");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- drop <item> : drop the designated item on the floor");
-		System.out.println("\t- give <NPC name> [<object's name>]: give an item of your inventory to an NPC.");
+		System.out.println("\t- give <NPC name> <object's name>: give an item of your inventory to an NPC.");
 		System.out.println("\t- go <door name> : go to a neighbour room using the indicated door");
 		System.out.println("\t- help : display this help menu");
 
 		System.out.println("\t- info : display the stats of your character");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- save : save the current state of the game");
+		System.out.println("\t- search <NPC name> : get access to the inventory of a dead NPC");
 		System.out.println("\t- inventory : display the content of your inventory");
 		System.out.println("\t- look [<object's name>] : display the description of your surroundings or of the indicated object (the object must be in your inventory)");
 		System.out.println("\t- quit : leave the game");
@@ -202,5 +203,28 @@ public class Player extends Actor implements Serializable
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void search(NPC npc) {
+		if(npc.isDead()) {
+			Scanner scan = new Scanner(System.in);
+			String userChoice = "";
+			while(!userChoice.equals("quit")){
+				System.out.println("\n==========================================================================================\n" +
+						"\tYou are searching " + npc.getName() + "'s inventory.\n" +
+						"\tEnter the name of an item in order to take it. Enter 'quit' to go back.\n" +
+						"==========================================================================================\n");
+				npc.getInventory().showItems();
+				System.out.print(":> ");
+				userChoice = scan.nextLine();
+				if(!userChoice.equals("quit")){
+					npc.give(userChoice, this);
+				}
+				else System.out.println("You decided to stop looting " + npc.getName() + "'s dead corpse.");
+			}
+		}
+		else
+			System.out.println(npc.getName() + " looks at you trying to search their pockets, and pushes you backward while " +
+					"wondering if all humans are this rude.");
 	}
 }
