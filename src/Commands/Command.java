@@ -32,15 +32,16 @@ public class Command {
 		switch(this.v)
 		{
 			case ATTACK:
-				try {
-					Attackable a = this.converter.convertAttackable(this.args.get(0));
-					this.caller.attack(a);
-				}
-				catch (StringRequestUnmatched e) {
-					System.out.println("Error :> You can't attack this!");
-				}
-				catch(IndexOutOfBoundsException e) {
+				if(this.args.size() == 0)
 					System.out.println("Error :> Please indicate who you want to attack");
+
+				else {
+					try {
+						Attackable a = this.converter.convertAttackable(this.args.get(0));
+						this.caller.attack(a);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> You can't attack this!");
+					}
 				}
 				break;
 
@@ -83,16 +84,16 @@ public class Command {
 				break;
 
 			case GO:
-				try {
-					Door d = this.converter.convertDoor(this.args.get(0));
-					this.caller.go(d);
-				}
-				catch(StringRequestUnmatched e)
-				{
-					System.out.println("Error :> This isn't a door!");
-				}
-				catch(IndexOutOfBoundsException e) {
+				if(this.args.size() == 0)
 					System.out.println("Error :> Please indicate which door you want to go through");
+
+				else {
+					try {
+						Door d = this.converter.convertDoor(this.args.get(0));
+						this.caller.go(d);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This isn't a door!");
+					}
 				}
 				break;
 
@@ -144,7 +145,7 @@ public class Command {
 
 			case SEARCH:
 				if(args.size() == 0)
-					System.out.println("Error :> Who are you trying to serach?");
+					System.out.println("Error :> Who are you trying to search?");
 
 				else {
 					try {
@@ -171,18 +172,21 @@ public class Command {
 				break;
 
 			case TALK:
-				try {
-					if (this.args.get(0).equals("me"))
-						System.out.println("Talking to yourself won't help you getting through this...");
-					else {
-						NPC npc = this.converter.convertNPC(this.args.get(0));
-						this.caller.talk(npc);
-					}
-				} catch (StringRequestUnmatched e) {
-					System.out.println("Error :> This person isn't in this room (or maybe you enjoy talking to ghosts?)");
-				}
-				catch(IndexOutOfBoundsException e) {
+				if(this.args.size() == 0)
 					System.out.println("Error :> Please indicate who you want to talk to");
+
+				else {
+
+					try {
+						if (this.args.get(0).equals("me"))
+							System.out.println("Talking to yourself won't help you getting through this...");
+						else {
+							NPC npc = this.converter.convertNPC(this.args.get(0));
+							this.caller.talk(npc);
+						}
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This person isn't in this room (or maybe you enjoy talking to ghosts?)");
+					}
 				}
 				break;
 

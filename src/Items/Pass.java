@@ -23,5 +23,10 @@ public class Pass extends TakableItem implements UsableOn, Serializable {
 	@Override
 	public void isUsedBy(UsableOn u)
 	{ }
+
+	@Override
+	public TakableItem getCopy() {
+		return  new Pass(this.getTag(), this.getDescription(), this.getPassType());
+	}
 }
 

@@ -18,4 +18,10 @@ public class File extends TakableItem implements Serializable {
 
     @Override
     public void isUsedBy(UsableOn u) { }
+
+    @Override
+    public TakableItem getCopy()
+    {
+        return  new File(this.getTag(), this.getDescription(), this.content);
+    }
 }

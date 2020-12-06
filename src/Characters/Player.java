@@ -88,7 +88,7 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- attack <attackable> : quick return to the previous room");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- drop <item> : drop the designated item on the floor");
-		System.out.println("\t- give <NPC name> <object's name>: give an item of your inventory to an NPC.");
+		System.out.println("\t- give <NPC name> <object's name>: give a copy of an item of your inventory to an NPC.");
 		System.out.println("\t- go <door name> : go to a neighbour room using the indicated door");
 		System.out.println("\t- help : display this help menu");
 

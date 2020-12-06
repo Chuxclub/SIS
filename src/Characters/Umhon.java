@@ -1,13 +1,14 @@
 package Characters;
 
 import Items.Item;
+import Items.TakableItem;
 import Location.Room;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class Umhon extends NPC implements Serializable {
-    public Umhon(String name, boolean isHostile, boolean isAlly, List<Item> items, Room r) {
+    public Umhon(String name, boolean isHostile, boolean isAlly, List<TakableItem> items, Room r) {
         super(name, isHostile, isAlly, items, r);
     }
 

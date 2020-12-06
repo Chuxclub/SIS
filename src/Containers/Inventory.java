@@ -27,6 +27,17 @@ public class Inventory implements Serializable {
 			return this.items.get(s);
 	}
 
+	public TakableItem getTakableItem(String s)
+	{
+		Item item = this.items.get(s);
+
+		if(item instanceof TakableItem)
+			return (TakableItem) item;
+
+		else
+			return null;
+	}
+
 	public int getSize()
 	{
 		return this.size;

@@ -1,9 +1,6 @@
 package Characters;
 
-import Items.HealthStation;
-import Items.Item;
-import Items.UsableBy;
-import Items.UsableOn;
+import Items.*;
 import Location.*;
 import Containers.*;
 
@@ -77,21 +74,19 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		return this.room;
 	}
 
-	public void receive(Actor a) {
-		if(!this.getName().equals("me"))
-			System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
-		else System.out.println("You took the item.");
-	};
-
+	//On donne toujours une copie de l'objet:
 	public void give(String tag, Actor a)
 	{
-		try {
-			Item item = this.inventory.getItem(tag);
-			this.inventory.removeItem(tag);
-			a.inventory.addItem(item);
+		TakableItem item = this.inventory.getTakableItem(tag);
+
+		if(item != null)
+		{
+			a.inventory.addItem(item.getCopy());
 			a.receive(this);
-		} catch (NullPointerException e) {
-			System.out.println("There is no such Item with the name \"" + tag + "\".");
+		}
+
+		else {
+			System.out.println("Error :> You can't give this item or you misspelled its tag");
 		}
 	}
 
@@ -138,4 +133,10 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		if(u instanceof HealthStation)
 			this.isHealed(DEFAULT_HP_MAX - this.hp);
 	}
+
+	public void receive(Actor a) {
+		if(!this.getName().equals("me"))
+			System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
+		else System.out.println("You took the item.");
+	};
 }

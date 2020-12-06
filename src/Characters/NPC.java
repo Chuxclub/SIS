@@ -1,6 +1,7 @@
 package Characters;
 
 import Items.Item;
+import Items.TakableItem;
 import Location.Room;
 
 import java.io.Serializable;
@@ -12,13 +13,13 @@ public class NPC extends Actor implements Serializable
 	private boolean isAlly;
 	private String speech;
 
-	public NPC(String name, boolean isHostile, boolean isAlly, List<Item> items, Room r)
+	public NPC(String name, boolean isHostile, boolean isAlly, List<TakableItem> items, Room r)
 	{
 		super(name, r);
 		this.isHostile = isHostile;
 		this.isAlly = isAlly;
 
-		for(Item i : items)
+		for(TakableItem i : items)
 		{
 			this.getInventory().addItem(i);
 		}

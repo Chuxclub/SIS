@@ -155,7 +155,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 11:
 		//Unien:
-		List<Item> unienItems = new ArrayList<>();
+		List<TakableItem> unienItems = new ArrayList<>();
 		NPC unien = new NPC("Unien", false, true, unienItems, room11);
 		unien.setSpeech("Blrberbllirbrborllrzzal!");
 		room11.addActor(unien);
@@ -163,21 +163,21 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 14:
 		//Ghainkix:
-		List<Item> ghainkixItems = new ArrayList<>();
+		List<TakableItem> ghainkixItems = new ArrayList<>();
 		NPC ghainkix = new NPC("Ghainkix", false, true, ghainkixItems, room14);
 		ghainkix.setSpeech("Hi! I'm Ghainkix, are you a human? They say that your species is in danger and that we should help you!");
 		room14.addActor(ghainkix);
 		this.npcs.put(ghainkix.getName(), ghainkix);
 
 		//Eeloir:
-		List<Item> eeloirItems = new ArrayList<>();
+		List<TakableItem> eeloirItems = new ArrayList<>();
 		NPC eeloir = new NPC("Eeloir", false, true, eeloirItems, room14);
 		eeloir.setSpeech("Hi! I'm Eeloir, you must be a human, right? I am so glad to meet you!");
 		room14.addActor(eeloir);
 		this.npcs.put(eeloir.getName(), eeloir);
 
 		//Braenzuds:
-		List<Item> braenzudsItems = new ArrayList<>();
+		List<TakableItem> braenzudsItems = new ArrayList<>();
 		NPC braenzuds = new NPC("Braenzuds", false, true, braenzudsItems, room14);
 		braenzuds.setSpeech("Leave me alone... Can't you see I'm playing?");
 		room14.addActor(braenzuds);
@@ -185,7 +185,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 21:
 		//Kilen:
-		List<Item> kilenItems = new ArrayList<>();
+		List<TakableItem> kilenItems = new ArrayList<>();
 		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like a T written on it.", PassType.T);
 		kilenItems.add(p);
 		NPC kilen = new NPC("Kilen", false, true, kilenItems, room21);
@@ -199,7 +199,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
-		List<Item> umhonItems = new ArrayList<>();
+		List<TakableItem> umhonItems = new ArrayList<>();
 		Umhon umhon = new Umhon("Umhon", false, false, umhonItems, room24);
 		umhon.setSpeech("Oh a human! You poor thing, you must be lost... You know, my husband," +
 				" Vik, is the captain's favorite. He even guards his personal computer! But I wonder," +
@@ -212,7 +212,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 29:
 		//Eek'eads:
-		List<Item> eekeadsItems = new ArrayList<>();
+		List<TakableItem> eekeadsItems = new ArrayList<>();
 		NPC eekeads = new NPC("Eekeads", false, true, eekeadsItems, room29);
 		eekeads.setSpeech("GiagiaGia!");
 		room29.addActor(eekeads);
