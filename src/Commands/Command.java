@@ -171,7 +171,7 @@ public class Command {
 
 					try {
 						if (this.args.get(0).equals("me"))
-							System.out.println("Talking to yourself won't help you getting through this...");
+							System.out.println("I have to bring a proof of what's happening here to Umhon before leaving...");
 						else {
 							NPC npc = this.converter.convertNPC(this.args.get(0));
 							this.caller.talk(npc);

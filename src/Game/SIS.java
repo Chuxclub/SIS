@@ -20,21 +20,10 @@ public class SIS implements Serializable {
 		this.endGame();
 	}
 
-	public void printGameIntro()
-	{
-		System.out.println("\t\t\t ========================================= ");
-		System.out.println("\t\t\t ============ SILENT IN SPACE ============ ");
-		System.out.println("\t\t\t ========================================= ");
-
-		System.out.println("\nWelcome to Silent In Space! This game was developed by Florian Legendre, Alexis Louail and" +
-				" Vincent Tourenne as a universitary project.\nThis is a demo, hence all the features intended to be in the final " +
-				"version aren't there.\nThis game is meant to be played by textual commands. Meaning that you must input valid commands with your " +
-				"keyboards and the game will\nreact accordingly. For a thorough listing of commands, their syntaxes and effects, type help! Enjoy!\n");
-	}
-
 	public void initGame()
 	{
 		this.printGameIntro();
+		this.printScenario();
 
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Load an existing game? (Type \"yes\" if you have a save file. Press Enter for a new game.)");
@@ -72,20 +61,15 @@ public class SIS implements Serializable {
 	{
 		return (
 				(this.ship.getRoom(13).hasActor("me")
-				&& this.ship.getPlayer().getInventory().getItem("doctorLog811.txt") != null)
+						&& this.ship.getPlayer().getInventory().getItem("doctorLog811.txt") != null)
 
-				|| this.ship.getPlayer().isDead()
+						|| this.ship.getPlayer().isDead()
 		);
 	}
 
 	public void endGame()
 	{
 		System.out.println("\nThanks for playing Silent In Space!");
-	}
-
-	public void playTurn()
-	{
-		this.ship.getPlayer().call();
 	}
 
 	public void play()
@@ -95,5 +79,35 @@ public class SIS implements Serializable {
 			this.playTurn();
 		}
 	}
+
+	public void playTurn()
+	{
+		this.ship.getPlayer().call();
+	}
+
+	public void printGameIntro()
+	{
+		System.out.println("\t\t\t ========================================= ");
+		System.out.println("\t\t\t ============ SILENT IN SPACE ============ ");
+		System.out.println("\t\t\t ========================================= ");
+
+		System.out.println("\nWELCOME to Silent In Space! This game was developed by Florian Legendre, Alexis Louail and" +
+				" Vincent Tourenne as a universitary project.\nThis is a demo, hence all the features intended to be in the final " +
+				"version aren't there.\nThis game is meant to be played by textual commands. Meaning that you must input valid commands with your " +
+				"keyboards and the game will\nreact accordingly. For a thorough listing of commands, their syntaxes and effects, type help! Enjoy!\n");
+	}
+
+	public void printScenario()
+	{
+		System.out.println("SCENARIO: You wake up in an alien ship. You understand that you've been abducted and you must escape. Yet, before you escape you" +
+				" have\nto bring to UMHON, an important alien person, the proof of the abominable experiments being conducted on humans. This proof is what\nwill" +
+				" end the abductions and possibly the end of humanity. The escape room is ROOM 13. Good luck human!\n");
+	}
+
+
+
+
+
+
 
 }

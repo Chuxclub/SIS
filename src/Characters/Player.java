@@ -99,7 +99,7 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- save : save the current state of the game");
 		System.out.println("\t- search <NPC name> : get access to the inventory of a dead NPC");
 		System.out.println("\t- inventory : display the content of your inventory");
-		System.out.println("\t- look [<object's name>] : display the description of your surroundings or of the indicated object (the object must be in your inventory)");
+		System.out.println("\t- look [<something or somebody>] : display the description of your surroundings or of the indicated parameter");
 		System.out.println("\t- quit : leave the game");
 		System.out.println("\t- take <object's name> : take the indicated object");
 
