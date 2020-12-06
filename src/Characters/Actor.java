@@ -1,13 +1,18 @@
 package Characters;
 
+import Commands.Lookable;
 import Items.*;
 import Location.*;
 import Containers.*;
 
 import java.io.Serializable;
 
-public abstract class Actor implements Attackable, Attacker, UsableBy, Serializable
+public abstract class Actor implements Attackable, Attacker, UsableBy, Serializable, Lookable
 {
+	private final String name;
+	private final String description;
+	private int hp;
+	private int attackPower;
 	private Room room;
 	private Room previousRoom;
 	private final Inventory inventory;
@@ -15,19 +20,22 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	private static final int DEFAULT_ATTACKPOWER = 25;
 	private static final int DEFAULT_HP = 100;
 	private static final int DEFAULT_HP_MAX = 100;
-	private int hp;
-	private final String name;
-	private int attackPower;
 
-	public Actor(String name, Room r)
+	public Actor(String name, String description, Room r)
 	{
+		this.name = name;
+		this.description = description;
+		this.hp = DEFAULT_HP;
+		this.attackPower = DEFAULT_ATTACKPOWER;
 		this.room = r;
 		this.previousRoom = r;
 		this.inventory = new Inventory();
+	}
 
-		this.name = name;
-		this.hp = DEFAULT_HP;
-		this.attackPower = DEFAULT_ATTACKPOWER;
+	@Override
+	public void describe()
+	{
+		System.out.println(this.description);
 	}
 
 	public void changeRoom(Room r)

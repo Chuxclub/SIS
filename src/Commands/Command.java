@@ -117,20 +117,12 @@ public class Command {
 				else
 				{
 					try {
-						Item item = this.converter.convertItem(this.args.get(0));
-						this.caller.look(item);
+						Lookable l = this.converter.convertLookable(this.args.get(0));
+						this.caller.look(l);
 					}
 
 					catch(StringRequestUnmatched e) {
-						try{
-							Door d = this.converter.convertDoor(this.args.get(0));
-							this.caller.look(d);
-						}
-
-						catch(StringRequestUnmatched e2)
-						{
-							System.out.println("Error :> I can't find what you want to look at!");
-						}
+						System.out.println("Error :> You can't look this.");
 					}
 				}
 				break;

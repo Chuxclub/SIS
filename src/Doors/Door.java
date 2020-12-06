@@ -1,8 +1,10 @@
 package Doors;
 
+import Commands.Lookable;
+
 import java.io.Serializable;
 
-public class Door implements Serializable {
+public class Door implements Serializable, Lookable {
 
 	private boolean isOpen;
 	private final String tag;
@@ -18,6 +20,7 @@ public class Door implements Serializable {
 		this.isOpen = false;
 	}
 
+	@Override
 	public void describe()
 	{
 		if(this.isOpen)

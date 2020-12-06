@@ -1,6 +1,7 @@
 package Characters;
 
 import Commands.Command;
+import Commands.Lookable;
 import Commands.UnknownVerb;
 import Doors.Door;
 import Items.*;
@@ -19,10 +20,11 @@ public class Player extends Actor implements Serializable
 	private final Ship ship;
 
 	private static final String NAME = "me";
+	private static final String DESCRIPTION = "Narcissism is an ugly trait of character but it is so common among humans";
 
 	public Player(Room r, Ship s)
 	{
-		super(NAME, r);
+		super(NAME, DESCRIPTION, r);
 		this.ship = s;
 	}
 
@@ -150,14 +152,9 @@ public class Player extends Actor implements Serializable
 		this.getRoom().describe();
 	}
 
-	public void look(Item item)
+	public void look(Lookable l)
 	{
-		item.describe();
-	}
-
-	public void look(Door d)
-	{
-		d.describe();
+		l.describe();
 	}
 
 	public void take(TakableItem item)

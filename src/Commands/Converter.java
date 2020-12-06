@@ -50,6 +50,29 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
+	public Lookable convertLookable(String s) throws StringRequestUnmatched
+	{
+		Lookable item = this.caller.getInventory().getItem(s);
+		Lookable roomItem = this.caller.getRoom().getInventory().getItem(s);
+		Lookable door = this.caller.getRoom().getDoor(s);
+		Lookable actor = this.caller.getRoom().getActor(s);
+
+		if(item != null)
+			return item;
+
+		else if(roomItem != null)
+			return roomItem;
+
+		else if(door != null)
+			return door;
+
+		else if(actor != null)
+			return actor;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
 	public NPC convertNPC(String s) throws StringRequestUnmatched
 	{
 		Actor npc = this.caller.getRoom().getActor(s);

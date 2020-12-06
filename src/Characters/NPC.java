@@ -1,5 +1,6 @@
 package Characters;
 
+import Commands.Lookable;
 import Items.Item;
 import Items.TakableItem;
 import Location.Room;
@@ -7,15 +8,15 @@ import Location.Room;
 import java.io.Serializable;
 import java.util.List;
 
-public class NPC extends Actor implements Serializable
+public class NPC extends Actor implements Serializable, Lookable
 {
 	private boolean isHostile;
 	private boolean isAlly;
 	private String speech;
 
-	public NPC(String name, boolean isHostile, boolean isAlly, List<TakableItem> items, Room r)
+	public NPC(String name, String description, boolean isHostile, boolean isAlly, List<TakableItem> items, Room r)
 	{
-		super(name, r);
+		super(name, description, r);
 		this.isHostile = isHostile;
 		this.isAlly = isAlly;
 

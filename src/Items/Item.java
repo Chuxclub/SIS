@@ -1,8 +1,10 @@
 package Items;
 
+import Commands.Lookable;
+
 import java.io.Serializable;
 
-public abstract class Item implements Usable, UsableBy, UsableOn, Serializable {
+public abstract class Item implements Usable, UsableBy, UsableOn, Serializable, Lookable {
 
 	private final String tag;
 	private final String description;
@@ -13,6 +15,7 @@ public abstract class Item implements Usable, UsableBy, UsableOn, Serializable {
 		this.description = description;
 	}
 
+	@Override
 	public void describe()
 	{
 		System.out.print(this.getDescription());
