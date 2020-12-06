@@ -61,8 +61,7 @@ public class SIS implements Serializable {
 	{
 		return (
 				(this.ship.getRoom(13).hasActor("me")
-						&& this.ship.getPlayer().getInventory().getItem("doctorLog811.txt") != null)
-
+						&& this.ship.getNPC("Umhon").getInventory().getItem("doctorLog.txt") != null)
 						|| this.ship.getPlayer().isDead()
 		);
 	}
