@@ -37,13 +37,11 @@ public class PlayerIT
         r2 = new Room(ship,2,"room-test2");
         r3 = new Room(ship,3,"room-test3");
         i1= new Pass("1","c'est une balle",PassType.A);
-        a1= new Player(r1);
+        a1= new Player(r1, ship);
         r1.addDoor(d1,r2);
         r2.addDoor(d2,r1);
         r1.addDoor(d3,r3);
         r1.getInventory().addItem(i1);
-
-
     }
 
     @After

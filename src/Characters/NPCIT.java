@@ -5,6 +5,7 @@ import Doors.LockedDoor;
 import Items.Item;
 import Items.Pass;
 import Items.PassType;
+import Items.TakableItem;
 import Location.Room;
 import Location.Ship;
 import org.junit.After;
@@ -27,7 +28,7 @@ public class NPCIT {
     private Room r2;
     private Room r3;
     private Pass i1;
-    private List<Item> list;
+    private List<TakableItem> list;
 
 
     @Before
@@ -44,7 +45,7 @@ public class NPCIT {
         r1.addDoor(d3, r3);
         r1.getInventory().addItem(i1);
         list = new ArrayList<>();
-        a1 = new NPC("test", false, false, list, r1);
+        a1 = new NPC("test", "An NPC",false, false, list, r1);
 
     }
 

@@ -43,6 +43,11 @@ public class Inventory implements Serializable {
 		return this.size;
 	}
 
+	public boolean isEmpty()
+	{
+		return this.items.isEmpty();
+	}
+
 	public void showItems()
 	{
 		for (Item i : this.items.values())
