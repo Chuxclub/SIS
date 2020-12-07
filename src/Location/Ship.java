@@ -230,9 +230,10 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
 
-		Artefact journal = new Artefact("journal", "I found a unlock Datapad all the file have the name dairy on it...  " +
-				"It seems that is the dairy of an Alien mother named Eelhoir who talks about his family and how they escape the destruction of their planet and "
-		+" journey to earth was, with all the sacrifice and lost they had...");
+		File journal = new File("journal", "a DataPad, belonging to the family from room 14.",
+				"All the files on this DataPad have the name dairy on it.\n" +
+				"It seems Eelhoir's journal. She talks about her family, and how they escape from the destruction of their planet.\n" +
+						"The last few entries mention their grim journey to Earth, with all the sacrifice and loss they made along the way.");
 		room14.getInventory().addItem(journal);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 18:
@@ -261,9 +262,9 @@ public class Ship implements Serializable {
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
 						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
 						" shame to lose such efficient guinea pigs.");
-		File file2 = new File("Commander's Message", "A message adressed to all Scientists by Commander Gelgax",
-				"Attention to all scientists. A new human has arrived yesterday. \nReady him as soon as possible for the next few lab tests." +
-						"Insubordination will not be tolerated.");
+		File file2 = new File("Commander's Message", "A message addressed to all Scientists by Commander Gelgax",
+				"Attention to all scientists. A new human has arrived yesterday.\n" +
+						"Ready him as soon as possible for the next lab tests. Insubordination will not be tolerated.");
 		File file3 = new File("Cookie Recipe", "A recipe from the lab computer",
 				"Step 1\n" +
 						"\tPreheat oven to 350 degrees F (180 degrees C).\n" +
@@ -274,16 +275,10 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 24:
 
-		Artefact plunger = new Artefact("plunger", "With all this apparent luxury you find an abnormal object... a Plumber between two splendid Statues." +
-				"Maybe some aliens are quite interested in the Human culture...  maybe too much interested..."
-				+"I should take this .... it feels wrong to let it here.");
+		Artefact plunger = new Artefact("plunger", "Within all this apparent luxury you found an abnormal object : a plunger between two splendid Statues." +
+				"Some aliens seem quite interested in the Human culture...  maybe too much interested."
+				+"Maybe you should take this... it just feels wrong to let it here.");
 		room14.getInventory().addItem(plunger);
-		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
-
-		Artefact journal = new Artefact("journal", "I found a unlock Datapad all the file have the name dairy on it...  " +
-				"It seems that is the dairy of an Alien mother named Eelhoir who talks about his family and how they escape the destruction of their planet and "
-				+" journey to earth was, with all the sacrifice and lost they had...");
-		room14.getInventory().addItem(journal);
 
 		comp.addFile(file1);
 		comp.addFile(file2);
