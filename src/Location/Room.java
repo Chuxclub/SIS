@@ -135,7 +135,7 @@ public class Room implements Serializable {
 
 	public void useDoor(Actor a, Door d)
 	{
-		if(d.isOpen())
+		if( d.isOpen())
 			a.changeRoom(this.doors.get(d));
 
 		else
