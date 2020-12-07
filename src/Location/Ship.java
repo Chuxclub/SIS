@@ -274,11 +274,21 @@ public class Ship implements Serializable {
 						"\tPut through cookie press and form cookies onto baking sheets. Bake for 10 - 12 minutes.\n");
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 24:
+		File plunger = new File("plunger", "A... Man-made plunger? What is it even doing here?",
+				"Within all this apparent luxury you found an abnormal object : a plunger between two splendid Statues.\n" +
+				"Some aliens seem quite interested in the Human culture...  maybe too much interested.\n"
+				+"You took this with you... it just feels wrong to let it here.");
+		room24.getInventory().addItem(plunger);
 
-		Artefact plunger = new Artefact("plunger", "Within all this apparent luxury you found an abnormal object : a plunger between two splendid Statues." +
-				"Some aliens seem quite interested in the Human culture...  maybe too much interested."
-				+"Maybe you should take this... it just feels wrong to let it here.");
-		room14.getInventory().addItem(plunger);
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 28:
+
+		File Datapad = new File("Datapad", "A DataPad from the Lab.",
+				"Seems like someone have forgotten to lock their DataPad. I tried to read it, but some files are" +
+						" just way too complicated for me.\n" +
+						"I only managed to get that they're using humans as guinea pigs, in order to develop biological " +
+						"weapons so that they could invaded earth.\n"
+				+"What a crazy plan... It could be a good story for a video-game!");
+		room28.getInventory().addItem(Datapad);
 
 		comp.addFile(file1);
 		comp.addFile(file2);
