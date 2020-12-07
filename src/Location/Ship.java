@@ -228,6 +228,13 @@ public class Ship implements Serializable {
 		// =================================== Création et Ajout des objets ================================== //
 		// =================================================================================================== //
 
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
+
+		Artefact journal = new Artefact("journal", "I found a unlock Datapad all the file have the name dairy on it...  " +
+				"It seems that is the dairy of an Alien mother named Eelhoir who talks about his family and how they escape the destruction of their planet and "
+		+" journey to earth was, with all the sacrifice and lost they had...");
+		room14.getInventory().addItem(journal);
+
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 18:
 
 		File clueToPassA = new File("wanted_poster", "It's a notice. Somebody posted it in a room hoping " +
@@ -264,6 +271,19 @@ public class Ship implements Serializable {
 						"\tCream butter and sugar until fluffy. Stir in vanilla; add flour and mix well.\n" +
 						"Step 3\n" +
 						"\tPut through cookie press and form cookies onto baking sheets. Bake for 10 - 12 minutes.\n");
+
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 24:
+
+		Artefact plunger = new Artefact("plunger", "With all this apparente luxry you find a abnormal object... a Plumber bettwen two splendid Statues. " +
+				"Maybe some aliens are quitte interrested in the Human culture...  maybe too much interresed..."
+				+"I should take this .... it feel wrong to let it here.");
+		room14.getInventory().addItem(plunger);
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
+
+		Artefact journal = new Artefact("journal", "I found a unlock Datapad all the file have the name dairy on it...  " +
+				"It seems that is the dairy of an Alien mother named Eelhoir who talks about his family and how they escape the destruction of their planet and "
+				+" journey to earth was, with all the sacrifice and lost they had...");
+		room14.getInventory().addItem(journal);
 
 		comp.addFile(file1);
 		comp.addFile(file2);
