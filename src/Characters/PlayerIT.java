@@ -16,13 +16,20 @@ import static org.junit.Assert.*;
 public class PlayerIT
 {
     private Ship ship;
+
     private Door d1;
     private Door d2;
     private LockedDoor d3;
+    private Door d4;
+    private LockedDoor d5;
+    private Door d6;
+
     private Room r1;
     private Room r2;
     private Room r3;
-    private Player a1;
+    private Room r4;
+
+    private Player player;
     private Pass i1;
 
 
@@ -30,17 +37,31 @@ public class PlayerIT
     @Before
     public void setUp()
     {
-        d1 = new Door("door1");
-        d2 = new Door("door2");
-        d3= new LockedDoor("door3",PassType.A);
+        //Création des pièces:
         r1 = new Room(ship,1,"room-test1");
         r2 = new Room(ship,2,"room-test2");
         r3 = new Room(ship,3,"room-test3");
-        i1= new Pass("1","c'est une balle",PassType.A);
-        a1= new Player(r1, ship);
+        r4 = new Room(ship,4,"room-test4");
+
+        //Création des portes:
+        d1 = new Door("door1");
+        d2 = new Door("door2");
+        d3 = new LockedDoor("door3",PassType.A);
+        d4 = new LockedDoor("door4",PassType.B);
+        d5 = new LockedDoor("door5",PassType.C);
+        d6 = new Door("door6");
+
+        //Connexion des pièces entre elles:
         r1.addDoor(d1,r2);
-        r2.addDoor(d2,r1);
         r1.addDoor(d3,r3);
+        r1.addDoor(d6, r4);
+        r2.addDoor(d2,r1);
+        r3.addDoor(d4, r1);
+        r4.addDoor(d5, r1);
+        player = new Player(r1, ship);
+
+        //Enrichissement des pièces:
+        i1= new Pass("1","This is a pass",PassType.A);
         r1.getInventory().addItem(i1);
     }
 
@@ -49,52 +70,62 @@ public class PlayerIT
     {
     }
 
-    //test mouvements entre le pieces
+    //On tente de revenir dans la pièce précédente
+    //alors qu'il n'y a pas de pièce précédente:
     @Test
-    public void testMouvementPlayerBackinit()
+    public void testBackInit()
     {
+        player.back();
+        assertEquals(r1, player.getRoom());
+    }
 
-        //on va ensuite revenir dans l'ancienne
-        a1.back();
-        assertEquals(r1, a1.getRoom());
+    //On tente de revenir avec une porte normale:
+    @Test
+    public void testBackNormal()
+    {
+        player.go(d1);
+        assertEquals(r2, player.getRoom());
 
+        player.back();
+        assertEquals(r1, player.getRoom());
+    }
 
+    //On tente de revenir avec une porte verrouillée:
+    @Test
+    public void testBackLocked()
+    {
+        player.go(d6);
+        assertEquals(r4, player.getRoom());
+
+        player.back();
+        assertEquals(r4, player.getRoom());
     }
 
     @Test
-    public void testMouvementPlayerGo()
+    public void testGo()
     {
+        Room r = player.getRoom();
+        //On va dans un autre piece:
+        player.go(d1);
 
+        //Le joueur doit se souvenir de la pièce précédente et avoir changé de pièce:
+        assertEquals(r2, player.getRoom());
+        assertEquals(r1, player.getPreviousRoom());
 
-        //test changement de piéce et verification qu'il connaisse la piece précedente (cas ou tout doit fonctionner):
+        //La pièce précédente ne doit plus contenir le joueur:
+        assertFalse(r.hasActor(player.getName()));
 
-        //on va dans un autre piece
-        a1.go(d1);
-        assertEquals(r2,a1.getRoom());
-        assertNotSame(a1.getRoom(),r1);
-
-
+        //La pièce où est allé le joueur doit contenir le joueur:
+        assertTrue(r2.hasActor(player.getName()));
     }
-    @Test
-    public void testMouvementPlayerBack()
-    {
 
-        //on va ensuite revenir dans l'ancienne
-        a1.go(d1);
-        a1.back();
-        assertEquals(r1, a1.getRoom());
-        assertNotSame(a1.getRoom(),r2);
-
-
-    }
 
     @Test
     public void testMouvementPlayerGoThrougtlockdoor()
     {
-
         //on veux allez dans une piece mais on ne peut pas
-        a1.go(d3);
-        assertEquals(r1,a1.getRoom());
+        player.go(d3);
+        assertEquals(r1,player.getRoom());
 
     }
 
@@ -104,52 +135,52 @@ public class PlayerIT
     @Test
     public void testHpdown()
     {
-        int i=a1.getHp();
-        System.out.print(a1.getHp()+"\n");
-        a1.isAttacked(a1);
-        System.out.print(a1.getHp());
-        assertNotEquals(i,a1.getHp());
+        int i=player.getHp();
+        System.out.print(player.getHp()+"\n");
+        player.isAttacked(player);
+        System.out.print(player.getHp());
+        assertNotEquals(i,player.getHp());
 
     }
     @Test
     public void testHpHeal()
     {
-        a1.isAttacked(a1);//vie perdu 20
-        int i=a1.getHp();
-        a1.isHealed(10);
-        assertNotEquals(i,a1.getHp());
+        player.isAttacked(player);//vie perdu 20
+        int i=player.getHp();
+        player.isHealed(10);
+        assertNotEquals(i,player.getHp());
 
     }
     @Test
     public void testHpOverHeal()
     {
-        a1.isAttacked(a1);//vie perdu 20
-        a1.isHealed(200);
-        assertTrue(a1.getDEFAULT_HP_MAX()>=a1.getHp());
+        player.isAttacked(player);//vie perdu 20
+        player.isHealed(200);
+        assertTrue(player.getDEFAULT_HP_MAX()>=player.getHp());
 
     }
     @Test
     public void testHpDead()
     {
-        System.out.print(a1.getHp());
-        while(a1.getHp()>0)
+        System.out.print(player.getHp());
+        while(player.getHp()>0)
         {
-            a1.isAttacked(a1);//vie perdu 20
+            player.isAttacked(player);//vie perdu 20
         }
-        assertTrue(a1.isDead());
+        assertTrue(player.isDead());
 
     }
 
     @Test
     public void testHpDeadOverHeal()
     {
-        System.out.print(a1.getHp());
-        while(a1.getHp()>0)
+        System.out.print(player.getHp());
+        while(player.getHp()>0)
         {
-            a1.isAttacked(a1);//vie perdu 20
+            player.isAttacked(player);//vie perdu 20
         }
-        a1.isHealed(10);
-        assertTrue(a1.isDead());
+        player.isHealed(10);
+        assertTrue(player.isDead());
 
     }
 
@@ -159,29 +190,29 @@ public class PlayerIT
     @Test
     public void testItempickup()
     {
-        assertFalse(a1.getRoom().getInventory().isEmpty());
-        assertTrue(a1.getInventory().isEmpty());
-        a1.take(i1);
-        assertFalse(a1.getInventory().isEmpty());
-        assertTrue(a1.getRoom().getInventory().isEmpty());
+        assertFalse(player.getRoom().getInventory().isEmpty());
+        assertTrue(player.getInventory().isEmpty());
+        player.take(i1);
+        assertFalse(player.getInventory().isEmpty());
+        assertTrue(player.getRoom().getInventory().isEmpty());
 
     }
 
     @Test
     public void testItemDrop()
     {
-        a1.take(i1);
-        a1.drop(i1);
-        assertFalse(a1.getRoom().getInventory().isEmpty());
-        assertTrue(a1.getInventory().isEmpty());
+        player.take(i1);
+        player.drop(i1);
+        assertFalse(player.getRoom().getInventory().isEmpty());
+        assertTrue(player.getInventory().isEmpty());
     }
     @Test
     public void testItemUse()
     {
-        a1.take(i1);
-        a1.use(i1,d3);
-        a1.go(d3);
-        assertEquals(r3,a1.getRoom());
+        player.take(i1);
+        player.use(i1,d3);
+        player.go(d3);
+        assertEquals(r3,player.getRoom());
     }
 
 }
