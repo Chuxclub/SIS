@@ -256,15 +256,15 @@ public class Ship implements Serializable {
 
 		Computer comp = new Computer("The lab computer", "computer", door23To22);
 
-		File file1 = new File("doctorLog.txt", "Evidence of lab experiments on humans.",
+		File file1 = new File("Doctor Log", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
 						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
 						" shame to lose such efficient guinea pigs.");
-		File file2 = new File("importantMessage.txt", "A message adressed to all Scientists by Commander Gelgax",
+		File file2 = new File("Commander's Message", "A message adressed to all Scientists by Commander Gelgax",
 				"Attention to all scientists. A new human has arrived yesterday. \nReady him as soon as possible for the next few lab tests." +
 						"Insubordination will not be tolerated.");
-		File file3 = new File("recipe.txt", "A recipe from the lab computer",
+		File file3 = new File("Cookie Recipe", "A recipe from the lab computer",
 				"Step 1\n" +
 						"\tPreheat oven to 350 degrees F (180 degrees C).\n" +
 						"Step 2\n" +
@@ -290,6 +290,17 @@ public class Ship implements Serializable {
 		comp.addFile(file3);
 
 		room23.getInventory().addItem(comp);
+
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 19:
+
+		Sign sign = new Sign("sign", "An holographic sign.",
+				"The sign contains a map of this part of the ship. This room seems to serve as some kind of forum for the alien population." +
+						" There is some habitations by both exits of the room.\n" +
+						"Someone seems to have somehow violated the holographic sign, by writing \"I lov u Mary-Jane\" everywhere." +
+						" You can't read anything about the other rooms.\n" +
+						"A big red circle points to your current room, saying \"YOU ARE HERE\". This seems unnecessary.\n");
+
+		room19.getInventory().addItem(sign);
 
 		// =================================================================================================== //
 		// =================================== Ajout des pièces du vaisseau ================================== //
