@@ -232,8 +232,8 @@ public class Ship implements Serializable {
 
 		File journal = new File("journal", "a DataPad, belonging to the family from room 14.",
 				"All the files on this DataPad have the name dairy on it.\n" +
-				"It seems Eelhoir's journal. She talks about her family, and how they escape from the destruction of their planet.\n" +
-						"The last few entries mention their grim journey to Earth, with all the sacrifice and loss they made along the way.");
+				"It looks like Eelhoir's journal. She talks about her family, and how they escaped from the destruction of their planet.\n" +
+						"The last few entries mention their grim journey to Earth, with all the sacrifices and losses they made along the way.");
 		room14.getInventory().addItem(journal);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 18:
@@ -244,6 +244,17 @@ public class Ship implements Serializable {
 				"to go there... Could you please bring it back to me? My wife's already complaining she has to open the door for me everytime" +
 				" I get in or out... Thanks so much!");
 		room18.getInventory().addItem(clueToPassA);
+
+		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 19:
+
+		Sign sign = new Sign("sign", "An holographic sign.",
+				"The sign contains a map of this part of the ship. This room seems to serve as some kind of forum for the alien population." +
+						" There are some habitations beyond both exits of this room.\n" +
+						"Someone seems to have somehow violated the holographic sign, by writing \"I lov u Mary-Jane\" everywhere." +
+						" You can't read anything about the other rooms.\n" +
+						"A big red circle points to your current room, saying \"YOU ARE HERE\". This seems unnecessary.\n");
+
+		room19.getInventory().addItem(sign);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 21:
 
@@ -257,15 +268,15 @@ public class Ship implements Serializable {
 
 		Computer comp = new Computer("The lab computer", "computer", door23To22);
 
-		File file1 = new File("Doctor Log", "Evidence of lab experiments on humans.",
+		File file1 = new File("doctorLog", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
 						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
 						" shame to lose such efficient guinea pigs.");
-		File file2 = new File("Commander's Message", "A message addressed to all Scientists by Commander Gelgax",
+		File file2 = new File("importantMessage", "A message addressed to all Scientists by Commander Gelgax",
 				"Attention to all scientists. A new human has arrived yesterday.\n" +
 						"Ready him as soon as possible for the next lab tests. Insubordination will not be tolerated.");
-		File file3 = new File("Cookie Recipe", "A recipe from the lab computer",
+		File file3 = new File("recipe", "A recipe from the lab computer",
 				"Step 1\n" +
 						"\tPreheat oven to 350 degrees F (180 degrees C).\n" +
 						"Step 2\n" +
@@ -277,16 +288,16 @@ public class Ship implements Serializable {
 		File plunger = new File("plunger", "A... Man-made plunger? What is it even doing here?",
 				"Within all this apparent luxury you found an abnormal object : a plunger between two splendid Statues.\n" +
 				"Some aliens seem quite interested in the Human culture...  maybe too much interested.\n"
-				+"You took this with you... it just feels wrong to let it here.");
+				+"It just feels wrong here.");
 		room24.getInventory().addItem(plunger);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 28:
 
 		File Datapad = new File("Datapad", "A DataPad from the Lab.",
-				"Seems like someone have forgotten to lock their DataPad. I tried to read it, but some files are" +
+				"Seems like someone has forgotten to lock their DataPad. I tried to read it, but some files are" +
 						" just way too complicated for me.\n" +
 						"I only managed to get that they're using humans as guinea pigs, in order to develop biological " +
-						"weapons so that they could invaded earth.\n"
+						"weapons so that they could invade earth.\n"
 				+"What a crazy plan... It could be a good story for a video-game!");
 		room28.getInventory().addItem(Datapad);
 
@@ -296,16 +307,6 @@ public class Ship implements Serializable {
 
 		room23.getInventory().addItem(comp);
 
-		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 19:
-
-		Sign sign = new Sign("sign", "An holographic sign.",
-				"The sign contains a map of this part of the ship. This room seems to serve as some kind of forum for the alien population." +
-						" There is some habitations by both exits of the room.\n" +
-						"Someone seems to have somehow violated the holographic sign, by writing \"I lov u Mary-Jane\" everywhere." +
-						" You can't read anything about the other rooms.\n" +
-						"A big red circle points to your current room, saying \"YOU ARE HERE\". This seems unnecessary.\n");
-
-		room19.getInventory().addItem(sign);
 
 		// =================================================================================================== //
 		// =================================== Ajout des pièces du vaisseau ================================== //

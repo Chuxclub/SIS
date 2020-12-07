@@ -61,14 +61,14 @@ public class SIS implements Serializable {
 	{
 		return (
 				(this.ship.getRoom(13).hasActor("me")
-						&& this.ship.getNPC("Umhon").getInventory().getItem("doctorLog.txt") != null)
+						&& this.ship.getPlayer().getInventory().getItem("CaptainCode") != null)
 						|| this.ship.getPlayer().isDead()
 		);
 	}
 
 	public void endGame()
 	{
-		System.out.println("\nThanks for playing Silent In Space!");
+		System.out.println("\nThanks for playing Silent In Space! And especially our beta-tester Ophélie De Sousa Oliveira :) !");
 	}
 
 	public void play()
@@ -77,6 +77,15 @@ public class SIS implements Serializable {
 		{
 			this.playTurn();
 		}
+
+		if(this.ship.getNPC("Umhon").isDead())
+			System.out.println("You managed to escape but Umhon couldn't stop her husband and his commander. Thus, the aliens" +
+					" managed to create a virus which decimated all the human population. You were the last survivor and witnessed " +
+					"the fruits of your own actions.");
+
+		else
+			System.out.println("You managed to escape and Umhon stopped the experiments on the human beings. Instead, the aliens chose a more " +
+					"diplomatic way to settle down on Earth by reaching out to the European Space Agency of Toulouse-Matabiau.");
 	}
 
 	public void playTurn()
@@ -102,11 +111,4 @@ public class SIS implements Serializable {
 				" have\nto bring to UMHON, an important alien person, the proof of the abominable experiments being conducted on humans. This proof is what\nwill" +
 				" end the abductions and possibly the end of humanity. The escape room is ROOM 13. Good luck human!\n");
 	}
-
-
-
-
-
-
-
 }
