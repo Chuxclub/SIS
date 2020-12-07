@@ -277,13 +277,13 @@ public class Ship implements Serializable {
 		Artefact plunger = new Artefact("plunger", "With all this apparent luxury you find an abnormal object... a Plumber between two splendid Statues." +
 				"Maybe some aliens are quite interested in the Human culture...  maybe too much interested..."
 				+"I should take this .... it feels wrong to let it here.");
-		room14.getInventory().addItem(plunger);
+		room24.getInventory().addItem(plunger);
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
 
-		Artefact journal = new Artefact("journal", "I found a unlock Datapad all the file have the name dairy on it...  " +
-				"It seems that is the dairy of an Alien mother named Eelhoir who talks about his family and how they escape the destruction of their planet and "
-				+" journey to earth was, with all the sacrifice and lost they had...");
-		room14.getInventory().addItem(journal);
+		Artefact Datapad = new Artefact("Datapad", "I found a unlock Datapad some files are just too complicated for me but I finally managed to " +
+				" understand their using me as a guinea pig for some reacher biological weapons to invaded earth ... "
+				+"What a crazy plan... It could be a good history for a game!");
+		room28.getInventory().addItem(Datapad);
 
 		comp.addFile(file1);
 		comp.addFile(file2);
