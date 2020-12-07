@@ -28,6 +28,11 @@ public class NPC extends Actor implements Serializable, Lookable
 
 	public boolean getHostile() { return this.isAlly; }
 
+	public boolean isAlly()
+	{
+		return this.isAlly;
+	}
+
 	@Override
 	public void isAttacked(Attacker a)
 	{
@@ -55,6 +60,11 @@ public class NPC extends Actor implements Serializable, Lookable
 				}
 			}
 		}
+	}
+
+	public boolean isHostile()
+	{
+		return this.isHostile;
 	}
 
 	public void setHostile(boolean b) {this.isHostile = b; }

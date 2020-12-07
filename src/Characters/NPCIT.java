@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 public class NPCIT {
+    private Player player;
     private NPC a1;
     private Ship ship;
     private Door d1;
@@ -45,84 +46,114 @@ public class NPCIT {
         r1.addDoor(d3, r3);
         r1.getInventory().addItem(i1);
         list = new ArrayList<>();
-        a1 = new NPC("test", "An NPC",false, false, list, r1);
-
+        a1 = new NPC("a1", "An NPC",false, true, list, r1);
+        player = new Player(r1, ship);
     }
 
     @After
     public void tearDown() {
     }
 
+    //Test changement de piéce et vérification que le joueur connaît la piece précédente
+    // (cas où tout doit fonctionner):
     @Test
     public void testChangeRoom() {
 
-
-        //test changement de piéce et verification qu'il connaisse la piece précedente (cas ou tout doit fonctionner):
-
-        //on va dans un autre piece
+        //On va dans la pièce 2:
         a1.changeRoom(r2);
-        assertFalse(r1.hasActor("test"));
+
+        //La pièce 1 ne doit plus contenir le joueur:
+        assertFalse(r1.hasActor(a1.getName()));
+
+        //La pièce 2 doit contenir le joueur:
+        assertTrue(r2.hasActor(a1.getName()));
+
+        //L'acteur doit savoir qu'il est dans la pièce 2:
         assertEquals(r2, a1.getRoom());
-        assertNotSame(a1.getRoom(), r1);
 
+        //L'acteur doit savoir que sa pièce précédente est la pièce 1:
+        assertEquals(r1, a1.getPreviousRoom());
     }
 
-
-
-
-    //test soin et mort plus soin apres la mort  verification hp max et pas au dela
-
+    //Test soin et mort plus soin après la mort vérification hp max et pas au-delà:
     @Test
-    public void testHpdown()
+    public void testCombat()
     {
-        int i=a1.getHp();
-        System.out.print(a1.getHp()+"\n");
-        a1.isAttacked(a1);
-        System.out.print(a1.getHp());
-        assertNotEquals(i,a1.getHp());
+        int a1Hp = a1.getHp();
+        int playerHp = player.getHp();
 
+        //Le joueur attaque un NPC allié... Les vies du NPC doivent descendre mais pas ceux
+        //du joueur car le NPC ne réplique pas encore. Le NPC doit être devenu neutre:
+        player.attack(a1);
+        assertNotEquals(a1Hp, a1.getHp());
+        assertFalse(a1.isAlly());
+        assertEquals(playerHp, player.getHp());
+
+        //Le NPC doit avoir perdu des vies. Il est devenu hostile. Le joueur doit avoir perdu
+        //des vies car le NPC réplique:
+        a1Hp = a1.getHp();
+        playerHp = player.getHp();
+
+        player.attack(a1);
+        assertNotEquals(a1Hp, a1.getHp());
+        assertTrue(a1.isHostile());
+        assertNotEquals(playerHp, player.getHp());
+
+        //Quand le NPC est mort ce-dernier ne perd plus de vies, le joueur non plus:
+        while(!(a1.isDead()))
+            player.attack(a1);
+
+        a1Hp = a1.getHp();
+        playerHp = player.getHp();
+
+        player.attack(a1);
+        assertEquals(a1Hp, a1.getHp());
+        assertEquals(playerHp, player.getHp());
     }
+
     @Test
     public void testHpHeal()
     {
-        a1.isAttacked(a1);//vie perdu 20
-        int i=a1.getHp();
-        a1.isHealed(10);
-        assertNotEquals(i,a1.getHp());
+        //On fait perdre des hp au NPC:
+        a1.isAttacked(player);
+        int i = a1.getHp();
 
+        //Si on soigne de 10 alors la vie du NPC a augmenté de 10:
+        a1.isHealed(10);
+        assertEquals(i + 10,a1.getHp());
     }
+
     @Test
     public void testHpOverHeal()
     {
-        a1.isAttacked(a1);//vie perdu 20
-        a1.isHealed(200);
-        assertTrue(a1.getDEFAULT_HP_MAX()>=a1.getHp());
+        //On fait perdre des hp au NPC:
+        a1.isAttacked(player);
+
+        //Si on soigne au-delà de la vie maximum possible, le nombre d'hp
+        //du npc n'a pas augmenté au-delà de sa vie maximum possible:
+        a1.isHealed(a1.getDEFAULT_HP_MAX() + 10);
+        assertEquals(a1.getDEFAULT_HP_MAX(), a1.getHp());
 
     }
+
     @Test
     public void testHpDead()
     {
-        System.out.print(a1.getHp());
-        while(a1.getHp()>0)
-        {
-            a1.isAttacked(a1);//vie perdu 20
-        }
-        assertTrue(a1.isDead());
+        while(!(a1.isDead()))
+            a1.isAttacked(a1);
 
+        assertTrue(a1.isDead());
+        assertEquals(0, a1.getHp());
     }
 
     @Test
     public void testHpDeadOverHeal()
     {
-        System.out.print(a1.getHp());
-        while(a1.getHp()>0)
-        {
-            a1.isAttacked(a1);//vie perdu 20
-        }
+        while(!(a1.isDead()))
+            a1.isAttacked(a1);
+
         a1.isHealed(10);
         assertTrue(a1.isDead());
-
+        assertEquals(0, a1.getHp());
     }
-
-
 }
