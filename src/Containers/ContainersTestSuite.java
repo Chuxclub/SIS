@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({Containers.InvertoryIT.class})
+@Suite.SuiteClasses({Containers.InventoryIT.class})
 
 public class ContainersTestSuite {
 }

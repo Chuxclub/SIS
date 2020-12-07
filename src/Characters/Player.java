@@ -10,6 +10,7 @@ import Location.Ship;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,11 +54,7 @@ public class Player extends Actor implements Serializable
 		List<String> args = new ArrayList<>();
 
 		if(words.length > 1)
-		{
-			for (int i = 1; i < words.length; i++) {
-				args.add(words[i]);
-			}
-		}
+			args.addAll(Arrays.asList(words).subList(1, words.length));
 
 		try {
 			Command cmd = new Command(this, verb, args);
@@ -74,6 +71,7 @@ public class Player extends Actor implements Serializable
 	{
 		this.getInventory().removeItem(item.getTag());
 		this.getRoom().getInventory().addItem(item);
+		System.out.println("You have dropped " + item.getTag());
 	}
 
 	public void go(Door door)
@@ -85,24 +83,24 @@ public class Player extends Actor implements Serializable
 	public void help()
 	{
 		System.out.println("You can interact with the game using textual commands. " +
-				"\nHere's an exhaustive list of these commands, their syntaxes and of their effects (optional arguments are into brackets): ");
+				"\nHere's an exhaustive list of these commands, their syntaxes and of their effects\n" +
+				"(optional arguments are into brackets): \n");
 
 		System.out.println("\t- attack <attackable> : quick return to the previous room");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- drop <item> : drop the designated item on the floor");
 		System.out.println("\t- give <NPC name> <object's name>: give a copy of an item of your inventory to an NPC.");
-		System.out.println("\t- go <door name> : go to a neighbour room using the indicated door");
-		System.out.println("\t- help : display this help menu");
+		System.out.println("\t- go <door name> : go to a neighbour room using the indicated door\n");
 
+		System.out.println("\t- help : display this help menu");
 		System.out.println("\t- info : display the stats of your character");
-		System.out.println("\t- back : quick return to the previous room");
-		System.out.println("\t- save : save the current state of the game");
-		System.out.println("\t- search <NPC name> : get access to the inventory of a dead NPC");
 		System.out.println("\t- inventory : display the content of your inventory");
 		System.out.println("\t- look [<something or somebody>] : display the description of your surroundings or of the indicated parameter");
-		System.out.println("\t- quit : leave the game");
-		System.out.println("\t- take <object's name> : take the indicated object");
+		System.out.println("\t- quit : leave the game\n");
 
+		System.out.println("\t- save : save the current state of the game");
+		System.out.println("\t- search <NPC name> : get access to the inventory of a dead NPC");
+		System.out.println("\t- take <object's name> : take the indicated object");
 		System.out.println("\t- talk <npc> : talk to the designated npc");
 		System.out.println("\t- use <object's name> [<object's name>] : use an object possibly on another indicated object");
 
@@ -227,5 +225,5 @@ public class Player extends Actor implements Serializable
 	@Override
 	public void receive(Actor a, String tag) {
 		System.out.println("You took the " + tag + ".");
-	};
+	}
 }

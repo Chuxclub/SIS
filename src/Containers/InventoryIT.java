@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class InvertoryIT {
+public class InventoryIT {
     private Inventory inv;
     private Pass i1;
 
@@ -47,6 +47,4 @@ public class InvertoryIT {
         assertEquals(0,inv.getSize());
         assertTrue(inv.isEmpty());
     }
-
-
 }

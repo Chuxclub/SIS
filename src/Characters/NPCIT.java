@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class NPCIT {
     private Player player;
     private NPC a1;
-    private Ship ship;
+    private Ship ship = null;
     private Door d1;
     private Door d2;
     private LockedDoor d3;
@@ -54,7 +54,7 @@ public class NPCIT {
     public void tearDown() {
     }
 
-    //Test changement de piéce et vérification que le joueur connaît la piece précédente
+    //Test changement de piéce et vérification que le npc connaît la piece précédente
     // (cas où tout doit fonctionner):
     @Test
     public void testChangeRoom() {
@@ -75,7 +75,10 @@ public class NPCIT {
         assertEquals(r1, a1.getPreviousRoom());
     }
 
-    //Test soin et mort plus soin après la mort vérification hp max et pas au-delà:
+    /* ======================================================== */
+    /* ======================== COMBAT ======================== */
+    /* ======================================================== */
+
     @Test
     public void testCombat()
     {
@@ -111,8 +114,12 @@ public class NPCIT {
         assertEquals(playerHp, player.getHp());
     }
 
+    /* ======================================================== */
+    /* ========================= HEAL ========================= */
+    /* ======================================================== */
+
     @Test
-    public void testHpHeal()
+    public void testHeal()
     {
         //On fait perdre des hp au NPC:
         a1.isAttacked(player);
@@ -124,7 +131,7 @@ public class NPCIT {
     }
 
     @Test
-    public void testHpOverHeal()
+    public void testExcessHeal()
     {
         //On fait perdre des hp au NPC:
         a1.isAttacked(player);
@@ -137,22 +144,11 @@ public class NPCIT {
     }
 
     @Test
-    public void testHpDead()
+    public void testHealDead()
     {
         while(!(a1.isDead()))
             a1.isAttacked(a1);
 
-        assertTrue(a1.isDead());
-        assertEquals(0, a1.getHp());
-    }
-
-    @Test
-    public void testHpDeadOverHeal()
-    {
-        while(!(a1.isDead()))
-            a1.isAttacked(a1);
-
-        a1.isHealed(10);
         assertTrue(a1.isDead());
         assertEquals(0, a1.getHp());
     }
