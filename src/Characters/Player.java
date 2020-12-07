@@ -189,7 +189,6 @@ public class Player extends Actor implements Serializable
 		by.isUsedBy(on);
 	}
 
-
 	public void save() {
 		try {
 			FileOutputStream fileOut = new FileOutputStream("saveData.txt");
@@ -224,4 +223,9 @@ public class Player extends Actor implements Serializable
 			System.out.println(npc.getName() + " looks at you trying to search their pockets, and pushes you backward while " +
 					"wondering if all humans are this rude.");
 	}
+
+	@Override
+	public void receive(Actor a, String tag) {
+		System.out.println("You took the " + tag + ".");
+	};
 }

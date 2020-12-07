@@ -67,6 +67,11 @@ public class NPC extends Actor implements Serializable, Lookable
 		return this.isHostile;
 	}
 
+	@Override
+	public void receive(Actor a, String tag) {
+			System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
+	}
+
 	public void setHostile(boolean b) {this.isHostile = b; }
 	public void setSpeech(String s)
 	{
@@ -76,13 +81,13 @@ public class NPC extends Actor implements Serializable, Lookable
 	public void talk()
 	{
 		if (speech != null && !(this.isDead()) && !(this.isHostile))
-			System.out.println(this.speech);
+			System.out.println(this.getName() + " - " + this.speech + "\n");
 
 		else if(this.isDead())
-			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!");
+			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!"+ "\n");
 
 		else
-			System.out.println("This person has nothing to say to you...");
+			System.out.println("This person has nothing to say to you..."+ "\n");
 	}
 
 	public void setAlly(boolean b) { this.isAlly = b; };

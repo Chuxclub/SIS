@@ -189,11 +189,11 @@ public class Ship implements Serializable {
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 21:
 		//Kilen:
 		List<TakableItem> kilenItems = new ArrayList<>();
-		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like a T written on it.", PassType.T);
+		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like\n\ta T written on it.", PassType.T);
 		kilenItems.add(p);
 		NPC kilen = new NPC("Kilen", "With his white clothes, Kilen looks like a scientists. As of the rest, it's beyond what any human has ever imagined" +
 				" about what aliens look like.", false, true, kilenItems, room21);
-		kilen.setSpeech("Hi human! I'm Kilen. You are in danger, here's a pass to escape. Good luck! And please, I'm begging you... Don't kill my friends!");
+		kilen.setSpeech("Hi human! I'm Kilen. You are in danger, here's a pass to escape. Good luck!\nAnd please, I'm begging you... Don't kill my friends!");
 		room21.addActor(kilen);
 		this.npcs.put(kilen.getName(), kilen);
 
@@ -258,10 +258,11 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 21:
 
-		HealthStation hs = new HealthStation("HealthStation", "This is a healthstation. I can heal myself here as much as I want but I can't bring this with me.");
+		HealthStation hs = new HealthStation("HealthStation", "This is a healthstation. I can heal myself " +
+				"here as much as I\n\twant but I can't bring this with me.");
 		room21.getInventory().addItem(hs);
 		Artefact statue = new Artefact("statue", "This is a statue showing an alien like Kilen... " +
-				"Maybe to prove that this wasn't all a dream I should take it with me.");
+				"Maybe to prove that\n\tthis wasn't all a dream I should take it with me.");
 		room21.getInventory().addItem(statue);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 23:

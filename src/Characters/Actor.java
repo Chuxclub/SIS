@@ -90,7 +90,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		if(item != null)
 		{
 			a.inventory.addItem(item.getCopy());
-			a.receive(this);
+			a.receive(this, item.getTag());
 		}
 
 		else {
@@ -142,9 +142,5 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 			this.isHealed(DEFAULT_HP_MAX - this.hp);
 	}
 
-	public void receive(Actor a) {
-		if(!this.getName().equals("me"))
-			System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
-		else System.out.println("You took the item.");
-	};
+	public abstract void receive(Actor a, String tag);
 }
