@@ -1,7 +1,9 @@
 package Items;
 
 
-public class Pass extends TakableItem implements UsableOn{
+import java.io.Serializable;
+
+public class Pass extends TakableItem implements UsableOn, Serializable {
 
 	PassType passType;
 
@@ -10,16 +12,14 @@ public class Pass extends TakableItem implements UsableOn{
 		this.passType = p;
 	}
 
-	public PassType getPassType() {
+    public PassType getPassType() {
 		return this.passType;
 	}
 
-
 	@Override
-	public void isUsed() {
-		System.out.println("vous ne pouvez pas utiliser une carte seule !");
+	public void isUsed(UsableBy u) {
+		System.out.println("Your pass must be used on something !");
 	}
-
 	@Override
 	public void isUsedBy(UsableOn u)
 	{ }

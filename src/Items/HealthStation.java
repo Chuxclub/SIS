@@ -1,11 +1,9 @@
 package Items;
 
+import java.io.Serializable;
 
-import Characters.Actor;
-
-public class HealthStation extends Item
+public class HealthStation extends Item implements Serializable
 {
-	private static final int DEFAULT_HEALINGPOINTS = 100;
 	public HealthStation(String tag, String description)
 	{
 		super(tag, description);
@@ -17,15 +15,10 @@ public class HealthStation extends Item
 		System.out.println(this.getDescription());
 	}
 
-	public int getHealingPoints()
-	{
-		return DEFAULT_HEALINGPOINTS;
-	}
-
 	@Override
-	public void isUsed()
+	public void isUsed(UsableBy u)
 	{
-		System.out.println("I need you to tell me who needs to be healed.");
+		System.out.println("I need you to tell me who needs to be healed. (For example: use HealthStation me if you want to use it on yourself");
 	}
 
 	@Override

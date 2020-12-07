@@ -15,10 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="drawing_demoV5.svg"
-   inkscape:export-filename="/home/crex/MEGA/Bureau/Etudes/UE2_POO/TP/Projet/SIS/Conception/demoV4.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96">
+   sodipodi:docname="drawing_demoV5.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,11 +23,11 @@
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.64"
-     inkscape:cx="698.43844"
-     inkscape:cy="569.26664"
+     inkscape:cx="739.36951"
+     inkscape:cy="553.47112"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -979,7 +976,7 @@
        width="12.201025"
        height="3.1295972"
        x="249.36414"
-       y="164.44284"
+       y="165.88979"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -987,8 +984,8 @@
        id="rect2815-6"
        width="12.201025"
        height="3.1295972"
-       x="250.15553"
-       y="177.99094"
+       x="249.94882"
+       y="180.67812"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -996,15 +993,15 @@
        id="rect2815-6-2"
        width="12.201025"
        height="3.1295972"
-       x="250.56892"
-       y="191.95244"
+       x="250.36221"
+       y="198.36032"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot2847"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,21.497395,37.207031)"
+       transform="matrix(0.26458333,0,0,0.26458333,21.497395,38.653971)"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><flowRegion
          id="flowRegion2849"><rect
@@ -1014,7 +1011,7 @@
            x="930"
            y="472.51968" /></flowRegion><flowPara
          id="flowPara2853">Porte normale</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,21.671032,51.611657)"
+       transform="matrix(0.26458333,0,0,0.26458333,21.464326,54.298831)"
        xml:space="preserve"
        id="flowRoot2847-6"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -1027,7 +1024,7 @@
            x="930"
            y="472.51968" /></flowRegion><flowPara
          id="flowPara2853-6">Porte verrouillée</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,21.731568,66.035877)"
+       transform="matrix(0.26458333,0,0,0.26458333,21.524862,72.443754)"
        xml:space="preserve"
        id="flowRoot2847-6-9"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -1116,29 +1113,7 @@
            height="20.848701"
            x="925"
            y="608.45715" /></flowRegion><flowPara
-         id="flowPara2986">Conteneur (ordinateur ou coffre)</flowPara></flowRoot>    <rect
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2815-6-2-2"
-       width="12.201025"
-       height="3.1295972"
-       x="250.62799"
-       y="204.0713"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,21.410584,78.119304)"
-       xml:space="preserve"
-       id="flowRoot2847-6-9-7"
-       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96"><flowRegion
-         id="flowRegion2849-7-8-6"><rect
-           id="rect2851-5-7-1"
-           width="134.28577"
-           height="21.428568"
-           x="930"
-           y="472.51968" /></flowRegion><flowPara
-         id="flowPara2853-6-2-3">Porte autolock</flowPara></flowRoot>    <path
+         id="flowPara2986">Conteneur (ordinateur ou coffre)</flowPara></flowRoot>    <path
        sodipodi:type="spiral"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332"
        id="path3075"
@@ -1250,21 +1225,6 @@
     <path
        sodipodi:type="spiral"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332"
-       id="path3075-2-8"
-       sodipodi:cx="240.51866"
-       sodipodi:cy="278.89651"
-       sodipodi:expansion="1"
-       sodipodi:revolution="3"
-       sodipodi:radius="6.0193615"
-       sodipodi:argument="-18.571257"
-       sodipodi:t0="0"
-       d="m 240.51866,278.89651 c 0.29019,0.0829 0.0314,0.43208 -0.1378,0.48232 -0.45855,0.13614 -0.81464,-0.35025 -0.82683,-0.75792 -0.0218,-0.72923 0.70202,-1.21819 1.37804,-1.17134 0.9921,0.0688 1.62976,1.05713 1.51585,1.99816 -0.15184,1.25424 -1.41325,2.04452 -2.61828,1.86035 -1.5164,-0.23175 -2.46087,-1.76979 -2.20486,-3.23839 0.31007,-1.77866 2.12658,-2.87815 3.85851,-2.54937 2.04101,0.38746 3.296,2.48351 2.89388,4.47862 -0.46427,2.30344 -2.84054,3.71424 -5.09874,3.2384 -2.56591,-0.54069 -4.13274,-3.19764 -3.5829,-5.71886 0.61684,-2.82843 3.55478,-4.55144 6.33897,-3.92741 3.09098,0.69279 4.97029,3.91196 4.27192,6.95909"
-       transform="matrix(0.44235312,0,0,0.51123842,-87.185113,41.811691)"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <path
-       sodipodi:type="spiral"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332"
        id="path3075-2-3"
        sodipodi:cx="240.51866"
        sodipodi:cy="278.89651"
@@ -1310,17 +1270,7 @@
            height="25"
            x="867.1875"
            y="905.33221" /></flowRegion><flowPara
-         id="flowPara3193-4-2-0-9">e</flowPara></flowRoot>    <rect
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2815-6-2-2-1"
-       width="12.201025"
-       height="3.1295972"
-       x="209.04404"
-       y="-129.30894"
-       transform="rotate(90)"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <path
+         id="flowPara3193-4-2-0-9">e</flowPara></flowRoot>    <path
        sodipodi:type="star"
        style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2978-9"
@@ -1463,8 +1413,8 @@
        id="rect2815-4-3-5-1-7-4-3-1-4-6-9"
        width="12.201025"
        height="3.1295972"
-       x="98.492592"
-       y="148.26073"
+       x="99.112709"
+       y="148.46744"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -1553,7 +1503,7 @@
        id="rect2815-4-3-5-1-7-4-3-1-4-6-9-4-2-2-6-4-1-2-8-8-9-2-8-8-8-6-8-3"
        width="12.201025"
        height="3.1295972"
-       x="158.60785"
+       x="160.05479"
        y="-244.23732"
        transform="rotate(90)"
        inkscape:export-xdpi="96"
@@ -1673,8 +1623,8 @@
        id="rect2815-6-26"
        width="12.201025"
        height="3.1295972"
-       x="174.31746"
-       y="-244.2373"
+       x="177.00464"
+       y="-244.03059"
        transform="rotate(90)"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
@@ -2064,15 +2014,6 @@
        r="2.0788691"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
-    <rect
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2815-6-2-2-6"
-       width="12.201025"
-       height="3.1295972"
-       x="169.39265"
-       y="108.57323"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
     <path
        sodipodi:type="spiral"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332"
@@ -2093,18 +2034,8 @@
        id="rect2815-6-2-7"
        width="12.201025"
        height="3.1295972"
-       x="187.54663"
-       y="-244.2373"
-       transform="rotate(90)"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <rect
-       style="fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2815-6-2-2-4"
-       width="12.201025"
-       height="3.1295972"
-       x="201.60262"
-       y="-244.23732"
+       x="193.95451"
+       y="-244.03059"
        transform="rotate(90)"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
@@ -2126,7 +2057,7 @@
        xml:space="preserve"
        id="flowRoot5101-0"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,13.884423,-70.807005)"
+       transform="matrix(0.26458333,0,0,0.26458333,13.884423,-69.360065)"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><flowRegion
          id="flowRegion5103-6"><rect
@@ -2300,5 +2231,50 @@
            y="8.4571819"
            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'" /></flowRegion><flowPara
          id="flowPara5365"
-         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'">Légende de la carte du jeu</flowPara></flowRoot>  </g>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.66666794px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'">Légende de la carte du jeu</flowPara></flowRoot>    <rect
+       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2815-6-26-6"
+       width="12.201025"
+       height="3.1295972"
+       x="209.04401"
+       y="-129.51564"
+       transform="rotate(90)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1587956;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2815-7"
+       width="12.201025"
+       height="3.1295972"
+       x="169.39264"
+       y="108.98663"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4454-4-5"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,-169.90539,-37.578024)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><flowRegion
+         id="flowRegion4456-8-3"><rect
+           id="rect4458-7-5"
+           width="32.040775"
+           height="30.935923"
+           x="938.02136"
+           y="946.84784" /></flowRegion><flowPara
+         id="flowPara4460-0-6">T</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4454-4-5-2"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,-121.60653,-38.198141)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><flowRegion
+         id="flowRegion4456-8-3-9"><rect
+           id="rect4458-7-5-1"
+           width="32.040775"
+           height="30.935923"
+           x="938.02136"
+           y="946.84784" /></flowRegion><flowPara
+         id="flowPara4460-0-6-2">C</flowPara></flowRoot>  </g>
 </svg>

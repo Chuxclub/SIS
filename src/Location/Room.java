@@ -1,27 +1,26 @@
 package Location;
 
-import Containers.*;
+import java.io.Serializable;
 import java.util.*;
 
 import Containers.Inventory;
 import Doors.*;
 import Characters.*;
-import Items.Item;
 
-public class Room {
+public class Room implements Serializable {
 
-	private Ship ship;
+	private final Ship ship;
 	private Inventory inventory;
-	private int id;
+	private final int id;
 	private String description;
 
 	private HashMap<Door, Room> doors;
 	private int nbDoors;
-	private static int MIN_NBDOORS = 0;
+	private static final int MIN_NBDOORS = 0;
 
 	private HashMap<String, Actor> actors;
 	private int nbActors;
-	private static int MIN_NBACTORS = 0;
+	private final static int MIN_NBACTORS = 0;
 
 	public Room(Ship ship, int id, String description)
 	{
@@ -70,6 +69,25 @@ public class Room {
 		}
 
 		return res;
+	}
+
+	public Door getDoor(Room r) throws NullPointerException
+	{
+		Door res = null;
+
+		for(Map.Entry<Door, Room> e : this.doors.entrySet())
+		{
+			if(e.getValue().equals(r)) {
+				res = e.getKey();
+				break;
+			}
+		}
+
+		if(res == null)
+			throw new NullPointerException();
+
+		else
+			return res;
 	}
 
 	public Inventory getInventory()

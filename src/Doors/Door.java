@@ -1,6 +1,8 @@
 package Doors;
 
-public class Door {
+import java.io.Serializable;
+
+public class Door implements Serializable {
 
 	private boolean isOpen;
 	private final String tag;
@@ -19,10 +21,10 @@ public class Door {
 	public void describe()
 	{
 		if(this.isOpen)
-			System.out.println("This door " + this.tag + " is open.");
+			System.out.println(this.tag + " is open.");
 
 		else
-			System.out.println("This door " + this.tag + " is closed.");
+			System.out.println(this.tag + " is closed.");
 	}
 
 	public String getTag()

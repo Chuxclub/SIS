@@ -2,7 +2,9 @@ package Doors;
 
 import Items.*;
 
-public class LockedDoor extends Door implements Unlockable, UsableBy {
+import java.io.Serializable;
+
+public class LockedDoor extends Door implements Unlockable, UsableBy, Serializable {
 
 	PassType passType;
 	private boolean isLocked;
@@ -16,10 +18,9 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 
 	public void describe()
 	{
-		this.describe();
-
+		super.describe();
 		if(this.isLocked)
-			System.out.println("This door is locked!");
+			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
 
 		else
 			System.out.println("This door is unlocked!");
@@ -31,7 +32,7 @@ public class LockedDoor extends Door implements Unlockable, UsableBy {
 			super.open();
 
 		else
-			System.out.println("This door is locked!");
+			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
 	}
 
 	@Override

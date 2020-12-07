@@ -3,10 +3,15 @@ package Game;
 
 import Location.*;
 
-public class SIS {
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.Scanner;
+
+public class SIS implements Serializable {
 
 	Ship ship;
-	private static final int NB_PLAYERS = 1;
 
 	public SIS()
 	{
@@ -15,16 +20,62 @@ public class SIS {
 		this.endGame();
 	}
 
+	public void printGameIntro()
+	{
+		System.out.println("\t\t\t ========================================= ");
+		System.out.println("\t\t\t ============ SILENT IN SPACE ============ ");
+		System.out.println("\t\t\t ========================================= ");
+
+		System.out.println("\nWelcome to Silent In Space! This game was developed by Florian Legendre, Alexis Louail and" +
+				" Vincent Tourenne as a universitary project.\nThis is a demo, hence all the features intended to be in the final " +
+				"version aren't there.\nThis game is meant to be played by textual commands. Meaning that you must input valid commands with your " +
+				"keyboards and the game will\nreact accordingly. For a thorough listing of commands, their syntaxes and effects, type help! Enjoy!\n");
+	}
+
 	public void initGame()
 	{
-		this.ship = new Ship();
-		this.ship.getNPC("Kilen").talk();
-		this.ship.getNPC("Kilen").give("passA", this.ship.getPlayer());
+		this.printGameIntro();
+
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Load an existing game? (Type \"yes\" if you have a save file. Press Enter for a new game.)");
+		System.out.print("\nCommand :> ");
+		String userChoice = scan.nextLine();
+
+		if (userChoice.equals("yes")) {
+			try {
+				FileInputStream fileIn = new FileInputStream("saveData.txt");
+				ObjectInputStream ois = new ObjectInputStream(fileIn);
+				this.ship = new Ship((Ship) ois.readObject());
+				ois.close();
+				System.out.println("You successfully loaded the game!");
+			} catch (IOException | ClassNotFoundException e) {
+				System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
+				System.out.println("\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+
+				System.out.println("You wake up feeling dizzy. Something is talking to you. Something not human.");
+				this.ship = new Ship();
+				this.ship.getNPC("Kilen").talk();
+				this.ship.getNPC("Kilen").give("passT", this.ship.getPlayer());
+				this.ship.getNPC("Kilen").setSpeech("You should hurry! I've managed to deal with the guards in the lab but it won't be long before they come back!");
+			}
+		} else {
+			System.out.println("\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+			System.out.println("You wake up feeling dizzy. Something is talking to you. Something not human.");
+			this.ship = new Ship();
+			this.ship.getNPC("Kilen").talk();
+			this.ship.getNPC("Kilen").give("passT", this.ship.getPlayer());
+			this.ship.getNPC("Kilen").setSpeech("You should hurry! I've managed to deal with the guards in the lab but it won't be long before they come back!");
+		}
 	}
 
 	public boolean isEndGame()
 	{
-		return this.ship.getRoom(22).hasActor("me");
+		return (
+				(this.ship.getRoom(13).hasActor("me")
+				&& this.ship.getPlayer().getInventory().getItem("doctorLog811.txt") != null)
+
+				|| this.ship.getPlayer().isDead()
+		);
 	}
 
 	public void endGame()

@@ -1,13 +1,14 @@
 package Containers;
 
+import java.io.Serializable;
 import java.util.*;
 import Items.*;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
 	HashMap<String, Item> items;
 	private int size;
-	private static int MIN_SIZE = 0;
+	private static final int MIN_SIZE = 0;
 
 	public Inventory()
 	{
@@ -23,7 +24,7 @@ public class Inventory {
 
 	public Item getItem(String s)
 	{
-		return this.items.get(s);
+			return this.items.get(s);
 	}
 
 	public int getSize()
@@ -39,19 +40,8 @@ public class Inventory {
 		}
 	}
 
-	public void describeItem(Item item)
-	{
-		item.describe();
-	}
-
-	public boolean isEmpty()
-	{
-		return this.items.isEmpty();
-	}
-
 	public void removeItem(String tag)
 	{
 		this.items.remove(tag);
 	}
-
 }

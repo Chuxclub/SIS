@@ -1,5 +1,7 @@
 package Items;
 
-public enum PassType {
-	A, B
+import java.io.Serializable;
+
+public enum PassType implements Serializable {
+	A, B, C, T
 }

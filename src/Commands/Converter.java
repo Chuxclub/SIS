@@ -4,11 +4,9 @@ import Characters.*;
 import Items.*;
 import Doors.*;
 
-import java.util.concurrent.locks.Lock;
-
 public class Converter {
 
-	private Player caller;
+	private final Player caller;
 
 	public Converter(Player player)
 	{
@@ -26,6 +24,17 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
+	public Door convertDoor(String s) throws StringRequestUnmatched
+	{
+		Door d = this.caller.getRoom().getDoor(s);
+
+		if(d != null)
+			return d;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
 	public Item convertItem(String s) throws StringRequestUnmatched
 	{
 		Item item1 = this.caller.getInventory().getItem(s);
@@ -36,6 +45,17 @@ public class Converter {
 
 		else if(item2 != null)
 			return item2;
+
+		else
+			throw new StringRequestUnmatched();
+	}
+
+	public NPC convertNPC(String s) throws StringRequestUnmatched
+	{
+		Actor npc = this.caller.getRoom().getActor(s);
+
+		if (npc instanceof NPC)
+			return (NPC) npc;
 
 		else
 			throw new StringRequestUnmatched();
@@ -63,16 +83,7 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
-	public Door convertDoor(String s) throws StringRequestUnmatched
-	{
-		Door d = this.caller.getRoom().getDoor(s);
 
-		if(d != null)
-			return d;
-
-		else
-			throw new StringRequestUnmatched();
-	}
 
 	public UsableOn convertUsableOn(String s) throws StringRequestUnmatched
 	{
@@ -89,7 +100,7 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
-	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched
+	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched, InvalidUse
 	{
 		UsableBy u1 = this.caller.getInventory().getItem(s);
 		UsableBy u2 = this.caller.getRoom().getInventory().getItem(s);
@@ -97,8 +108,14 @@ public class Converter {
 
 		Door d = this.caller.getRoom().getDoor(s);
 		UsableBy ld = null;
-		if(d instanceof LockedDoor)
-			ld = (UsableBy) d;
+
+		if(d != null)
+		{
+			if (d instanceof LockedDoor)
+				ld = (UsableBy) d;
+			else
+				throw new InvalidUse();
+		}
 
 		//On renvoie le premier objet qui est non null.
 		//L'unicité de l'objet est garantie par l'unicité des labels:

@@ -1,6 +1,8 @@
 package Items;
 
-public abstract class Item implements Usable, UsableBy, UsableOn {
+import java.io.Serializable;
+
+public abstract class Item implements Usable, UsableBy, UsableOn, Serializable {
 
 	private final String tag;
 	private final String description;
