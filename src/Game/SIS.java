@@ -36,7 +36,8 @@ public class SIS implements Serializable {
 				ObjectInputStream ois = new ObjectInputStream(fileIn);
 				this.ship = new Ship((Ship) ois.readObject());
 				ois.close();
-				System.out.println("You successfully loaded the game!");
+				System.out.println("You successfully loaded the game!\n");
+				System.out.println("\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
 			} catch (IOException | ClassNotFoundException e) {
 				System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
 				System.out.println("\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
@@ -110,7 +111,7 @@ public class SIS implements Serializable {
 	{
 		System.out.println("SCENARIO: You wake up in an alien ship. You understand that you've been abducted and\nyou " +
 				"must escape. Yet, you can't use the escape pods of the ship without a code.\nUmhon, an important alien " +
-				"person, can give you this code (OR you can it from her body)\nbut you have to bring her the proof of " +
+				"person, can give you this code (OR you can take it from her\nbody) but you have to bring her the proof of " +
 				"the abominable experiments being conducted\non humans. This proof is what will end the abductions and " +
 				"possibly the end of humanity.\nThe escape room is ROOM 13. Good luck human!\n");
 	}
