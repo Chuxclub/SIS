@@ -274,9 +274,9 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 24:
 
-		Artefact plunger = new Artefact("plunger", "With all this apparente luxry you find a abnormal object... a Plumber bettwen two splendid Statues. " +
-				"Maybe some aliens are quitte interrested in the Human culture...  maybe too much interresed..."
-				+"I should take this .... it feel wrong to let it here.");
+		Artefact plunger = new Artefact("plunger", "With all this apparent luxury you find an abnormal object... a Plumber between two splendid Statues." +
+				"Maybe some aliens are quite interested in the Human culture...  maybe too much interested..."
+				+"I should take this .... it feels wrong to let it here.");
 		room14.getInventory().addItem(plunger);
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 14:
 
