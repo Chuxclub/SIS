@@ -86,7 +86,7 @@ public class Player extends Actor implements Serializable
 				"\nHere's an exhaustive list of these commands, their syntaxes and of their effects\n" +
 				"(optional arguments are into brackets): \n");
 
-		System.out.println("\t- attack <attackable> : attack the designated character");
+		System.out.println("\t- attack <assailable> : attack the designated thing you can hit");
 		System.out.println("\t- back : quick return to the previous room");
 		System.out.println("\t- drop <item> : drop the designated item on the floor");
 		System.out.println("\t- give <NPC name> <object's name>: give a copy of an item of your inventory to an NPC.");
