@@ -41,12 +41,12 @@ public class LockedDoor extends Door implements Unlockable, UsableBy, Serializab
 		if(this.passType == p.getPassType())
 		{
 			this.isLocked = false;
-			System.out.println("You have unlocked the door!");
+			System.out.println("You have unlocked the " + this.getTag() + " !");
 		}
 
 		else
 		{
-			System.out.println("You can't unlock this door with this pass.");
+			System.out.println("You can't unlock the " + this.getTag() + " with this pass.");
 		}
 	}
 

@@ -22,8 +22,4 @@ public class Sign extends Item implements Serializable {
     {
         System.out.println(content);
     }
-
-    @Override
-    public void isUsedBy(UsableOn u)
-    { }
 }

@@ -69,7 +69,8 @@ public class SIS implements Serializable {
 
 	public void endGame()
 	{
-		System.out.println("\nThanks for playing Silent In Space! And especially our beta-tester Ophélie De Sousa Oliveira :) !");
+		System.out.println("\n\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
+		System.out.println("Thanks for playing Silent In Space! And especially our beta-tester Ophélie De Sousa Oliveira :) !\n");
 	}
 
 	public void play()
@@ -80,12 +81,12 @@ public class SIS implements Serializable {
 		}
 
 		if(this.ship.getNPC("Umhon").isDead())
-			System.out.println("You managed to escape but Umhon couldn't stop her husband and his commander. Thus, the aliens" +
+			System.out.println("\nYou managed to escape but Umhon couldn't stop her husband and his commander. Thus, the aliens" +
 					" managed to create a virus which decimated all the human population. You were the last survivor and witnessed " +
 					"the fruits of your own actions.");
 
 		else
-			System.out.println("You managed to escape and Umhon stopped the experiments on the human beings. Instead, the aliens chose a more " +
+			System.out.println("\nYou managed to escape and Umhon stopped the experiments on the human beings. Instead, the aliens chose a more " +
 					"diplomatic way to settle down on Earth by reaching out to the European Space Agency of Toulouse-Matabiau.");
 	}
 
@@ -103,7 +104,7 @@ public class SIS implements Serializable {
 		System.out.println("\nWELCOME to Silent In Space! This game was developed by Florian Legendre, Alexis Louail\n" +
 				"and Vincent Tourenne as a universitary project. This is a demo, hence all the features\nintended to be " +
 				"in the final version aren't there. This game is meant to be played by\ntextual commands. Meaning that " +
-				"you must input valid commands with your keyboards and\nthe game will react accordingly. For a thorough " +
+				"you must input valid commands with your keyboard and\nthe game will react accordingly. For a thorough " +
 				"listing of commands, their syntaxes\nand effects, type help! Enjoy!\n");
 	}
 

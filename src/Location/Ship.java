@@ -191,7 +191,7 @@ public class Ship implements Serializable {
 		List<TakableItem> kilenItems = new ArrayList<>();
 		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like\n\ta T written on it.", PassType.T);
 		kilenItems.add(p);
-		NPC kilen = new NPC("Kilen", "With his white clothes, Kilen looks like a scientists. As of the " +
+		NPC kilen = new NPC("Kilen", "With his white clothes, Kilen looks like a scientist. As of the " +
 				"rest, it's beyond\nwhat any human has ever imagined about what aliens look like.", false, true, kilenItems, room21);
 		kilen.setSpeech("Hi human! I'm Kilen. You are in danger, here's a pass to escape. Good luck!\nAnd please, " +
 				"I'm begging you... Don't kill my friends!");
@@ -273,7 +273,7 @@ public class Ship implements Serializable {
 		File file1 = new File("doctorLog", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
 						"experiments on these primates. We were tasked to understand how their immune system works, but" +
-						" the Commander refuses to tell us more.\nI hope he's not planning anything to bad, it would be a" +
+						" the Commander refuses to tell us more.\nI hope he's not planning anything too bad, it would be a" +
 						" shame to lose such efficient guinea pigs.");
 		File file2 = new File("importantMessage", "A message addressed to all Scientists by Commander Gelgax",
 				"Attention to all scientists. A new human has arrived yesterday.\n" +

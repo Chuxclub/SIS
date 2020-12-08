@@ -2,5 +2,8 @@ package Items;
 
 public interface UsableBy
 {
-	void isUsedBy(UsableOn u);
+	default void isUsedBy(UsableOn u)
+	{
+		System.out.println("This object has no effect here");
+	}
 }

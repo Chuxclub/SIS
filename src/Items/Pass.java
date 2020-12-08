@@ -20,9 +20,6 @@ public class Pass extends TakableItem implements UsableOn, Serializable {
 	public void isUsed(UsableBy u) {
 		System.out.println("Your pass must be used on something !");
 	}
-	@Override
-	public void isUsedBy(UsableOn u)
-	{ }
 
 	@Override
 	public TakableItem getCopy() {

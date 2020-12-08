@@ -1,6 +1,7 @@
 package Items;
 
 import Characters.Actor;
+import Characters.Player;
 import Containers.*;
 
 import java.io.Serializable;
@@ -50,18 +51,24 @@ public class Computer extends Item implements Serializable {
 
     @Override
     public void isUsed(UsableBy player) {
-        System.out.println("Welcome to the lab Computer. You can consult lab files, or generate a Pass. Please input a command :");
 
-        boolean quit = false;
-        while(!quit) {
-            System.out.println("\n=== AVAILABLE COMMANDS ===");
-            System.out.println("\t:> open : show a file");
-            System.out.println("\t:> print : print a file");
-            System.out.println("\t:> unlock : open a door");
-            System.out.println("\t:> quit");
+        if(player instanceof Player) {
+            System.out.println("Welcome to the lab Computer. You can consult lab files, or generate a Pass. Please input a command :");
 
-            quit = playerInput(player);
+            boolean quit = false;
+            while (!quit) {
+                System.out.println("\n=== AVAILABLE COMMANDS ===");
+                System.out.println("\t:> open : show a file");
+                System.out.println("\t:> print : print a file");
+                System.out.println("\t:> unlock : open a door");
+                System.out.println("\t:> quit");
+
+                quit = playerInput(player);
+            }
         }
+
+        else
+            System.out.println("This object can't use the computer");
     }
 
     public boolean playerInput(UsableBy player) {
@@ -117,7 +124,4 @@ public class Computer extends Item implements Serializable {
             return false;
         }
     }
-
-    @Override
-    public void isUsedBy(UsableOn u) { }
 }

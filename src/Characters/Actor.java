@@ -140,6 +140,9 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	{
 		if(u instanceof HealthStation)
 			this.isHealed(DEFAULT_HP_MAX - this.hp);
+
+		else
+			System.out.println("This object has no effect here");
 	}
 
 	public abstract void receive(Actor a, String tag);
