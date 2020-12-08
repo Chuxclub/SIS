@@ -2,9 +2,6 @@ package Location;
 
 import Characters.Player;
 import Doors.Door;
-import Doors.LockedDoor;
-import Items.Pass;
-import Items.PassType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,13 +10,11 @@ import static org.junit.Assert.*;
 
 public class RoomIT
 {
-    private Ship ship;
+    private Ship ship = null;
     private Door d1;
     private Room r1;
     private Room r2;
     private Player a1;
-
-
 
     @Before
     public void setUp()
@@ -44,8 +39,8 @@ public class RoomIT
         r1.addActor(a1);
         assertEquals(r1.getActor("me"),a1);
         assertTrue(r1.hasActor("me"));
-
     }
+
     @Test
     public void TestRemoveActor()
     {

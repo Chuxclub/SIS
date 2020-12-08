@@ -7,19 +7,15 @@ import Items.*;
 public class Inventory implements Serializable {
 
 	HashMap<String, Item> items;
-	private int size;
-	private static final int MIN_SIZE = 0;
 
 	public Inventory()
 	{
 		this.items = new HashMap<>();
-		this.size = MIN_SIZE;
 	}
 
 	public void addItem(Item item)
 	{
 		this.items.put(item.getTag(), item);
-		this.size++;
 	}
 
 	public Item getItem(String s)
@@ -40,7 +36,7 @@ public class Inventory implements Serializable {
 
 	public int getSize()
 	{
-		return this.size;
+		return this.items.size();
 	}
 
 	public boolean isEmpty()

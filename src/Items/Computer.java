@@ -54,7 +54,7 @@ public class Computer extends Item implements Serializable {
 
         boolean quit = false;
         while(!quit) {
-            System.out.println("=== AVAILABLE COMMANDS ===");
+            System.out.println("\n=== AVAILABLE COMMANDS ===");
             System.out.println("\t:> open : show a file");
             System.out.println("\t:> print : print a file");
             System.out.println("\t:> unlock : open a door");
@@ -73,7 +73,7 @@ public class Computer extends Item implements Serializable {
             switch (userChoice) {
                 case "open":
                     System.out.println("\nYou chose to open a file.");
-                    System.out.println("=== AVAILABLE FILES ===");
+                    System.out.println("\n=== AVAILABLE FILES ===");
                     this.files.showItems();
                     Scanner sc0 = new Scanner(System.in);
                     String choice = sc0.nextLine();
@@ -84,13 +84,13 @@ public class Computer extends Item implements Serializable {
                     }
                     catch(NullPointerException e)
                     {
-                        System.out.println("This file doesn't exist");
+                        System.out.println("\nThis file doesn't exist");
                         return false;
                     }
 
                 case "print":
                     System.out.println("\nYou chose to print a file.");
-                    System.out.println("=== AVAILABLE FILES ===");
+                    System.out.println("\n=== AVAILABLE FILES ===");
                     this.files.showItems();
                     Scanner sc1 = new Scanner(System.in);
                     String print = sc1.nextLine();
@@ -106,14 +106,14 @@ public class Computer extends Item implements Serializable {
                     return true;
 
                 default:
-                    System.out.println("Please enter a valid input");
+                    System.out.println("\nPlease enter a valid input");
                     return false;
             }
         }
 
         catch(InputMismatchException e)
         {
-            System.out.println("Please enter a valid input");
+            System.out.println("\nPlease enter a valid input");
             return false;
         }
     }

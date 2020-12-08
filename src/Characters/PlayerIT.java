@@ -2,7 +2,6 @@ package Characters;
 
 import Doors.Door;
 import Doors.LockedDoor;
-import Items.Item;
 import Items.Pass;
 import Items.PassType;
 import Location.Room;
@@ -15,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class PlayerIT
 {
-    private Ship ship;
+    private final Ship ship = null;
 
     private Door d1;
     private Door d2;
@@ -30,7 +29,7 @@ public class PlayerIT
     private Room r4;
 
     private Player player;
-    private Pass i1;
+    private Pass passA;
 
 
 
@@ -61,14 +60,18 @@ public class PlayerIT
         player = new Player(r1, ship);
 
         //Enrichissement des pièces:
-        i1= new Pass("1","This is a pass",PassType.A);
-        r1.getInventory().addItem(i1);
+        passA = new Pass("passA","This is a pass",PassType.A);
+        r1.getInventory().addItem(passA);
     }
 
     @After
     public void tearDown()
     {
     }
+
+    /* ====================================================== */
+    /* ======================= BACK ========================= */
+    /* ====================================================== */
 
     //On tente de revenir dans la pièce précédente
     //alors qu'il n'y a pas de pièce précédente:
@@ -101,8 +104,13 @@ public class PlayerIT
         assertEquals(r4, player.getRoom());
     }
 
+
+    /* ====================================================== */
+    /* ========================= GO ========================= */
+    /* ====================================================== */
+
     @Test
-    public void testGo()
+    public void testGoNormal()
     {
         Room r = player.getRoom();
         //On va dans un autre piece:
@@ -121,19 +129,20 @@ public class PlayerIT
 
 
     @Test
-    public void testMouvementPlayerGoThrougtlockdoor()
+    public void testGoLocked()
     {
-        //on veux allez dans une piece mais on ne peut pas
+        //On veut aller dans une piece mais on ne peut pas:
         player.go(d3);
         assertEquals(r1,player.getRoom());
-
     }
 
 
-    //test soin et mort plus soin apres la mort  verification hp max et pas au dela
+    /* ======================================================== */
+    /* ======================== COMBAT ======================== */
+    /* ======================================================== */
 
     @Test
-    public void testHpdown()
+    public void testCombat()
     {
         int i=player.getHp();
         System.out.print(player.getHp()+"\n");
@@ -142,8 +151,13 @@ public class PlayerIT
         assertNotEquals(i,player.getHp());
 
     }
+
+    /* ======================================================== */
+    /* ========================= HEAL ========================= */
+    /* ======================================================== */
+
     @Test
-    public void testHpHeal()
+    public void testHeal()
     {
         player.isAttacked(player);//vie perdu 20
         int i=player.getHp();
@@ -153,65 +167,48 @@ public class PlayerIT
     }
 
     @Test
-    public void testHpOverHeal()
+    public void testExcessHeal()
     {
         player.isAttacked(player);//vie perdu 20
         player.isHealed(200);
         assertTrue(player.getDEFAULT_HP_MAX()>=player.getHp());
 
     }
-    @Test
-    public void testHpDead()
-    {
-        System.out.print(player.getHp());
-        while(player.getHp()>0)
-        {
-            player.isAttacked(player);//vie perdu 20
-        }
-        assertTrue(player.isDead());
 
-    }
+
+    /* ======================================================== */
+    /* ======================= TAKE/DROP ====================== */
+    /* ======================================================== */
 
     @Test
-    public void testHpDeadOverHeal()
-    {
-        System.out.print(player.getHp());
-        while(player.getHp()>0)
-        {
-            player.isAttacked(player);//vie perdu 20
-        }
-        player.isHealed(10);
-        assertTrue(player.isDead());
-
-    }
-
-
-    //test prendre un objet d'une piece puis le laisser de nouveau dedans
-
-    @Test
-    public void testItempickup()
+    public void testItemPickup()
     {
         assertFalse(player.getRoom().getInventory().isEmpty());
         assertTrue(player.getInventory().isEmpty());
-        player.take(i1);
+        player.take(passA);
         assertFalse(player.getInventory().isEmpty());
         assertTrue(player.getRoom().getInventory().isEmpty());
-
     }
 
     @Test
     public void testItemDrop()
     {
-        player.take(i1);
-        player.drop(i1);
+        player.take(passA);
+        player.drop(passA);
         assertFalse(player.getRoom().getInventory().isEmpty());
         assertTrue(player.getInventory().isEmpty());
     }
+
+
+    /* ======================================================== */
+    /* ========================== USE ========================= */
+    /* ======================================================== */
+
     @Test
-    public void testItemUse()
+    public void testUsePassOnLocked()
     {
-        player.take(i1);
-        player.use(i1,d3);
+        player.take(passA);
+        player.use(passA,d3);
         player.go(d3);
         assertEquals(r3,player.getRoom());
     }
