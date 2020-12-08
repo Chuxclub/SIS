@@ -69,7 +69,7 @@ public class NPC extends Actor implements Serializable, Lookable
 
 	@Override
 	public void receive(Actor a, String tag) {
-			System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
+		System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
 	}
 
 	public void setHostile(boolean b) {this.isHostile = b; }
