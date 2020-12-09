@@ -75,7 +75,7 @@ public class Ship implements Serializable {
 		Door door13To17 = new Door("door17");
 		room13.addDoor(door13To17, room17);
 
-		//Connexion de la pièce14:
+		//Connexion de la pièce 14:
 		Door door14To11 = new Door("door11");
 		room14.addDoor(door14To11, room11);
 		Door door14To19 = new Door("door19");

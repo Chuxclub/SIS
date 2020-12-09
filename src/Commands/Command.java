@@ -221,6 +221,11 @@ public class Command {
 					}
 				}
 				break;
+
+			default:
+				System.out.println("Error :> Something wrong occurred, this case should never have been reached in exec()" +
+						" method in commands.");
+				break;
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package Game;
 
-
 import Location.*;
 
 import java.io.FileInputStream;
