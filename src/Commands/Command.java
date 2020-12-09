@@ -69,14 +69,14 @@ public class Command {
 
 				else if(args.size() == 1)
 				{
-					System.out.println("Error :> I don't know what to give to " + this.args.get(0));
+					System.out.println("Error :> I don't know who to give " + this.args.get(0));
 				}
 
 				else
 				{
 					try {
-						Actor a = this.converter.convertNPC(this.args.get(0));
-						this.caller.give(this.args.get(1), a);
+						Actor a = this.converter.convertNPC(this.args.get(1));
+						this.caller.give(this.args.get(0), a);
 					} catch (StringRequestUnmatched e) {
 						System.out.println("You can't give anything to this!");
 					}
