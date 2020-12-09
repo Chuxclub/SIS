@@ -163,8 +163,8 @@ public class CommandIT {
 
     @Test
     public void testGiveGoodArg() {
-        args.add(0, npc.getName());
-        args.add(1, tk_item.getTag());
+        args.add(0, tk_item.getTag());
+        args.add(1, npc.getName());
 
         try {
             Command cmd = new Command(player, "give", args);
