@@ -75,6 +75,7 @@ public class PlayerIT
 
     //On tente de revenir dans la pièce précédente
     //alors qu'il n'y a pas de pièce précédente:
+    //test Boîte Noire
     @Test
     public void testBackInit()
     {
@@ -83,6 +84,7 @@ public class PlayerIT
     }
 
     //On tente de revenir avec une porte normale:
+    //test Boîte Noire
     @Test
     public void testBackNormal()
     {
@@ -94,6 +96,7 @@ public class PlayerIT
     }
 
     //On tente de revenir avec une porte verrouillée:
+    //test Boîte Noire
     @Test
     public void testBackLocked()
     {
@@ -109,6 +112,7 @@ public class PlayerIT
     /* ========================= GO ========================= */
     /* ====================================================== */
 
+    //test Boîte Blanche
     @Test
     public void testGoNormal()
     {
@@ -128,6 +132,7 @@ public class PlayerIT
     }
 
 
+    //test Boîte Noire
     @Test
     public void testGoLocked()
     {
@@ -141,6 +146,7 @@ public class PlayerIT
     /* ======================== COMBAT ======================== */
     /* ======================================================== */
 
+    //test Boîte Blanche
     @Test
     public void testCombat()
     {
@@ -156,6 +162,7 @@ public class PlayerIT
     /* ========================= HEAL ========================= */
     /* ======================================================== */
 
+    //test Boîte Noire
     @Test
     public void testHeal()
     {
@@ -166,6 +173,7 @@ public class PlayerIT
 
     }
 
+    //test Boîte Blanche
     @Test
     public void testExcessHeal()
     {
@@ -180,6 +188,7 @@ public class PlayerIT
     /* ======================= TAKE/DROP ====================== */
     /* ======================================================== */
 
+    //test Boîte Blanche
     @Test
     public void testItemPickup()
     {
@@ -190,6 +199,7 @@ public class PlayerIT
         assertTrue(player.getRoom().getInventory().isEmpty());
     }
 
+    //test Boîte Blanche
     @Test
     public void testItemDrop()
     {
@@ -204,6 +214,7 @@ public class PlayerIT
     /* ========================== USE ========================= */
     /* ======================================================== */
 
+    //test Boîte Blanche
     @Test
     public void testUsePassOnLocked()
     {

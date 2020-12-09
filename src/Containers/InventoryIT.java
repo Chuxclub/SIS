@@ -26,12 +26,14 @@ public class InventoryIT {
     public void tearDown() {
     }
 
+    //test Boîte Noire
     @Test
     public void TestInvVide() {
         assertEquals(0,inv.getSize());
         assertTrue(inv.isEmpty());
     }
 
+    //test Boîte Noire
     @Test
     public void TestInvAdd() {
         inv.addItem(i1);
@@ -40,6 +42,7 @@ public class InventoryIT {
         assertEquals(inv.getItem("1"),i1);
     }
 
+    //test Boîte Noire
     @Test
     public void TestInvRemove() {
         inv.addItem(i1);
