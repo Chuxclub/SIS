@@ -69,7 +69,7 @@ public class SIS implements Serializable {
 	public void endGame()
 	{
 		System.out.println("\n\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
-		System.out.println("Thanks for playing Silent In Space! And especially our beta-tester Ophélie De Sousa Oliveira :) !\n");
+		System.out.println("Thanks for playing Silent In Space! And special thanks to our beta-tester Ophélie De Sousa Oliveira :) !\n");
 	}
 
 	public void play()
