@@ -6,7 +6,6 @@ import Doors.Door;
 import Doors.LockedDoor;
 import Items.*;
 import Location.Room;
-import Location.Ship;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,26 +26,23 @@ public class CommandIT {
     private Room room3;
 
     private Door door1to2;
-    private Door door2to1;
     private LockedDoor door1to3;
     private Door door3to1;
 
-    private Ship ship;
-    private List<TakableItem> npc_inventory;
-    private Item item;
-    private TakableItem tk_item;
-    private TakableItem room_item;
+    private Item tk_item;
+    private File file;
+    private Item room_item;
     private List<String> args;
 
 
     @Before
     public void setUp() {
-        room1 = new Room(ship, 1, "room-test1");
-        room2 = new Room(ship, 2, "room-test2");
-        room3 = new Room(ship, 3, "room-test2");
+        room1 = new Room(null, 1, "room-test1");
+        room2 = new Room(null, 2, "room-test2");
+        room3 = new Room(null, 3, "room-test2");
 
         door1to2 = new Door("door1to2");
-        door2to1 = new Door("door2to1");
+        Door door2to1 = new Door("door2to1");
         door1to3 = new LockedDoor("door1to3", PassType.A);
         door3to1 = new Door("door1to3");
 
@@ -58,12 +54,14 @@ public class CommandIT {
         room_item = new Artefact("Datapad", "a datapad");
         room1.getInventory().addItem(room_item);
 
-        npc_inventory = new ArrayList<>();
+        List<Item> npc_inventory = new ArrayList<>();
         npc = new NPC("npc", "an npc", false, true, npc_inventory, room1);
 
-        player = new Player(room1, ship);
+        player = new Player(room1, null);
         tk_item = new Artefact("statue", "a statue");
         player.getInventory().addItem(tk_item);
+        file = new File("file", "a file", "blabla");
+        player.getInventory().addItem(file);
 
         args = new ArrayList<>();
     }
@@ -105,7 +103,7 @@ public class CommandIT {
 
     @Test
     public void testBackThroughLockedDoor() {
-        player = new Player(room3, ship);
+        player = new Player(room3, null);
 
         //The door3to1 isn't a locked door, the player can go to room1.
         //His previous room is then room3:
@@ -162,32 +160,44 @@ public class CommandIT {
     /* ======================================================== */
 
     @Test
-    public void testGiveGoodArg() {
-        args.add(0, tk_item.getTag());
+    public void testGiveGivable() {
+        args.add(0, file.getTag());
         args.add(1, npc.getName());
 
         try {
             Command cmd = new Command(player, "give", args);
             cmd.exec();
-            assertEquals(tk_item, player.getInventory().getItem("statue"));
-            assertEquals(tk_item.getTag(), npc.getInventory().getItem("statue").getTag());
+            assertNull(player.getInventory().getItem(file.getTag()));
+            assertEquals(file, npc.getInventory().getItem(file.getTag()));
         } catch (UnknownVerb e) {
             e.printStackTrace();
         }
     }
 
     @Test
+    public void testGiveNotGivable() {
+        args.add(0, tk_item.getTag());
+        args.add(1, npc.getName());
+        try {
+            Command cmd = new Command(player, "give", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem(tk_item.getTag()));
+            assertNull(npc.getInventory().getItem(tk_item.getTag()));
+        } catch (UnknownVerb ignored) {
+        }
+    }
+
+    @Test
     public void testGiveWrongArg() {
-        args.add(0, npc.getName());
-        args.add(1, "blob");
+        args.add(0, "blob");
+        args.add(1, npc.getName());
 
         try {
             Command cmd = new Command(player, "give", args);
             cmd.exec();
             assertEquals(tk_item, player.getInventory().getItem("statue"));
             assertNull(npc.getInventory().getItem("statue"));
-        } catch (UnknownVerb e) {
-            e.printStackTrace();
+        } catch (UnknownVerb ignored) {
         }
     }
 
@@ -198,15 +208,14 @@ public class CommandIT {
             cmd.exec();
             assertEquals(tk_item, player.getInventory().getItem("statue"));
             assertNull(npc.getInventory().getItem("statue"));
-        } catch (UnknownVerb e) {
-            e.printStackTrace();
+        } catch (UnknownVerb ignored) {
         }
     }
 
     @Test
     public void testGiveMissingOneArg()
     {
-        args.add(0, npc.getName());
+        args.add(0, tk_item.getTag());
         try {
             Command cmd = new Command(player, "give", args);
             cmd.exec();

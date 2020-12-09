@@ -5,7 +5,6 @@ import Doors.LockedDoor;
 import Items.Item;
 import Items.Pass;
 import Items.PassType;
-import Items.TakableItem;
 import Location.Room;
 import Location.Ship;
 import org.junit.After;
@@ -29,7 +28,7 @@ public class NPCIT {
     private Room r2;
     private Room r3;
     private Pass i1;
-    private List<TakableItem> list;
+    private List<Item> list;
 
 
     @Before

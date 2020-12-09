@@ -74,6 +74,18 @@ public class Player extends Actor implements Serializable
 		System.out.println("You have dropped " + item.getTag());
 	}
 
+	@Override
+	public void give(String tag, Actor a)
+	{
+		Item item = this.getInventory().getItem(tag);
+
+		if(item != null && !item.isGivable())
+			System.out.println("Error :> You can't give this item");
+
+		else
+			super.give(tag, a);
+	}
+
 	public void go(Door door)
 	{
 		door.open();
@@ -155,11 +167,18 @@ public class Player extends Actor implements Serializable
 		l.describe();
 	}
 
-	public void take(TakableItem item)
+	public void take(Item item)
 	{
-		this.getRoom().getInventory().removeItem(item.getTag());
-		this.getInventory().addItem(item);
-		System.out.println("You have taken " + item.getTag());
+		if(!(item.isTakable())) {
+			System.out.println("Error :> You can't take this item with you");
+		}
+
+		else
+		{
+			this.getRoom().getInventory().removeItem(item.getTag());
+			this.getInventory().addItem(item);
+			System.out.println("You have taken " + item.getTag());
+		}
 	}
 
 	public void talk(NPC npc)

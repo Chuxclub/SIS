@@ -3,12 +3,12 @@ package Items;
 
 import java.io.Serializable;
 
-public class Pass extends TakableItem implements UsableOn, Serializable {
+public class Pass extends Item implements UsableOn, Serializable {
 
 	PassType passType;
 
 	public Pass(String tag, String description, PassType p) {
-		super(tag, description);
+		super(tag, description, true, false);
 		this.passType = p;
 	}
 
@@ -19,11 +19,6 @@ public class Pass extends TakableItem implements UsableOn, Serializable {
 	@Override
 	public void isUsed(UsableBy u) {
 		System.out.println("Your pass must be used on something !");
-	}
-
-	@Override
-	public TakableItem getCopy() {
-		return  new Pass(this.getTag(), this.getDescription(), this.getPassType());
 	}
 }
 

@@ -155,28 +155,28 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 11:
 		//Unien:
-		List<TakableItem> unienItems = new ArrayList<>();
+		List<Item> unienItems = new ArrayList<>();
 		NPC unien = new NPC("Unien", "You know nothing about aliens... But this looks like a baby alien!",false, true, unienItems, room11);
 		unien.setSpeech("Blrberbllirbrborllrzzal!");
 		this.npcs.put(unien.getName(), unien);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 14:
 		//Ghainkix:
-		List<TakableItem> ghainkixItems = new ArrayList<>();
+		List<Item> ghainkixItems = new ArrayList<>();
 		NPC ghainkix = new NPC("Ghainkix", "I don't know anything about aliens' genders but Ghainkix definitely looks like a grown-up",
 				false, true, ghainkixItems, room14);
 		ghainkix.setSpeech("Hi! I'm Ghainkix, are you a human? They say that your species is in danger and that we should help you!");
 		this.npcs.put(ghainkix.getName(), ghainkix);
 
 		//Eeloir:
-		List<TakableItem> eeloirItems = new ArrayList<>();
+		List<Item> eeloirItems = new ArrayList<>();
 		NPC eeloir = new NPC("Eeloir", "Eeloir looks calm and naturally kind... Could Eeloir be considered pretty among aliens?" +
 				" Strangely you think Eeloir is pretty!", false, true, eeloirItems, room14);
 		eeloir.setSpeech("Hi! I'm Eeloir, you must be a human, right? I am so glad to meet you!");
 		this.npcs.put(eeloir.getName(), eeloir);
 
 		//Braenzuds:
-		List<TakableItem> braenzudsItems = new ArrayList<>();
+		List<Item> braenzudsItems = new ArrayList<>();
 		NPC braenzuds = new NPC("Braenzuds", "Do aliens have to undergo a teenage phase in their lives to???",
 				false, true, braenzudsItems, room14);
 		braenzuds.setSpeech("Leave me alone... Can't you see I'm playing?");
@@ -184,7 +184,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 21:
 		//Kilen:
-		List<TakableItem> kilenItems = new ArrayList<>();
+		List<Item> kilenItems = new ArrayList<>();
 		Pass p = new Pass("passT", "It looks like a pass... There's some kind of letter looking like\n\ta T written on it.", PassType.T);
 		kilenItems.add(p);
 		NPC kilen = new NPC("Kilen", "With his white clothes, Kilen looks like a scientist. As of the " +
@@ -198,7 +198,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
-		List<TakableItem> umhonItems = new ArrayList<>();
+		List<Item> umhonItems = new ArrayList<>();
 		Umhon umhon = new Umhon("Umhon",  "Before meeting Umhon you couldn't think that aliens would feel so close to humans... " +
 				"She clearly likes anything shiny. Her whole body is covered with jewels of all kinds",false, false, umhonItems, room24);
 		umhon.setSpeech("Oh a human! You poor thing, you must be lost... You know, my husband," +
@@ -211,7 +211,7 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 29:
 		//Eek'eads:
-		List<TakableItem> eekeadsItems = new ArrayList<>();
+		List<Item> eekeadsItems = new ArrayList<>();
 		NPC eekeads = new NPC("Eekeads", "You know nothing about aliens... But this looks like a baby alien!",
 				false, true, eekeadsItems, room29);
 		eekeads.setSpeech("GiagiaGia!");

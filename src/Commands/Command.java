@@ -3,7 +3,6 @@ package Commands;
 import Characters.*;
 import Doors.Door;
 import Items.Item;
-import Items.TakableItem;
 import Items.UsableBy;
 import Items.UsableOn;
 
@@ -66,7 +65,7 @@ public class Command {
 			case GIVE:
 				if(this.args.size() < 1)
 				{
-					System.out.println("Error :> I don't know what to give to what person.");
+					System.out.println("Error :> I don't know what to give to whom.");
 				}
 
 				else if(args.size() == 1)
@@ -157,7 +156,7 @@ public class Command {
 
 				else {
 					try {
-						TakableItem item = this.converter.convertTakableItem(this.args.get(0));
+						Item item = this.converter.convertItem(this.args.get(0));
 						this.caller.take(item);
 					} catch (StringRequestUnmatched e) {
 						System.out.println("Error :> This item isn't in this room or can't be taken with you");

@@ -32,19 +32,18 @@ public class Computer extends Item implements Serializable {
     }
 
     public void printFile(String tag, UsableBy a) {
-        if(a instanceof Actor)
-        {
+
+        if(a instanceof Actor) {
+
             Actor player = (Actor) a;
 
-            try
-            {
-                Item item = this.files.getItem(tag);
-                player.getInventory().addItem(item);
+            try {
+                File file = (File) this.files.getItem(tag);
+                player.getInventory().addItem(file.getCopy());
             }
 
-            catch(NullPointerException e)
-            {
-                System.out.println("This file doesn't exist");
+            catch(NullPointerException | ClassCastException e) {
+                System.out.println("Error :> This file doesn't exist");
             }
         }
     }

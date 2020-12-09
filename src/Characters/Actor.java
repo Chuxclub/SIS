@@ -84,19 +84,22 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		return this.room;
 	}
 
-	//On donne toujours une copie de l'objet:
 	public void give(String tag, Actor a)
 	{
-		TakableItem item = this.inventory.getTakableItem(tag);
+		Item item = this.inventory.getItem(tag);
 
-		if(item != null)
-		{
-			a.inventory.addItem(item.getCopy());
+		if(item != null) {
+			this.inventory.give(item.getTag(), a.getInventory());
 			a.receive(this, item.getTag());
 		}
 
-		else {
-			System.out.println("Error :> You can't give this item or you misspelled its tag");
+		else
+		{
+			if(this instanceof Player)
+				System.out.println("Error :> You don't have this item in your inventory");
+
+			else
+				System.out.println("Error :> This item isn't in giver's inventory");
 		}
 	}
 

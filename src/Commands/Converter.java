@@ -95,19 +95,6 @@ public class Converter {
 			throw new StringRequestUnmatched();
 	}
 
-	public TakableItem convertTakableItem(String s) throws StringRequestUnmatched
-	{
-		Item item1 = this.caller.getRoom().getInventory().getItem(s);
-
-		if(item1 instanceof TakableItem)
-				return (TakableItem) item1;
-
-		else
-			throw new StringRequestUnmatched();
-	}
-
-
-
 	public UsableOn convertUsableOn(String s) throws StringRequestUnmatched
 	{
 		UsableOn u1 = this.caller.getInventory().getItem(s);

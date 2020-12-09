@@ -23,20 +23,24 @@ public class Inventory implements Serializable {
 			return this.items.get(s);
 	}
 
-	public TakableItem getTakableItem(String s)
-	{
-		Item item = this.items.get(s);
-
-		if(item instanceof TakableItem)
-			return (TakableItem) item;
-
-		else
-			return null;
-	}
-
 	public int getSize()
 	{
 		return this.items.size();
+	}
+
+	public void give(String tag, Inventory inventory)
+	{
+		Item item = this.items.get(tag);
+
+		if(item != null) {
+			this.removeItem(tag);
+			inventory.addItem(item);
+		}
+
+		else
+		{
+			System.out.println("Error :> This item isn't in this inventory");
+		}
 	}
 
 	public boolean isEmpty()

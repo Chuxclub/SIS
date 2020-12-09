@@ -23,9 +23,9 @@ public class ConverterIT {
     private Room room1;
 
     private Door door1to2;
-    private TakableItem tk_item;
-    private TakableItem room1_item;
-    private TakableItem room2_item;
+    private Item tk_item;
+    private Item room1_item;
+    private Item room2_item;
 
     private Converter converter;
 
@@ -51,7 +51,7 @@ public class ConverterIT {
         room2_item = new Artefact("Computer", "a computer");
         room2.getInventory().addItem(room2_item);
 
-        List<TakableItem> npc_inventory = new ArrayList<>();
+        List<Item> npc_inventory = new ArrayList<>();
         npc = new NPC("npc", "an npc", false, true, npc_inventory, room1);
 
         Player player = new Player(room1, null);
@@ -233,32 +233,6 @@ public class ConverterIT {
             // The object is a room's inventory
             // Or the player misspelled the object's tag:
             converter.convertPlayerItem(room1_item.getTag());
-            fail();
-        } catch (StringRequestUnmatched ignored) {
-        }
-    }
-
-    /* ============================================================= */
-    /* ==================== convertTakableItem ===================== */
-    /* ============================================================= */
-
-    @Test
-    public void testTakableItemGoodArg()
-    {
-        try {
-            // It must be in the room's inventory:
-            Item i1 = converter.convertTakableItem(room1_item.getTag());
-            assertEquals(i1, room1_item);
-        } catch (StringRequestUnmatched ignored) {
-        }
-    }
-
-    @Test
-    public void testTakableItemBadArg() {
-        try {
-            // The object is in the player's inventory or in another room
-            // or the player misspelled the object's tag:
-            converter.convertTakableItem(tk_item.getTag());
             fail();
         } catch (StringRequestUnmatched ignored) {
         }
