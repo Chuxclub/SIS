@@ -33,6 +33,7 @@ public class RoomIT
     }
 
     //test mouvements entre le pieces
+    //test Boîte Noire
     @Test
     public void TestAddActor()
     {
@@ -41,6 +42,7 @@ public class RoomIT
         assertTrue(r1.hasActor("me"));
     }
 
+    //test Boîte Blanche
     @Test
     public void TestRemoveActor()
     {
@@ -50,6 +52,7 @@ public class RoomIT
 
     }
 
+    //test Boîte Blanche
     @Test
     public void TestAddDoor()
     {
@@ -57,6 +60,7 @@ public class RoomIT
         assertEquals(r1.getDoor("door1"),d1);
     }
 
+    //test Boîte Noire
     @Test
     public void TestRoomActorUseDoor()
     {

@@ -56,6 +56,7 @@ public class NPCIT {
 
     //Test changement de piéce et vérification que le npc connaît la piece précédente
     // (cas où tout doit fonctionner):
+    //test Boîte Blanche
     @Test
     public void testChangeRoom() {
 
@@ -79,6 +80,7 @@ public class NPCIT {
     /* ======================== COMBAT ======================== */
     /* ======================================================== */
 
+    //test Boîte Blanche
     @Test
     public void testCombat()
     {
@@ -118,6 +120,7 @@ public class NPCIT {
     /* ========================= HEAL ========================= */
     /* ======================================================== */
 
+    //test Boîte Noire
     @Test
     public void testHeal()
     {
@@ -130,6 +133,7 @@ public class NPCIT {
         assertEquals(i + 10,a1.getHp());
     }
 
+    //test Boîte Blanche
     @Test
     public void testExcessHeal()
     {
@@ -143,6 +147,7 @@ public class NPCIT {
 
     }
 
+    //test Boîte Noire
     @Test
     public void testHealDead()
     {

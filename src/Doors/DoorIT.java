@@ -20,6 +20,7 @@ public class DoorIT
     {
     }
 
+    //test Boîte Noire
     @Test
     public void testSwitchOpen1()
     {
