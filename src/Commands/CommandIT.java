@@ -35,6 +35,7 @@ public class CommandIT {
     private List<TakableItem> npc_inventory;
     private Item item;
     private TakableItem tk_item;
+    private TakableItem room_item;
     private List<String> args;
 
 
@@ -53,6 +54,9 @@ public class CommandIT {
         room2.addDoor(door2to1, room1);
         room1.addDoor(door1to3, room3);
         room3.addDoor(door3to1, room1);
+
+        room_item = new Artefact("Datapad", "a datapad");
+        room1.getInventory().addItem(room_item);
 
         npc_inventory = new ArrayList<>();
         npc = new NPC("npc", "an npc", false, true, npc_inventory, room1);
@@ -218,8 +222,53 @@ public class CommandIT {
     /* ======================================================== */
 
     @Test
-    public void testGo() {
+    public void testGoNormalDoor() {
+        args.add(0, door1to2.getTag());
 
+        try {
+            Command cmd = new Command(player, "go", args);
+            cmd.exec();
+            assertEquals(room2, player.getRoom());
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGoLockedDoor() {
+        args.add(0, door1to3.getTag());
+
+        try {
+            Command cmd = new Command(player, "go", args);
+            cmd.exec();
+            assertNotEquals(room3, player.getRoom());
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGoWrongArg() {
+        args.add(0, "toto");
+
+        try {
+            Command cmd = new Command(player, "go", args);
+            cmd.exec();
+            assertEquals(room1, player.getRoom());
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGoNoArg() {
+        try {
+            Command cmd = new Command(player, "go", args);
+            cmd.exec();
+            assertEquals(room1, player.getRoom());
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
     }
 
     /* ======================================================== */
@@ -227,8 +276,43 @@ public class CommandIT {
     /* ======================================================== */
 
     @Test
-    public void testTake() {
+    public void testTakeValidArg() {
+        args.add(0, room_item.getTag());
 
+        try {
+            Command cmd = new Command(player, "take", args);
+            cmd.exec();
+            assertNull(room1.getInventory().getItem(room_item.getTag()));
+            assertEquals(room_item, player.getInventory().getItem(room_item.getTag()));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testTakeWrongArg() {
+        args.add(0, "toto");
+
+        try {
+            Command cmd = new Command(player, "take", args);
+            cmd.exec();
+            assertEquals(room_item, room1.getInventory().getItem(room_item.getTag()));
+            assertNull(player.getInventory().getItem(room_item.getTag()));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testTakeNoArg() {
+        try {
+            Command cmd = new Command(player, "take", args);
+            cmd.exec();
+            assertEquals(room_item, room1.getInventory().getItem(room_item.getTag()));
+            assertNull(player.getInventory().getItem(room_item.getTag()));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
     }
 
     /* ======================================================== */
@@ -237,7 +321,6 @@ public class CommandIT {
 
     @Test
     public void testUse() {
-
     }
 }
 
