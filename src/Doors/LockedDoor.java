@@ -4,7 +4,7 @@ import Items.*;
 
 import java.io.Serializable;
 
-public class LockedDoor extends Door implements Unlockable, UsableBy, Serializable {
+public class LockedDoor extends Door implements Unlockable, Serializable {
 
 	PassType passType;
 	private boolean isLocked;

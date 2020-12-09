@@ -1,10 +1,11 @@
 package Doors;
 
 import Commands.Lookable;
+import Items.UsableBy;
 
 import java.io.Serializable;
 
-public class Door implements Serializable, Lookable {
+public class Door implements Serializable, Lookable, UsableBy {
 
 	private boolean isOpen;
 	private final String tag;

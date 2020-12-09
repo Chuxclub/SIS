@@ -216,11 +216,6 @@ public class Command {
 					{
 						System.out.println("Error :> I don't know one of the items");
 					}
-
-					catch(InvalidUse e)
-					{
-						System.out.println("Error :> You can't use it on this!");
-					}
 				}
 				break;
 
