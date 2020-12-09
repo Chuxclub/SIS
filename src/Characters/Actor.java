@@ -30,6 +30,8 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		this.room = r;
 		this.previousRoom = r;
 		this.inventory = new Inventory();
+
+		r.addActor(this);
 	}
 
 	@Override

@@ -50,14 +50,16 @@ public class Command {
 				break;
 
 			case DROP:
-				try {
-					Item item = this.converter.convertPlayerItem(this.args.get(0));
-					this.caller.drop(item);
-				} catch (StringRequestUnmatched e) {
-					System.out.println("Error :> This item isn't in your inventory");
-				}
-				catch(IndexOutOfBoundsException e) {
+				if(this.args.size() == 0)
 					System.out.println("Error :> Please indicate which item you want to drop");
+
+				else {
+					try {
+						Item item = this.converter.convertPlayerItem(this.args.get(0));
+						this.caller.drop(item);
+					} catch (StringRequestUnmatched e) {
+						System.out.println("Error :> This item isn't in your inventory");
+					}
 				}
 				break;
 

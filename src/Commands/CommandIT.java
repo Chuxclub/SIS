@@ -4,9 +4,7 @@ import Characters.NPC;
 import Characters.Player;
 import Doors.Door;
 import Doors.LockedDoor;
-import Items.Pass;
-import Items.PassType;
-import Items.TakableItem;
+import Items.*;
 import Location.Room;
 import Location.Ship;
 import org.junit.After;
@@ -14,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -22,15 +21,22 @@ public class CommandIT {
 
     private Player player;
     private NPC npc;
+
     private Room room1;
     private Room room2;
     private Room room3;
+
     private Door door1to2;
     private Door door2to1;
     private LockedDoor door1to3;
     private Door door3to1;
+
     private Ship ship;
-    private List<TakableItem> list;
+    private List<TakableItem> npc_inventory;
+    private Item item;
+    private TakableItem tk_item;
+    private List<String> args;
+
 
     @Before
     public void setUp() {
@@ -45,26 +51,29 @@ public class CommandIT {
 
         room1.addDoor(door1to2, room2);
         room2.addDoor(door2to1, room1);
-
         room1.addDoor(door1to3, room3);
         room3.addDoor(door3to1, room1);
 
-        list = new ArrayList<>();
-        NPC npc = new NPC("npc", "an npc", false, true, list, room1);
+        npc_inventory = new ArrayList<>();
+        npc = new NPC("npc", "an npc", false, true, npc_inventory, room1);
+
+        player = new Player(room1, ship);
+        tk_item = new Artefact("statue", "a statue");
+        player.getInventory().addItem(tk_item);
+
+        args = new ArrayList<>();
     }
 
     @After
     public void tearDown() {
     }
 
-    /* ======================================================== */
-    /* ======================== TESTS ========================= */
-    /* ======================================================== */
+    /* ============================================================= */
+    /* ======================== Wrong Verb ========================= */
+    /* ============================================================= */
 
     @Test
     public void testWrongVerb() {
-        player = new Player(room1, ship);
-
         try {
             Command cmd = new Command(player, "blablaincoherentverb", null);
             cmd.exec();
@@ -74,17 +83,19 @@ public class CommandIT {
         }
     }
 
+    /* ============================================================= */
+    /* =========================== Back ============================ */
+    /* ============================================================= */
+
     @Test
     public void testBackThroughNormalDoor() {
-        player = new Player(room1, ship);
         player.go(door1to2);
-
         try {
             Command cmd = new Command(player, "back", null);
             cmd.exec();
             assertEquals(room1, player.getRoom());
-        } catch (UnknownVerb unknownVerb) {
-            unknownVerb.printStackTrace();
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
         }
     }
 
@@ -97,33 +108,132 @@ public class CommandIT {
         player.go(door3to1);
 
         try {
-            Command cmd = new Command(player, "back", null);
+            Command cmd = new Command(player, "back", args);
             cmd.exec();
             assertNotEquals(room3, player.getRoom());
-        } catch (UnknownVerb unknownVerb) {
-            unknownVerb.printStackTrace();
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* ======================================================== */
+    /* ========================= DROP ========================= */
+    /* ======================================================== */
+
+    @Test
+    public void testDropGoodArg() {
+        try {
+            Command cmd = new Command(player, "drop", Collections.singletonList("statue"));
+            cmd.exec();
+            assertNull(player.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void testDrop() {
-
+    public void testDropWrongArg() {
+        try {
+            Command cmd = new Command(player, "drop", Collections.singletonList("blob"));
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void testGive() {
-
+    public void testDropNoArg() {
+        try {
+            Command cmd = new Command(player, "drop", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
     }
+
+    /* ======================================================== */
+    /* ========================= GIVE ========================= */
+    /* ======================================================== */
+
+    @Test
+    public void testGiveGoodArg() {
+        args.add(0, npc.getName());
+        args.add(1, tk_item.getTag());
+
+        try {
+            Command cmd = new Command(player, "give", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+            assertEquals(tk_item.getTag(), npc.getInventory().getItem("statue").getTag());
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGiveWrongArg() {
+        args.add(0, npc.getName());
+        args.add(1, "blob");
+
+        try {
+            Command cmd = new Command(player, "give", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+            assertNull(npc.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGiveNoArg() {
+        try {
+            Command cmd = new Command(player, "give", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+            assertNull(npc.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGiveMissingOneArg()
+    {
+        args.add(0, npc.getName());
+        try {
+            Command cmd = new Command(player, "give", args);
+            cmd.exec();
+            assertEquals(tk_item, player.getInventory().getItem("statue"));
+            assertNull(npc.getInventory().getItem("statue"));
+        } catch (UnknownVerb e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* ======================================================== */
+    /* ========================== GO ========================== */
+    /* ======================================================== */
 
     @Test
     public void testGo() {
 
     }
 
+    /* ======================================================== */
+    /* ========================= TAKE ========================= */
+    /* ======================================================== */
+
     @Test
     public void testTake() {
 
     }
+
+    /* ======================================================== */
+    /* ========================== USE ========================= */
+    /* ======================================================== */
 
     @Test
     public void testUse() {

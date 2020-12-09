@@ -158,7 +158,6 @@ public class Ship implements Serializable {
 		List<TakableItem> unienItems = new ArrayList<>();
 		NPC unien = new NPC("Unien", "You know nothing about aliens... But this looks like a baby alien!",false, true, unienItems, room11);
 		unien.setSpeech("Blrberbllirbrborllrzzal!");
-		room11.addActor(unien);
 		this.npcs.put(unien.getName(), unien);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 14:
@@ -167,7 +166,6 @@ public class Ship implements Serializable {
 		NPC ghainkix = new NPC("Ghainkix", "I don't know anything about aliens' genders but Ghainkix definitely looks like a grown-up",
 				false, true, ghainkixItems, room14);
 		ghainkix.setSpeech("Hi! I'm Ghainkix, are you a human? They say that your species is in danger and that we should help you!");
-		room14.addActor(ghainkix);
 		this.npcs.put(ghainkix.getName(), ghainkix);
 
 		//Eeloir:
@@ -175,7 +173,6 @@ public class Ship implements Serializable {
 		NPC eeloir = new NPC("Eeloir", "Eeloir looks calm and naturally kind... Could Eeloir be considered pretty among aliens?" +
 				" Strangely you think Eeloir is pretty!", false, true, eeloirItems, room14);
 		eeloir.setSpeech("Hi! I'm Eeloir, you must be a human, right? I am so glad to meet you!");
-		room14.addActor(eeloir);
 		this.npcs.put(eeloir.getName(), eeloir);
 
 		//Braenzuds:
@@ -183,7 +180,6 @@ public class Ship implements Serializable {
 		NPC braenzuds = new NPC("Braenzuds", "Do aliens have to undergo a teenage phase in their lives to???",
 				false, true, braenzudsItems, room14);
 		braenzuds.setSpeech("Leave me alone... Can't you see I'm playing?");
-		room14.addActor(braenzuds);
 		this.npcs.put(braenzuds.getName(), braenzuds);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 21:
@@ -195,12 +191,10 @@ public class Ship implements Serializable {
 				"rest, it's beyond\nwhat any human has ever imagined about what aliens look like.", false, true, kilenItems, room21);
 		kilen.setSpeech("Hi human! I'm Kilen. You are in danger, here's a pass to escape. Good luck!\nAnd please, " +
 				"I'm begging you... Don't kill my friends!");
-		room21.addActor(kilen);
 		this.npcs.put(kilen.getName(), kilen);
 
 		//Le joueur:
 		this.player = new Player(room21, this);
-		room21.addActor(player);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
@@ -213,7 +207,6 @@ public class Ship implements Serializable {
 				" what they are doing to your species, and I'll give you the code to the Captain's laptop!");
 		File CaptainCode = new File("CaptainCode", "The code to the the Captain's laptop", "The code is: iwanttoeradicateallhumans");
 		umhon.getInventory().addItem(CaptainCode);
-		room24.addActor(umhon);
 		this.npcs.put(umhon.getName(), umhon);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 29:
@@ -222,7 +215,6 @@ public class Ship implements Serializable {
 		NPC eekeads = new NPC("Eekeads", "You know nothing about aliens... But this looks like a baby alien!",
 				false, true, eekeadsItems, room29);
 		eekeads.setSpeech("GiagiaGia!");
-		room29.addActor(eekeads);
 		this.npcs.put(eekeads.getName(), eekeads);
 
 		// =================================================================================================== //
