@@ -9,31 +9,23 @@ import Characters.*;
 
 public class Room implements Serializable {
 
-	private final Ship ship;
-	private Inventory inventory;
-	private final int id;
-	private String description;
+	private final Ship SHIP;
+	private final Inventory INVENTORY;
+	private final int ID;
+	private final String description;
 
-	private HashMap<Door, Room> doors;
-	private int nbDoors;
-	private static final int MIN_NBDOORS = 0;
-
-	private HashMap<String, Actor> actors;
-	private int nbActors;
-	private final static int MIN_NBACTORS = 0;
+	private final HashMap<Door, Room> doors;
+	private final HashMap<String, Actor> actors;
 
 	public Room(Ship ship, int id, String description)
 	{
-		this.ship = ship;
-		this.inventory = new Inventory();
-		this.id = id;
+		this.SHIP = ship;
+		this.INVENTORY = new Inventory();
+		this.ID = id;
 		this.description = description;
 
 		this.doors = new HashMap<>();
-		this.nbDoors = MIN_NBDOORS;
-
 		this.actors = new HashMap<>();
-		this.nbActors = MIN_NBACTORS;
 	}
 
 	public void addActor(Actor actor)
@@ -49,6 +41,11 @@ public class Room implements Serializable {
 	public void describe()
 	{
 		System.out.println(this.description);
+
+		if(this.doors.size() == 1 && this.hasLockedDoor())
+			System.out.println("Suddenly, the door closed shut behind you! You try opening it... " +
+					"But it is hopeless, you are trapped in this dark room.");
+
 		this.scanRoom();
 	}
 
@@ -92,12 +89,33 @@ public class Room implements Serializable {
 
 	public Inventory getInventory()
 	{
-		return this.inventory;
+		return this.INVENTORY;
 	}
 
 	public boolean hasActor(String name)
 	{
 		return this.actors.get(name) != null;
+	}
+
+	public boolean hasLockedDoor()
+	{
+		Set<Door> doorSet = this.doors.keySet();
+		boolean res = false;
+
+		for(Door d : doorSet)
+		{
+			if (d instanceof LockedDoor && ((LockedDoor) d).isLocked()) {
+				res = true;
+				break;
+			}
+		}
+
+		return res;
+	}
+
+	public LockedDoor getLockedDoor(String s)
+	{
+			return (LockedDoor) getDoor(s);
 	}
 
 	public void removeActor(String name)
@@ -114,7 +132,7 @@ public class Room implements Serializable {
 		//Printing doors:
 		System.out.println("\n\tDoors in the room:");
 		Set<Door> doorSet = this.doors.keySet();
-		Door res = null;
+
 		for(Door d : doorSet)
 			System.out.println("\t- " + d.getTag());
 

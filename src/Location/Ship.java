@@ -5,6 +5,8 @@ import Characters.Player;
 import Characters.Umhon;
 import Doors.Door;
 import Doors.LockedDoor;
+import Events.Event;
+import Events.PlayerEvent;
 import Items.*;
 
 import java.io.Serializable;
@@ -45,9 +47,7 @@ public class Ship implements Serializable {
 		Room room22 = new Room(this, 22, "Room 22: Eerie lights are flowing out of the walls " +
 				"pulsating slowly, quietly.");
 
-		Room room23 = new Room(this, 23, "Room 23: The door closed shut behind you! You try opening it... " +
-				"But it is hopeless, you are trapped in this dark room. " +
-				"In the obscurity, you see the light of a computer screen left on the table.");
+		Room room23 = new Room(this, 23, "Room 23: In the obscurity, you see the light of a computer screen left on the table.");
 
 		Room room24 = new Room(this, 24, "Room 24: This room is big and cozy. Even though you don't exactly understand " +
 				"the use of some pieces of furniture they look sophisticated and expansive!");
@@ -260,7 +260,10 @@ public class Ship implements Serializable {
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 23:
 
-		Computer comp = new Computer("The lab computer", "computer", door23To22);
+		PlayerEvent playerEvt = (PlayerEvent & Serializable)
+				(Player player) -> player.getRoom().getLockedDoor("door22").unlock(new Pass("passC", "passC", PassType.C));
+		Event unlockEvt = new Event("unlock", "unlock the door", playerEvt);
+		Computer comp = new Computer("The lab computer", "computer", unlockEvt);
 
 		File file1 = new File("doctorLog", "Evidence of lab experiments on humans.",
 				"We have been abducting humans for the past few years now.\nWe have been conducting all sorts of " +
@@ -278,6 +281,12 @@ public class Ship implements Serializable {
 						"Step 3\n" +
 						"\tPut through cookie press and form cookies onto baking sheets. Bake for 10 - 12 minutes.\n");
 
+		comp.addFile(file1);
+		comp.addFile(file2);
+		comp.addFile(file3);
+
+		room23.getInventory().addItem(comp);
+
 		// ~~~~~~~~~~~~~~~~ Ajouts d'objets dans la pièce 24:
 		File plunger = new File("plunger", "A... Man-made plunger? What is it even doing here?",
 				"Within all this apparent luxury you found an abnormal object : a plunger between two splendid Statues.\n" +
@@ -294,12 +303,6 @@ public class Ship implements Serializable {
 						"weapons so that they could invade earth.\n"
 				+"What a crazy plan... It could be a good story for a video-game!");
 		room28.getInventory().addItem(Datapad);
-
-		comp.addFile(file1);
-		comp.addFile(file2);
-		comp.addFile(file3);
-
-		room23.getInventory().addItem(comp);
 
 
 		// =================================================================================================== //

@@ -26,6 +26,10 @@ public class LockedDoor extends Door implements Unlockable, Serializable {
 			System.out.println("This door is unlocked!");
 	}
 
+	public boolean isLocked() {
+		return isLocked;
+	}
+
 	public void open()
 	{
 		if(!isLocked)
