@@ -28,6 +28,7 @@ public class PlayerIT
     private Room r4;
 
     private Player player;
+    private Player player_emptyInv;
     private Pass passA;
     private File file;
 
@@ -62,6 +63,8 @@ public class PlayerIT
         player = new Player(r1, null);
         file = new File("file", "", "");
         player.getInventory().addItem(file);
+
+        player_emptyInv = new Player(r1, null);
 
         //Enrichissement des pièces:
         passA = new Pass("passA","This is a pass",PassType.A);
@@ -233,21 +236,21 @@ public class PlayerIT
     @Test
     public void testItemPickup()
     {
-        assertFalse(player.getRoom().getInventory().isEmpty());
-        assertTrue(player.getInventory().isEmpty());
-        player.take(passA);
-        assertFalse(player.getInventory().isEmpty());
-        assertTrue(player.getRoom().getInventory().isEmpty());
+        assertFalse(player_emptyInv.getRoom().getInventory().isEmpty());
+        assertTrue(player_emptyInv.getInventory().isEmpty());
+        player_emptyInv.take(passA);
+        assertFalse(player_emptyInv.getInventory().isEmpty());
+        assertTrue(player_emptyInv.getRoom().getInventory().isEmpty());
     }
 
     //test Boîte Blanche
     @Test
     public void testItemDrop()
     {
-        player.take(passA);
-        player.drop(passA);
-        assertFalse(player.getRoom().getInventory().isEmpty());
-        assertTrue(player.getInventory().isEmpty());
+        player_emptyInv.take(passA);
+        player_emptyInv.drop(passA);
+        assertFalse(player_emptyInv.getRoom().getInventory().isEmpty());
+        assertTrue(player_emptyInv.getInventory().isEmpty());
     }
 
 
