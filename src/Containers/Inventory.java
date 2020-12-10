@@ -28,7 +28,7 @@ public class Inventory implements Serializable {
 		return this.ITEMS.size();
 	}
 
-	public void give(String tag, Inventory inventory)
+	public void moveItem(String tag, Inventory inventory)
 	{
 		Item item = this.ITEMS.get(tag);
 

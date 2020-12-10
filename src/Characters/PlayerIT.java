@@ -2,12 +2,17 @@ package Characters;
 
 import Doors.Door;
 import Doors.LockedDoor;
+import Items.File;
+import Items.Item;
 import Items.Pass;
 import Items.PassType;
 import Location.Room;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -24,6 +29,9 @@ public class PlayerIT
 
     private Player player;
     private Pass passA;
+    private File file;
+
+    private NPC npc;
 
 
 
@@ -52,10 +60,16 @@ public class PlayerIT
         r3.addDoor(d4, r1);
         r4.addDoor(d5, r1);
         player = new Player(r1, null);
+        file = new File("file", "", "");
+        player.getInventory().addItem(file);
 
         //Enrichissement des pièces:
         passA = new Pass("passA","This is a pass",PassType.A);
         r1.getInventory().addItem(passA);
+
+        //Définition d'un NPC
+        List<Item> list = new ArrayList<>();
+        npc = new NPC("npc", "Toto", false, true, list, r1);
     }
 
     @After
@@ -101,6 +115,56 @@ public class PlayerIT
         assertEquals(r4, player.getRoom());
     }
 
+    /* ======================================================== */
+    /* ======================== COMBAT ======================== */
+    /* ======================================================== */
+
+    //test Boîte Blanche
+    @Test
+    public void testCombat()
+    {
+        int i=player.getHp();
+        System.out.print(player.getHp()+"\n");
+        player.isAttacked(player);
+        System.out.print(player.getHp());
+        assertNotEquals(i,player.getHp());
+
+    }
+
+    /* ======================================================== */
+    /* ========================= GIVE ========================= */
+    /* ======================================================== */
+
+    //test Boîte Blanche
+    @Test
+    public void testGiveIsGivable()
+    {
+        //On test si un joueur donne bien un objet, quand il est donnable
+        player.give(file.getTag(), npc);
+        assertEquals(file, npc.getInventory().getItem(file.getTag()));
+        assertNull(player.getInventory().getItem(file.getTag()));
+    }
+
+    //test Boîte Blanche
+    @Test
+    public void testGiveIsNotGivable()
+    {
+        //On test si un joueur donne bien un objet, quand il n'est pas donnable
+        player.take(passA);
+        player.give(passA.getTag(), npc);
+        assertEquals(passA, player.getInventory().getItem(passA.getTag()));
+        assertNull(npc.getInventory().getItem(passA.getTag()));
+    }
+
+    //test Boîte Blanche
+    @Test
+    public void testGiveWrongArg()
+    {
+        //On test si un joueur ne donne pas un item s'il ne l'a pas
+        player.give("fhsiohfsiofhio", npc);
+        assertNull(npc.getInventory().getItem("fhsiohfsiofhio"));
+        assertNull(player.getInventory().getItem("fhsiohfsiofhio"));
+    }
 
     /* ====================================================== */
     /* ========================= GO ========================= */
@@ -133,23 +197,6 @@ public class PlayerIT
         //On veut aller dans une piece mais on ne peut pas:
         player.go(d3);
         assertEquals(r1,player.getRoom());
-    }
-
-
-    /* ======================================================== */
-    /* ======================== COMBAT ======================== */
-    /* ======================================================== */
-
-    //test Boîte Blanche
-    @Test
-    public void testCombat()
-    {
-        int i=player.getHp();
-        System.out.print(player.getHp()+"\n");
-        player.isAttacked(player);
-        System.out.print(player.getHp());
-        assertNotEquals(i,player.getHp());
-
     }
 
     /* ======================================================== */
@@ -217,5 +264,4 @@ public class PlayerIT
         player.go(d3);
         assertEquals(r3,player.getRoom());
     }
-
 }

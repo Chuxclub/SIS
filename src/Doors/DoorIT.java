@@ -20,14 +20,10 @@ public class DoorIT
     {
     }
 
-    //test Boîte Noire
+    //test Boîte Blanche
     @Test
     public void testSwitchOpen1()
     {
-        //Etat initial attendu:
-        assertFalse(d1.isOpen());
-        assertEquals("door", d1.getTag());
-
         //On ouvre:
         d1.open();
         assertTrue(d1.isOpen());
