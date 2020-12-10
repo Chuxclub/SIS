@@ -5,15 +5,15 @@ import java.io.Serializable;
 
 public class Pass extends Item implements UsableOn, Serializable {
 
-	PassType passType;
+	private final PassType PASSTYPE;
 
 	public Pass(String tag, String description, PassType p) {
 		super(tag, description, true, false);
-		this.passType = p;
+		this.PASSTYPE = p;
 	}
 
     public PassType getPassType() {
-		return this.passType;
+		return this.PASSTYPE;
 	}
 
 	@Override

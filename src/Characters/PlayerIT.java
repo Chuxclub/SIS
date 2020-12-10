@@ -5,7 +5,6 @@ import Doors.LockedDoor;
 import Items.Pass;
 import Items.PassType;
 import Location.Room;
-import Location.Ship;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,13 +13,8 @@ import static org.junit.Assert.*;
 
 public class PlayerIT
 {
-    private final Ship ship = null;
-
     private Door d1;
-    private Door d2;
     private LockedDoor d3;
-    private Door d4;
-    private LockedDoor d5;
     private Door d6;
 
     private Room r1;
@@ -37,17 +31,17 @@ public class PlayerIT
     public void setUp()
     {
         //Création des pièces:
-        r1 = new Room(ship,1,"room-test1");
-        r2 = new Room(ship,2,"room-test2");
-        r3 = new Room(ship,3,"room-test3");
-        r4 = new Room(ship,4,"room-test4");
+        r1 = new Room(null,1,"room-test1");
+        r2 = new Room(null,2,"room-test2");
+        r3 = new Room(null,3,"room-test3");
+        r4 = new Room(null,4,"room-test4");
 
         //Création des portes:
         d1 = new Door("door1");
-        d2 = new Door("door2");
+        Door d2 = new Door("door2");
         d3 = new LockedDoor("door3",PassType.A);
-        d4 = new LockedDoor("door4",PassType.B);
-        d5 = new LockedDoor("door5",PassType.C);
+        Door d4 = new LockedDoor("door4", PassType.B);
+        LockedDoor d5 = new LockedDoor("door5", PassType.C);
         d6 = new Door("door6");
 
         //Connexion des pièces entre elles:
@@ -57,7 +51,7 @@ public class PlayerIT
         r2.addDoor(d2,r1);
         r3.addDoor(d4, r1);
         r4.addDoor(d5, r1);
-        player = new Player(r1, ship);
+        player = new Player(r1, null);
 
         //Enrichissement des pièces:
         passA = new Pass("passA","This is a pass",PassType.A);

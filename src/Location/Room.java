@@ -12,6 +12,7 @@ public class Room implements Lookable, Serializable {
 
 	private final Ship SHIP;
 	private final Inventory INVENTORY;
+
 	private final int ID;
 	private final String description;
 
@@ -89,9 +90,18 @@ public class Room implements Lookable, Serializable {
 			return res;
 	}
 
+	public int getID() {
+		return ID;
+	}
+
 	public Inventory getInventory()
 	{
 		return this.INVENTORY;
+	}
+
+	public LockedDoor getLockedDoor(String s)
+	{
+		return (LockedDoor) getDoor(s);
 	}
 
 	public boolean hasActor(String name)
@@ -113,11 +123,6 @@ public class Room implements Lookable, Serializable {
 		}
 
 		return res;
-	}
-
-	public LockedDoor getLockedDoor(String s)
-	{
-			return (LockedDoor) getDoor(s);
 	}
 
 	public void removeActor(String name)

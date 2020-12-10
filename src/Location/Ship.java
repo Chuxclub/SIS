@@ -308,23 +308,24 @@ public class Ship implements Serializable {
 		// =================================================================================================== //
 		// =================================== Ajout des pièces du vaisseau ================================== //
 		// =================================================================================================== //
-		rooms.put(11, room11);
-		rooms.put(13, room13);
-		rooms.put(14, room14);
+		rooms.put(room11.getID(), room11);
+		rooms.put(room13.getID(), room13);
+		rooms.put(room14.getID(), room14);
 
-		rooms.put(17, room17);
-		rooms.put(19, room19);
-		rooms.put(21, room21);
+		rooms.put(room17.getID(), room17);
+		rooms.put(room18.getID(), room18);
+		rooms.put(room19.getID(), room19);
 
-		rooms.put(22, room22);
-		rooms.put(23, room23);
-		rooms.put(24, room24);
+		rooms.put(room21.getID(), room21);
+		rooms.put(room22.getID(), room22);
+		rooms.put(room23.getID(), room23);
 
-		rooms.put(27, room23);
-		rooms.put(28, room23);
-		rooms.put(29, room29);
+		rooms.put(room24.getID(), room24);
+		rooms.put(room27.getID(), room27);
+		rooms.put(room28.getID(), room28);
 
-		rooms.put(30, room23);
+		rooms.put(room29.getID(), room29);
+		rooms.put(room30.getID(), room30);
 	}
 
 	public Ship(Ship ship){

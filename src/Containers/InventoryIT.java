@@ -18,7 +18,7 @@ public class InventoryIT {
     @Before
     public void setUp() {
         inv= new Inventory();
-        i1 = new Pass("1", "c'est une balle", PassType.A);
+        i1 = new Pass("1", "This is a ball", PassType.A);
 
     }
 

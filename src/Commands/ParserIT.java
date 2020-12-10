@@ -3,7 +3,6 @@ package Commands;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -37,7 +36,7 @@ public class ParserIT {
     @Test
     public void testInvalidVerb() {
         try {
-            Parser p = new Parser("toto");
+            new Parser("toto");
             fail();
         } catch (UnknownVerb ignored) {
         }

@@ -6,7 +6,6 @@ import Items.Item;
 import Items.Pass;
 import Items.PassType;
 import Location.Room;
-import Location.Ship;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,33 +19,26 @@ import static org.junit.Assert.assertTrue;
 public class NPCIT {
     private Player player;
     private NPC a1;
-    private Ship ship = null;
-    private Door d1;
-    private Door d2;
-    private LockedDoor d3;
     private Room r1;
     private Room r2;
-    private Room r3;
-    private Pass i1;
-    private List<Item> list;
 
 
     @Before
     public void setUp() {
-        d1 = new Door("door1");
-        d2 = new Door("door2");
-        d3 = new LockedDoor("door3", PassType.A);
-        r1 = new Room(ship, 1, "room-test1");
-        r2 = new Room(ship, 2, "room-test2");
-        r3 = new Room(ship, 3, "room-test3");
-        i1 = new Pass("1", "c'est une balle", PassType.A);
+        Door d1 = new Door("door1");
+        Door d2 = new Door("door2");
+        LockedDoor d3 = new LockedDoor("door3", PassType.A);
+        r1 = new Room(null, 1, "room-test1");
+        r2 = new Room(null, 2, "room-test2");
+        Room r3 = new Room(null, 3, "room-test3");
+        Pass i1 = new Pass("1", "c'est une balle", PassType.A);
         r1.addDoor(d1, r2);
         r2.addDoor(d2, r1);
         r1.addDoor(d3, r3);
         r1.getInventory().addItem(i1);
-        list = new ArrayList<>();
+        List<Item> list = new ArrayList<>();
         a1 = new NPC("a1", "An NPC",false, true, list, r1);
-        player = new Player(r1, ship);
+        player = new Player(r1, null);
     }
 
     @After

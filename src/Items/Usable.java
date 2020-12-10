@@ -1,5 +1,5 @@
 package Items;
 
 public interface Usable {
-	public void isUsed(UsableBy u);
+	void isUsed(UsableBy u);
 }
