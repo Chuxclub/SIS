@@ -29,8 +29,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.28"
-     inkscape:cx="557.78813"
-     inkscape:cy="545.31916"
+     inkscape:cx="408.56938"
+     inkscape:cy="542.19416"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -547,7 +547,7 @@
            x="878.57141"
            y="286.80539" /></flowRegion><flowPara
          id="flowPara2027-6-8-3-8-6-6-9-1-4-7-2-72">30</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,-230.50844,80.134775)"
+       transform="matrix(0.26458333,0,0,0.26458333,-235.05597,79.928069)"
        xml:space="preserve"
        id="flowRoot2565-4-1"
        style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -560,7 +560,7 @@
            x="1055.7142"
            y="371.09113" /></flowRegion><flowPara
          id="flowPara2571-2-1"
-         style="stroke:#ff0000;stroke-opacity:1">Début</flowPara></flowRoot>    <rect
+         style="stroke:#ff0000;stroke-opacity:1">Beginning</flowPara></flowRoot>    <rect
        style="fill:none;fill-opacity:1;stroke:#0c0000;stroke-width:0.27091864;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2563-3"
        width="105.07107"
@@ -853,5 +853,5 @@
            x="1055.7142"
            y="371.09113" /></flowRegion><flowPara
          id="flowPara2571-2-1-5"
-         style="stroke:#ff0000;stroke-opacity:1">Fin</flowPara></flowRoot>  </g>
+         style="stroke:#ff0000;stroke-opacity:1">End</flowPara></flowRoot>  </g>
 </svg>

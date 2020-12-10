@@ -20,7 +20,7 @@ public class LockedDoor extends Door implements Unlockable, Serializable {
 	{
 		super.describe();
 		if(this.isLocked)
-			System.out.println("This door is locked! A letter " + this.PASSTYPE.toString() + " is written on it...");
+			System.out.println("This door is locked! Some kind of letter " + this.PASSTYPE.toString() + " is written on it...");
 
 		else
 			System.out.println("This door is unlocked!");
