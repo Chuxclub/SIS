@@ -9,13 +9,13 @@ import java.io.Serializable;
 
 public abstract class Actor implements Attackable, Attacker, UsableBy, Serializable, Lookable
 {
-	private final String name;
-	private final String description;
+	private final String NAME;
+	private final String DESCRIPTION;
 	private int hp;
-	private int attackPower;
+	private final int ATTACKPOWER;
 	private Room room;
 	private Room previousRoom;
-	private final Inventory inventory;
+	private final Inventory INVENTORY;
 
 	private static final int DEFAULT_ATTACKPOWER = 25;
 	private static final int DEFAULT_HP = 100;
@@ -23,13 +23,13 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 
 	public Actor(String name, String description, Room r)
 	{
-		this.name = name;
-		this.description = description;
+		this.NAME = name;
+		this.DESCRIPTION = description;
 		this.hp = DEFAULT_HP;
-		this.attackPower = DEFAULT_ATTACKPOWER;
+		this.ATTACKPOWER = DEFAULT_ATTACKPOWER;
 		this.room = r;
 		this.previousRoom = r;
-		this.inventory = new Inventory();
+		this.INVENTORY = new Inventory();
 
 		r.addActor(this);
 	}
@@ -37,7 +37,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	public void changeRoom(Room r)
 	{
 		this.previousRoom = this.getRoom();
-		this.room.removeActor(this.name);
+		this.room.removeActor(this.NAME);
 		r.addActor(this);
 		this.room = r;
 		this.room.describe();
@@ -46,12 +46,12 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	@Override
 	public void describe()
 	{
-		System.out.println(this.description);
+		System.out.println(this.DESCRIPTION);
 	}
 
 	public int getAttackPower()
 	{
-		return this.attackPower;
+		return this.ATTACKPOWER;
 	}
 
 	public int getDEFAULT_HP_MAX()
@@ -66,12 +66,12 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 
 	public Inventory getInventory()
 	{
-		return this.inventory;
+		return this.INVENTORY;
 	}
 
 	public String getName()
 	{
-		return this.name;
+		return this.NAME;
 	}
 
 	public Room getPreviousRoom()
@@ -86,20 +86,24 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 
 	public void give(String tag, Actor a)
 	{
-		Item item = this.inventory.getItem(tag);
+		Item item = this.INVENTORY.getItem(tag);
 
-		if(item != null) {
-			this.inventory.give(item.getTag(), a.getInventory());
-			a.receive(this, item.getTag());
-		}
-
-		else
-		{
-			if(this instanceof Player)
-				System.out.println("Error :> You don't have this item in your inventory");
+		if(a.isDead())
+			System.out.println("You tried giving a " + tag + " to " + a.getName() + ", but somehow it seems that a dead body cannot grab an item. Strange, huh?");
+		else {
+			if(item != null) {
+				this.INVENTORY.give(item.getTag(), a.getInventory());
+				a.receive(this, item.getTag());
+			}
 
 			else
-				System.out.println("Error :> This item isn't in giver's inventory");
+			{
+				if(this instanceof Player)
+					System.out.println("Error :> You don't have this item in your inventory");
+
+				else
+					System.out.println("Error :> This item isn't in giver's inventory");
+			}
 		}
 	}
 
@@ -147,7 +151,7 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 			this.isHealed(DEFAULT_HP_MAX - this.hp);
 
 		else
-			System.out.println("This object has no effect here");
+			System.out.println("Error :> This object has no effect here");
 	}
 
 	public abstract void receive(Actor a, String tag);

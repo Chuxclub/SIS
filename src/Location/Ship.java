@@ -14,13 +14,13 @@ import java.util.*;
 
 public class Ship implements Serializable {
 
-	private final HashMap<Integer, Room> rooms;
-	private final Player player;
+	private final HashMap<Integer, Room> ROOMS;
+	private final Player PLAYER;
 	private HashMap<String, NPC> npcs = new HashMap<>();
 
 	public Ship()
 	{
-		rooms = new HashMap<>();
+		ROOMS = new HashMap<>();
 
 		// =================================================================================================== //
 		// ================================= Création des pièces du vaisseau ================================= //
@@ -194,7 +194,7 @@ public class Ship implements Serializable {
 		this.npcs.put(kilen.getName(), kilen);
 
 		//Le joueur:
-		this.player = new Player(room21, this);
+		this.PLAYER = new Player(room21, this);
 
 		// ~~~~~~~~~~~~~~~~ Ajouts d'acteurs dans la pièce 24:
 		//Umhon:
@@ -308,29 +308,29 @@ public class Ship implements Serializable {
 		// =================================================================================================== //
 		// =================================== Ajout des pièces du vaisseau ================================== //
 		// =================================================================================================== //
-		rooms.put(room11.getID(), room11);
-		rooms.put(room13.getID(), room13);
-		rooms.put(room14.getID(), room14);
+		ROOMS.put(room11.getID(), room11);
+		ROOMS.put(room13.getID(), room13);
+		ROOMS.put(room14.getID(), room14);
 
-		rooms.put(room17.getID(), room17);
-		rooms.put(room18.getID(), room18);
-		rooms.put(room19.getID(), room19);
+		ROOMS.put(room17.getID(), room17);
+		ROOMS.put(room18.getID(), room18);
+		ROOMS.put(room19.getID(), room19);
 
-		rooms.put(room21.getID(), room21);
-		rooms.put(room22.getID(), room22);
-		rooms.put(room23.getID(), room23);
+		ROOMS.put(room21.getID(), room21);
+		ROOMS.put(room22.getID(), room22);
+		ROOMS.put(room23.getID(), room23);
 
-		rooms.put(room24.getID(), room24);
-		rooms.put(room27.getID(), room27);
-		rooms.put(room28.getID(), room28);
+		ROOMS.put(room24.getID(), room24);
+		ROOMS.put(room27.getID(), room27);
+		ROOMS.put(room28.getID(), room28);
 
-		rooms.put(room29.getID(), room29);
-		rooms.put(room30.getID(), room30);
+		ROOMS.put(room29.getID(), room29);
+		ROOMS.put(room30.getID(), room30);
 	}
 
 	public Ship(Ship ship){
-		this.rooms = ship.rooms;
-		this.player = ship.player;
+		this.ROOMS = ship.ROOMS;
+		this.PLAYER = ship.PLAYER;
 		this.npcs = ship.npcs;
 	}
 
@@ -341,11 +341,11 @@ public class Ship implements Serializable {
 
 	public Player getPlayer()
 	{
-		return this.player;
+		return this.PLAYER;
 	}
 
 	public Room getRoom(int id)
 	{
-		return this.rooms.get(id);
+		return this.ROOMS.get(id);
 	}
 }
