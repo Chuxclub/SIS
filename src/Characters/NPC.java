@@ -71,6 +71,7 @@ public class NPC extends Actor implements Serializable, Lookable
 		System.out.println(this.getName() + " wonders why you gave him this item, but takes it anyway.");
 	}
 
+	public void setAlly(boolean b) { this.isAlly = b; }
 	public void setHostile(boolean b) {this.isHostile = b; }
 	public void setSpeech(String s)
 	{
@@ -88,6 +89,4 @@ public class NPC extends Actor implements Serializable, Lookable
 		else
 			System.out.println("This person has nothing to say to you..."+ "\n");
 	}
-
-	public void setAlly(boolean b) { this.isAlly = b; };
 }

@@ -18,15 +18,14 @@ import java.util.Scanner;
 
 public class Player extends Actor implements Serializable
 {
-	private final Ship ship;
-
+	private final Ship SHIP;
 	private static final String NAME = "me";
 	private static final String DESCRIPTION = "Narcissism is an ugly trait of character but it is so common among humans";
 
 	public Player(Room r, Ship s)
 	{
 		super(NAME, DESCRIPTION, r);
-		this.ship = s;
+		this.SHIP = s;
 	}
 
 	public void back()
@@ -167,6 +166,12 @@ public class Player extends Actor implements Serializable
 		l.describe();
 	}
 
+	public void quit()
+	{
+		System.out.println("Thanks for playing Silent In Space!");
+		System.exit(0);
+	}
+
 	public void take(Item item)
 	{
 		if(!(item.isTakable())) {
@@ -190,11 +195,6 @@ public class Player extends Actor implements Serializable
 			npc.talk();
 	}
 
-	public void quit()
-	{
-		System.out.println("Thanks for playing Silent In Space!");
-		System.exit(0);
-	}
 
 	public void use(Item item)
 	{
@@ -210,7 +210,7 @@ public class Player extends Actor implements Serializable
 		try {
 			FileOutputStream fileOut = new FileOutputStream("saveData.txt");
 			ObjectOutputStream oos = new ObjectOutputStream(fileOut);
-			oos.writeObject(this.ship);
+			oos.writeObject(this.SHIP);
 			oos.close();
 			System.out.println("You successfully saved the game!");
 		} catch (IOException e) {

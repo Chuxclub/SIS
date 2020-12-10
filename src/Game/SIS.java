@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class SIS implements Serializable {
 
-	Ship ship;
+	private Ship ship;
 
 	public SIS()
 	{

@@ -11,25 +11,25 @@ import java.util.Scanner;
 
 public class Computer extends Item implements Serializable {
 
-    private final Inventory files;
-    private final Event event;
+    private final Inventory FILES;
+    private final Event EVENT;
 
     public Computer(String description, String tag)
     {
         super(tag, description);
-        this.files = new Inventory();
-        this.event = null;
+        this.FILES = new Inventory();
+        this.EVENT = null;
     }
 
     public Computer(String description, String tag, Event event)
     {
         super(tag, description);
-        this.files = new Inventory();
-        this.event = event;
+        this.FILES = new Inventory();
+        this.EVENT = event;
     }
 
     public void addFile(File f){
-        this.files.addItem(f);
+        this.FILES.addItem(f);
     }
 
     public void printFile(String tag, UsableBy a) {
@@ -39,7 +39,7 @@ public class Computer extends Item implements Serializable {
             Actor player = (Actor) a;
 
             try {
-                File file = (File) this.files.getItem(tag);
+                File file = (File) this.FILES.getItem(tag);
                 player.getInventory().addItem(file.getCopy());
                 System.out.println("Now you have a copy of the " + file.getTag() + " in your inventory");
             }
@@ -63,8 +63,8 @@ public class Computer extends Item implements Serializable {
                 System.out.println("\t:> open : show a file");
                 System.out.println("\t:> print : print a file");
 
-                if(this.event != null)
-                    System.out.println("\t:> " + this.event.getTag() + " : " + this.event.getDescription());
+                if(this.EVENT != null)
+                    System.out.println("\t:> " + this.EVENT.getTag() + " : " + this.EVENT.getDescription());
 
                 System.out.println("\t:> quit");
 
@@ -81,8 +81,8 @@ public class Computer extends Item implements Serializable {
         Scanner sc = new Scanner(System.in);
         String userChoice = sc.nextLine();
 
-        if (this.event != null && userChoice.equals(this.event.getTag())) {
-            this.event.getE().raise(player);
+        if (this.EVENT != null && userChoice.equals(this.EVENT.getTag())) {
+            this.EVENT.getE().raise(player);
             return false;
         }
 
@@ -92,12 +92,12 @@ public class Computer extends Item implements Serializable {
                     case "open":
                         System.out.println("\nYou chose to open a file.");
                         System.out.println("\n=== AVAILABLE FILES ===");
-                        this.files.showItems();
+                        this.FILES.showItems();
                         Scanner sc0 = new Scanner(System.in);
                         String choice = sc0.nextLine();
 
                         try {
-                            this.files.getItem(choice).isUsed(player);
+                            this.FILES.getItem(choice).isUsed(player);
                             return false;
                         } catch (NullPointerException e) {
                             System.out.println("\nThis file doesn't exist");
@@ -107,7 +107,7 @@ public class Computer extends Item implements Serializable {
                     case "print":
                         System.out.println("\nYou chose to print a file.");
                         System.out.println("\n=== AVAILABLE FILES ===");
-                        this.files.showItems();
+                        this.FILES.showItems();
                         Scanner sc1 = new Scanner(System.in);
                         String print = sc1.nextLine();
                         printFile(print, player);
@@ -126,6 +126,5 @@ public class Computer extends Item implements Serializable {
             }
         }
     }
-
 
 }

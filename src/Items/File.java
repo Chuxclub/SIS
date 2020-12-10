@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class File extends Item implements Serializable {
 
-    private final String content;
+    private final String CONTENT;
 
     public File(String tag, String description, String content){
         super(tag, description, true, true);
-        this.content = content;
+        this.CONTENT = content;
     }
 
     public File getCopy()
     {
-        return new File(this.getTag(), this.getDescription(), this.content);
+        return new File(this.getTag(), this.getDescription(), this.CONTENT);
     }
 
     @Override
     public void isUsed(UsableBy u) {
-        System.out.println(this.content);
+        System.out.println(this.CONTENT);
     }
 }

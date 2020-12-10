@@ -2,12 +2,12 @@ package Commands;
 
 public class Parser {
 
-	Verb verb;
+	private final Verb VERB;
 
 	public Parser(String verb) throws UnknownVerb
 	{
 		try {
-			this.verb = this.isValidVerb(verb.toLowerCase());
+			this.VERB = this.isValidVerb(verb.toLowerCase());
 		}
 
 		catch(UnknownVerb e)
@@ -37,6 +37,6 @@ public class Parser {
 
 	public Verb getVerb()
 	{
-		return this.verb;
+		return this.VERB;
 	}
 }

@@ -6,16 +6,16 @@ import Doors.*;
 
 public class Converter {
 
-	private final Player caller;
+	private final Player CALLER;
 
 	public Converter(Player player)
 	{
-		this.caller = player;
+		this.CALLER = player;
 	}
 
 	public Attackable convertAttackable(String s) throws StringRequestUnmatched
 	{
-		Attackable a = this.caller.getRoom().getActor(s);
+		Attackable a = this.CALLER.getRoom().getActor(s);
 
 		if(a != null)
 			return a;
@@ -26,7 +26,7 @@ public class Converter {
 
 	public Door convertDoor(String s) throws StringRequestUnmatched
 	{
-		Door d = this.caller.getRoom().getDoor(s);
+		Door d = this.CALLER.getRoom().getDoor(s);
 
 		if(d != null)
 			return d;
@@ -37,8 +37,8 @@ public class Converter {
 
 	public Item convertItem(String s) throws StringRequestUnmatched
 	{
-		Item item1 = this.caller.getInventory().getItem(s);
-		Item item2 = this.caller.getRoom().getInventory().getItem(s);
+		Item item1 = this.CALLER.getInventory().getItem(s);
+		Item item2 = this.CALLER.getRoom().getInventory().getItem(s);
 
 		if(item1 != null)
 			return item1;
@@ -52,10 +52,10 @@ public class Converter {
 
 	public Lookable convertLookable(String s) throws StringRequestUnmatched
 	{
-		Lookable item = this.caller.getInventory().getItem(s);
-		Lookable roomItem = this.caller.getRoom().getInventory().getItem(s);
-		Lookable door = this.caller.getRoom().getDoor(s);
-		Lookable actor = this.caller.getRoom().getActor(s);
+		Lookable item = this.CALLER.getInventory().getItem(s);
+		Lookable roomItem = this.CALLER.getRoom().getInventory().getItem(s);
+		Lookable door = this.CALLER.getRoom().getDoor(s);
+		Lookable actor = this.CALLER.getRoom().getActor(s);
 
 		if(item != null)
 			return item;
@@ -75,7 +75,7 @@ public class Converter {
 
 	public NPC convertNPC(String s) throws StringRequestUnmatched
 	{
-		Actor npc = this.caller.getRoom().getActor(s);
+		Actor npc = this.CALLER.getRoom().getActor(s);
 
 		if (npc instanceof NPC)
 			return (NPC) npc;
@@ -86,7 +86,7 @@ public class Converter {
 
 	public Item convertPlayerItem(String s) throws StringRequestUnmatched
 	{
-		Item item1 = this.caller.getInventory().getItem(s);
+		Item item1 = this.CALLER.getInventory().getItem(s);
 
 		if(item1 != null)
 			return item1;
@@ -97,8 +97,8 @@ public class Converter {
 
 	public UsableOn convertUsableOn(String s) throws StringRequestUnmatched
 	{
-		UsableOn u1 = this.caller.getInventory().getItem(s);
-		UsableOn u2 = this.caller.getRoom().getInventory().getItem(s);
+		UsableOn u1 = this.CALLER.getInventory().getItem(s);
+		UsableOn u2 = this.CALLER.getRoom().getInventory().getItem(s);
 
 		if(u1 != null)
 			return u1;
@@ -112,10 +112,10 @@ public class Converter {
 
 	public UsableBy convertUsableBy(String s) throws StringRequestUnmatched
 	{
-		UsableBy u1 = this.caller.getInventory().getItem(s);
-		UsableBy u2 = this.caller.getRoom().getInventory().getItem(s);
-		UsableBy u3 = this.caller.getRoom().getActor(s);
-		UsableBy d = this.caller.getRoom().getDoor(s);
+		UsableBy u1 = this.CALLER.getInventory().getItem(s);
+		UsableBy u2 = this.CALLER.getRoom().getInventory().getItem(s);
+		UsableBy u3 = this.CALLER.getRoom().getActor(s);
+		UsableBy d = this.CALLER.getRoom().getDoor(s);
 
 		//On renvoie le premier objet qui est non null.
 		//L'unicité de l'objet est garantie par l'unicité des labels:

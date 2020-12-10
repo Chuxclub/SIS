@@ -34,12 +34,6 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		r.addActor(this);
 	}
 
-	@Override
-	public void describe()
-	{
-		System.out.println(this.description);
-	}
-
 	public void changeRoom(Room r)
 	{
 		this.previousRoom = this.getRoom();
@@ -47,6 +41,12 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 		r.addActor(this);
 		this.room = r;
 		this.room.describe();
+	}
+
+	@Override
+	public void describe()
+	{
+		System.out.println(this.description);
 	}
 
 	public int getAttackPower()

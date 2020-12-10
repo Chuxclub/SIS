@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class LockedDoor extends Door implements Unlockable, Serializable {
 
-	PassType passType;
+	private final PassType PASSTYPE;
 	private boolean isLocked;
 
 	public LockedDoor(String tag, PassType p)
 	{
 		super(tag);
-		this.passType = p;
+		this.PASSTYPE = p;
 		this.isLocked = true;
 	}
 
@@ -20,7 +20,7 @@ public class LockedDoor extends Door implements Unlockable, Serializable {
 	{
 		super.describe();
 		if(this.isLocked)
-			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
+			System.out.println("This door is locked! A letter " + this.PASSTYPE.toString() + " is written on it...");
 
 		else
 			System.out.println("This door is unlocked!");
@@ -36,13 +36,13 @@ public class LockedDoor extends Door implements Unlockable, Serializable {
 			super.open();
 
 		else
-			System.out.println("This door is locked! A letter " + this.passType.toString() + " is written on it...");
+			System.out.println("This door is locked! A letter " + this.PASSTYPE.toString() + " is written on it...");
 	}
 
 	@Override
 	public void unlock(Pass p)
 	{
-		if(this.passType == p.getPassType())
+		if(this.PASSTYPE == p.getPassType())
 		{
 			this.isLocked = false;
 			System.out.println("You have unlocked the " + this.getTag() + " !");

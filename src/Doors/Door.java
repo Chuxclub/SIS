@@ -8,12 +8,12 @@ import java.io.Serializable;
 public class Door implements Serializable, Lookable, UsableBy {
 
 	private boolean isOpen;
-	private final String tag;
+	private final String TAG;
 
 	public Door(String tag)
 	{
 		this.isOpen = false;
-		this.tag = tag;
+		this.TAG = tag;
 	}
 
 	public void close()
@@ -25,15 +25,15 @@ public class Door implements Serializable, Lookable, UsableBy {
 	public void describe()
 	{
 		if(this.isOpen)
-			System.out.println(this.tag + " is open.");
+			System.out.println(this.TAG + " is open.");
 
 		else
-			System.out.println(this.tag + " is closed.");
+			System.out.println(this.TAG + " is closed.");
 	}
 
 	public String getTag()
 	{
-		return this.tag;
+		return this.TAG;
 	}
 
 	public boolean isOpen()

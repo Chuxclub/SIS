@@ -6,31 +6,31 @@ import Items.*;
 
 public class Inventory implements Serializable {
 
-	HashMap<String, Item> items;
+	private final HashMap<String, Item> ITEMS;
 
 	public Inventory()
 	{
-		this.items = new HashMap<>();
+		this.ITEMS = new HashMap<>();
 	}
 
 	public void addItem(Item item)
 	{
-		this.items.put(item.getTag(), item);
+		this.ITEMS.put(item.getTag(), item);
 	}
 
 	public Item getItem(String s)
 	{
-			return this.items.get(s);
+			return this.ITEMS.get(s);
 	}
 
 	public int getSize()
 	{
-		return this.items.size();
+		return this.ITEMS.size();
 	}
 
 	public void give(String tag, Inventory inventory)
 	{
-		Item item = this.items.get(tag);
+		Item item = this.ITEMS.get(tag);
 
 		if(item != null) {
 			this.removeItem(tag);
@@ -45,12 +45,12 @@ public class Inventory implements Serializable {
 
 	public boolean isEmpty()
 	{
-		return this.items.isEmpty();
+		return this.ITEMS.isEmpty();
 	}
 
 	public void showItems()
 	{
-		for (Item i : this.items.values())
+		for (Item i : this.ITEMS.values())
 		{
 			System.out.println("\t- " + i.getTag() + " : " + i.getDescription());
 		}
@@ -58,6 +58,6 @@ public class Inventory implements Serializable {
 
 	public void removeItem(String tag)
 	{
-		this.items.remove(tag);
+		this.ITEMS.remove(tag);
 	}
 }

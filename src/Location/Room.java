@@ -3,11 +3,12 @@ package Location;
 import java.io.Serializable;
 import java.util.*;
 
+import Commands.Lookable;
 import Containers.Inventory;
 import Doors.*;
 import Characters.*;
 
-public class Room implements Serializable {
+public class Room implements Lookable, Serializable {
 
 	private final Ship SHIP;
 	private final Inventory INVENTORY;
@@ -38,13 +39,14 @@ public class Room implements Serializable {
 		this.doors.put(d, r);
 	}
 
+	@Override
 	public void describe()
 	{
 		System.out.println(this.description);
 
 		if(this.doors.size() == 1 && this.hasLockedDoor())
 			System.out.println("Suddenly, the door closed shut behind you! You try opening it... " +
-					"But it is hopeless, you are trapped in this dark room.");
+					"But it is hopeless, you are trapped in this room.");
 
 		this.scanRoom();
 	}
