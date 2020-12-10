@@ -114,7 +114,6 @@ public class Player extends Actor implements Serializable
 		System.out.println("\t- take <object's name> : take the indicated object");
 		System.out.println("\t- talk <npc> : talk to the designated npc");
 		System.out.println("\t- use <object's name> [<object's name>] : use an object possibly on another indicated object");
-
 	}
 
 	public void info()
