@@ -25,8 +25,6 @@ public class NPC extends Actor implements Serializable, Lookable
 		}
 	}
 
-	public boolean getHostile() { return this.isAlly; }
-
 	public boolean isAlly()
 	{
 		return this.isAlly;
@@ -82,10 +80,6 @@ public class NPC extends Actor implements Serializable, Lookable
 	{
 		if (speech != null && !(this.isDead()) && !(this.isHostile))
 			System.out.println(this.getName() + " - " + this.speech + "\n");
-
-		else if(this.isDead())
-			System.out.println("Great, now you are talking to a dead body... You're just getting better and better!"+ "\n");
-
 		else
 			System.out.println("This person has nothing to say to you..."+ "\n");
 	}

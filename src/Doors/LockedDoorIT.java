@@ -26,7 +26,7 @@ public class LockedDoorIT
     {
     }
 
-    //test Boîte Noire
+    //test Boîte Blanche
     @Test
     public void testSwitchOpen1()
     {
@@ -39,7 +39,7 @@ public class LockedDoorIT
         assertFalse(d1.isOpen());
     }
 
-    //test Boîte Noire
+    //test Boîte Blanche
     @Test
     public void testSwitchLock()
     {
@@ -56,7 +56,7 @@ public class LockedDoorIT
         //Une porte déverrouillée est déverrouillée pour le reste du jeu...
     }
 
-    //test Boîte Noire
+    //test Boîte Blanche
     @Test
     public void testIsUsedBy()
     {

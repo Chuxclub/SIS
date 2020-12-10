@@ -16,6 +16,8 @@ public class File extends Item implements Serializable {
         return new File(this.getTag(), this.getDescription(), this.CONTENT);
     }
 
+    public String getContent() { return this.CONTENT; }
+
     @Override
     public void isUsed(UsableBy u) {
         System.out.println(this.CONTENT);

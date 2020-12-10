@@ -32,6 +32,8 @@ public class Computer extends Item implements Serializable {
         this.FILES.addItem(f);
     }
 
+    public Inventory getFILES() { return this.FILES; }
+
     @Override
     public void isUsed(UsableBy u) {
 

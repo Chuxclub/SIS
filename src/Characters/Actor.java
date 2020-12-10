@@ -88,21 +88,24 @@ public abstract class Actor implements Attackable, Attacker, UsableBy, Serializa
 	{
 		Item item = this.INVENTORY.getItem(tag);
 
-		if(a.isDead())
-			System.out.println("You tried giving a " + tag + " to " + a.getName() + ", but somehow it seems that a dead body cannot grab an item. Strange, huh?");
-		else {
-			if(item != null) {
-				this.INVENTORY.give(item.getTag(), a.getInventory());
-				a.receive(this, item.getTag());
-			}
-
-			else
-			{
-				if(this instanceof Player)
-					System.out.println("Error :> You don't have this item in your inventory");
+		if(!this.isDead())
+		{
+			if(a.isDead())
+				System.out.println("You tried giving a " + tag + " to " + a.getName() + ", but somehow it seems that a dead body cannot grab an item. Strange, huh?");
+			else {
+				if(item != null) {
+					this.INVENTORY.moveItem(item.getTag(), a.getInventory());
+					a.receive(this, item.getTag());
+				}
 
 				else
-					System.out.println("Error :> This item isn't in giver's inventory");
+				{
+					if(this instanceof Player)
+						System.out.println("Error :> You don't have this item in your inventory");
+
+					else
+						System.out.println("Error :> This item isn't in giver's inventory");
+				}
 			}
 		}
 	}

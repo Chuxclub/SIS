@@ -71,7 +71,7 @@ public class Room implements Lookable, Serializable {
 		return res;
 	}
 
-	public Door getDoor(Room r) throws NullPointerException
+	public Door getDoor(Room r)
 	{
 		Door res = null;
 
@@ -83,11 +83,7 @@ public class Room implements Lookable, Serializable {
 			}
 		}
 
-		if(res == null)
-			throw new NullPointerException();
-
-		else
-			return res;
+		return res;
 	}
 
 	public int getID() {
