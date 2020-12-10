@@ -6,25 +6,25 @@ import java.io.Serializable;
 
 public abstract class Item implements Usable, UsableBy, UsableOn, Serializable, Lookable {
 
-	private final String tag;
-	private final String description;
-	private final boolean isTakable;
-	private final boolean isGivable;
+	private final String TAG;
+	private final String DESCRIPTION;
+	private final boolean ISTAKABLE;
+	private final boolean ISGIVABLE;
 
 	public Item(String tag, String description)
 	{
-		this.tag = tag;
-		this.description = description;
-		this.isTakable = false;
-		this.isGivable = false;
+		this.TAG = tag;
+		this.DESCRIPTION = description;
+		this.ISTAKABLE = false;
+		this.ISGIVABLE = false;
 	}
 
 	public Item(String tag, String description, boolean isTakable, boolean isGivable)
 	{
-		this.tag = tag;
-		this.description = description;
-		this.isTakable = isTakable;
-		this.isGivable = isGivable;
+		this.TAG = tag;
+		this.DESCRIPTION = description;
+		this.ISTAKABLE = isTakable;
+		this.ISGIVABLE = isGivable;
 	}
 
 	@Override
@@ -35,19 +35,19 @@ public abstract class Item implements Usable, UsableBy, UsableOn, Serializable, 
 
 	public String getTag()
 	{
-		return this.tag;
+		return this.TAG;
 	}
 
 	public String getDescription()
 	{
-		return this.description;
+		return this.DESCRIPTION;
 	}
 
 	public boolean isTakable() {
-		return this.isTakable;
+		return this.ISTAKABLE;
 	}
 
 	public boolean isGivable() {
-		return this.isGivable;
+		return this.ISGIVABLE;
 	}
 }

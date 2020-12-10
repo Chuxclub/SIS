@@ -3,12 +3,12 @@ package Items;
 import java.io.Serializable;
 
 public class Sign extends Item implements Serializable {
-    private final String content;
+    private final String CONTENT;
 
     public Sign(String tag, String description, String content)
     {
         super(tag, description);
-        this.content = content;
+        this.CONTENT = content;
     }
 
     @Override
@@ -20,6 +20,6 @@ public class Sign extends Item implements Serializable {
     @Override
     public void isUsed(UsableBy u)
     {
-        System.out.println(content);
+        System.out.println(CONTENT);
     }
 }
