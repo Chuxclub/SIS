@@ -55,6 +55,8 @@ public class SIS implements Serializable {
 			this.ship.getNPC("Kilen").give("passT", this.ship.getPlayer());
 			this.ship.getNPC("Kilen").setSpeech("You should hurry! I've managed to deal with the guards in the lab but it won't be long before they come back!");
 		}
+
+		this.ship.getPlayer().setSIS(this);
 	}
 
 	public boolean isEndGame()
@@ -70,6 +72,21 @@ public class SIS implements Serializable {
 	{
 		System.out.println("\n\n\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
 		System.out.println("Thanks for playing Silent In Space! And special thanks to our beta-tester Ophélie De Sousa Oliveira :) !\n");
+	}
+
+	public void load()
+	{
+		try {
+			FileInputStream fileIn = new FileInputStream("saveData.txt");
+			ObjectInputStream ois = new ObjectInputStream(fileIn);
+			this.ship = new Ship((Ship) ois.readObject());
+			ois.close();
+			System.out.println("You successfully loaded the game!\n");
+			System.out.println("\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+		} catch (IOException | ClassNotFoundException e) {
+			System.out.println("No save data was found! You need to save at least one time before being able to load a save.");
+			System.out.println("\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+		}
 	}
 
 	public void play()
