@@ -4,6 +4,7 @@ import Commands.Command;
 import Commands.Lookable;
 import Commands.UnknownVerb;
 import Doors.Door;
+import Game.SIS;
 import Items.*;
 import Location.Room;
 import Location.Ship;
@@ -19,6 +20,7 @@ import java.util.Scanner;
 public class Player extends Actor implements Serializable
 {
 	private final Ship SHIP;
+	private SIS sis;
 	private static final String NAME = "me";
 	private static final String DESCRIPTION = "Narcissism is an ugly trait of character but it is so common among humans";
 
@@ -155,6 +157,11 @@ public class Player extends Actor implements Serializable
 			System.out.println("Using a pass on yourself looks dumb... You really aren't helping the human cause here!");
 	}
 
+	public void load()
+	{
+		this.sis.load();
+	}
+
 	public void look()
 	{
 		this.getRoom().describe();
@@ -238,6 +245,11 @@ public class Player extends Actor implements Serializable
 		else
 			System.out.println(npc.getName() + " looks at you trying to search their pockets, and pushes you backward while " +
 					"wondering if all humans are this rude.");
+	}
+
+	public void setSIS(SIS sis)
+	{
+		this.sis = sis;
 	}
 
 	@Override
